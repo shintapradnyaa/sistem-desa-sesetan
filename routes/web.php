@@ -21,11 +21,14 @@ use App\Http\Controllers\Bendesa\SuratMasukKeputusanBendesaController;
 use App\Http\Controllers\Kelihan\SuratKeluarUndanganKelihanController;
 use App\Http\Controllers\Bendesa\SuratKeluarKeputusanBendesaController;
 use App\Http\Controllers\Kelihan\SuratKeluarKeputusanKelihanController;
+use App\Http\Controllers\Sekretariat\SuratKeluarKeputusanSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukProposalSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukUndanganSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratKeluarProposalSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratKeluarUndanganSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukKeputusanSekretariatController;
+use App\Http\Controllers\Warga\PernikahanWargaController;
+use App\Http\Controllers\Warga\SuratKeluarKeputusanWargaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +41,20 @@ use App\Http\Controllers\Sekretariat\SuratMasukKeputusanSekretariatController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard1');
+// Route::get('/', function () {
+//     return view('pages.warga.dashboard_warga');
+// });
+
+Route::group(['prefix' => '/'], function () {
+    route::get('', [DashboardWargaController::class, 'index']);
+    route::get('/warga_kematian', [KematianWargaController::class, 'index']);
+    route::get('/detail_kematian/{id}', [KematianWargaController::class, 'show']);
+    route::get('/warga_pernikahan', [PernikahanWargaController::class, 'index']);
+    route::get('/detail/{id}', [PernikahanWargaController::class, 'show']);
+    route::get('/warga_sk', [SuratKeluarKeputusanWargaController::class, 'index']);
+    route::get('/detail_sk/{id}', [SuratKeluarKeputusanWargaController::class, 'show']);
 });
+
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('login', 'index')->name('login');
@@ -53,172 +67,192 @@ Route::group(['middleware' => ['auth']], function () {
         // Dashboard
         Route::get('/dashboard_bendesa', [DashboardBendesaController::class, 'index']);
         //Route Data Kematians
-        Route::get('/index_data_kematian_bendesa', [KematianBendesaController::class, 'index']);
-        Route::get('/create_data_kematian_bendesa', [KematianBendesaController::class, 'create']);
-        Route::post('/store_data_kematian_bendesa', [KematianBendesaController::class, 'store']);
-        Route::get('/show_data_kematian_bendesa/{id}', [KematianBendesaController::class, 'show']);
-        Route::get('/edit_data_kematian_bendesa/{id}', [KematianBendesaController::class, 'edit']);
-        Route::post('/update_data_kematian_bendesa/{id}', [KematianBendesaController::class, 'update']);
-        Route::get('/delete_data_kematian_bendesa/{id}', [KematianBendesaController::class, 'delete']);
+        Route::group(['prefix' => 'kematian_bendesa'], function () {
+            Route::get('', [KematianBendesaController::class, 'index']);
+            Route::get('/detail/{id}', [KematianBendesaController::class, 'show']);
+            Route::get('/edit/{id}', [KematianBendesaController::class, 'edit']);
+            Route::post('/update/{id}', [KematianBendesaController::class, 'update']);
+            Route::get('/delete/{id}', [KematianBendesaController::class, 'delete']);
+        });
 
         //expport pdf
         Route::get('export_pdf_kematian', [KematianBendesaController::class, 'export_pdf_kematian'])->name('export_pdf_kematian');
 
-        Route::get('/index_data_pernikahan_bendesa', [PernikahanBendesaController::class, 'index']);
-        Route::get('/create_data_pernikahan_bendesa', [PernikahanBendesaController::class, 'create']);
-        Route::post('/store_data_pernikahan_bendesa', [PernikahanBendesaController::class, 'store']);
-        Route::get('/show_data_pernikahan_bendesa/{id}', [PernikahanBendesaController::class, 'show']);
-        Route::get('/edit_data_pernikahan_bendesa/{id}', [PernikahanBendesaController::class, 'edit']);
-        Route::post('/update_data_pernikahan_bendesa/{id}', [PernikahanBendesaController::class, 'update']);
-        Route::get('/delete_data_pernikahan_bendesa/{id}', [PernikahanBendesaController::class, 'delete']);
+        Route::group(['prefix' => 'pernikahan_bendesa'], function () {
+            Route::get('', [PernikahanBendesaController::class, 'index']);
+            Route::get('/detail/{id}', [PernikahanBendesaController::class, 'show']);
+        });
 
-        //Route Data Surat Keluar Undangan
-        Route::get('/index_sk_undangan_bendesa', [SuratKeluarUndanganBendesaController::class, 'index']);
-        Route::get('/create_sk_undangan_bendesa', [SuratKeluarUndanganBendesaController::class, 'create']);
-        Route::post('/store_sk_undangan_bendesa', [SuratKeluarUndanganBendesaController::class, 'store']);
-        Route::get('/edit_sk_undangan_bendesa/{id}', [SuratKeluarUndanganBendesaController::class, 'edit']);
-        Route::post('/update_sk_undangan_bendesa/{id}', [SuratKeluarUndanganBendesaController::class, 'update']);
-        Route::get('/delete_sk_undangan_bendesa/{id}', [SuratKeluarUndanganBendesaController::class, 'delete']);
+        Route::group(['prefix' => 'sk_keputusan_bendesa'], function () {
+            //Route Data Surat Keluar Keputusan
+            Route::get('', [SuratKeluarKeputusanBendesaController::class, 'index']);
+            Route::get('/detail/{id}', [SuratKeluarKeputusanBendesaController::class, 'show']);
+        });
 
-        //Route Data Surat Keluar Keputusan
-        Route::get('/index_sk_keputusan_bendesa', [SuratKeluarKeputusanBendesaController::class, 'index']);
-        Route::get('/create_sk_keputusan_bendesa', [SuratKeluarKeputusanBendesaController::class, 'create']);
-        Route::post('/store_sk_keputusan_bendesa', [SuratKeluarKeputusanBendesaController::class, 'store']);
-        Route::get('/edit_sk_keputusan_bendesa/{id}', [SuratKeluarKeputusanBendesaController::class, 'edit']);
-        Route::post('/update_sk_keputusan_bendesa/{id}', [SuratKeluarKeputusanBendesaController::class, 'update']);
-        Route::get('/delete_sk_keputusan_bendesa/{id}', [SuratKeluarKeputusanBendesaController::class, 'delete']);
+        Route::group(['prefix' => 'sk_undangan_bendesa'], function () {
+            //Route Data Surat Keluar Undangan
+            Route::get('', [SuratKeluarUndanganBendesaController::class, 'index']);
+            Route::get('/detail/{id}', [SuratKeluarUndanganBendesaController::class, 'show']);
+        });
 
-        //Route Data Surat Keluar Proposal
-        Route::get('/index_sk_proposal_bendesa', [SuratKeluarProposalBendesaController::class, 'index']);
-        Route::get('/create_sk_proposal_bendesa', [SuratKeluarProposalBendesaController::class, 'create']);
-        Route::post('/store_sk_proposal_bendesa', [SuratKeluarProposalBendesaController::class, 'store']);
-        Route::get('/edit_sk_proposal_bendesa/{id}', [SuratKeluarProposalBendesaController::class, 'edit']);
-        Route::post('/update_sk_proposal_bendesa/{id}', [SuratKeluarProposalBendesaController::class, 'update']);
-        Route::get('/delete_sk_proposal_bendesa/{id}', [SuratKeluarProposalBendesaController::class, 'delete']);
+        Route::group(['prefix' => 'sk_proposal_bendesa'], function () {
+            //Route Data Surat Keluar Proposal
+            Route::get('', [SuratKeluarProposalBendesaController::class, 'index']);
+            Route::get('/detail/{id}', [SuratKeluarProposalBendesaController::class, 'show']);
+        });
+        Route::group(['prefix' => 'sm_keputusan_bendesa'], function () {
+            //Route Data Surat Masuk Keputusan
+            Route::get('', [SuratMasukKeputusanBendesaController::class, 'index']);
+            Route::get('/detail/{id}', [SuratMasukKeputusanBendesaController::class, 'show']);
+        });
 
-        //Route Data Surat Masuk Keputusan
-        Route::get('/index_sm_keputusan_bendesa', [SuratMasukKeputusanBendesaController::class, 'index']);
-        Route::get('/create_sm_keputusan_bendesa', [SuratMasukKeputusanBendesaController::class, 'create']);
-        Route::post('/store_sm_keputusan_bendesa', [SuratMasukKeputusanBendesaController::class, 'store']);
-        Route::get('/edit_sm_keputusan_bendesa/{id}', [SuratMasukKeputusanBendesaController::class, 'edit']);
-        Route::post('/update_sm_keputusan_bendesa/{id}', [SuratMasukKeputusanBendesaController::class, 'update']);
-        Route::get('/delete_sm_keputusan_bendesa/{id}', [SuratMasukKeputusanBendesaController::class, 'delete']);
+        Route::group(['prefix' => 'sm_undangan_bendesa'], function () {
+            //Route Data Surat Masuk Undangan
+            Route::get('', [SuratMasukUndanganBendesaController::class, 'index']);
+            Route::get('/detail/{id}', [SuratMasukUndanganBendesaController::class, 'show']);
+        });
 
-        //Route Data Surat Masuk Proposal
-        Route::get('/index_sm_proposal_bendesa', [SuratMasukProposalBendesaController::class, 'index']);
-        Route::get('/create_sm_proposal_bendesa', [SuratMasukProposalBendesaController::class, 'create']);
-        Route::post('/store_sm_proposal_bendesa', [SuratMasukProposalBendesaController::class, 'store']);
-        Route::get('/edit_sm_proposal_bendesa/{id}', [SuratMasukProposalBendesaController::class, 'edit']);
-        Route::post('/update_sm_proposal_bendesa/{id}', [SuratMasukProposalBendesaController::class, 'update']);
-        Route::get('/delete_sm_proposal_bendesa/{id}', [SuratMasukProposalBendesaController::class, 'delete']);
+        Route::group(['prefix' => 'sm_proposal_bendesa'], function () {
+            //Route Data Surat Masuk Proposal
+            Route::get('', [SuratMasukProposalBendesaController::class, 'index']);
+            Route::get('/detail/{id}', [SuratMasukProposalBendesaController::class, 'show']);
+        });
 
-        //Route Data Surat Masuk Undangan
-        Route::get('/index_sm_undangan_bendesa', [SuratMasukUndanganBendesaController::class, 'index']);
-        Route::get('/create_sm_undangan_bendesa', [SuratMasukUndanganBendesaController::class, 'create']);
-        Route::post('/store_sm_undangan_bendesa', [SuratMasukUndanganBendesaController::class, 'store']);
-        Route::get('/edit_sm_undangan_bendesa/{id}', [SuratMasukUndanganBendesaController::class, 'edit']);
-        Route::post('/update_sm_undangan_bendesa/{id}', [SuratMasukUndanganBendesaController::class, 'update']);
-        Route::get('/delete_sm_undangan_bendesa/{id}', [SuratMasukUndanganBendesaController::class, 'delete']);
+        Route::group(['prefix' => 'kelola_pengguna'], function () {
+            Route::get('', [LoginController::class, 'indexPengguna']);
+            Route::get('/create', [LoginController::class, 'create']);
+            Route::post('/store', [LoginController::class, 'store']);
+            Route::get('/detail/{id}', [LoginController::class, 'show']);
+            Route::get('/edit/{id}', [LoginController::class, 'edit']);
+            Route::post('/update/{id}', [LoginController::class, 'update']);
+            Route::get('/delete/{id}', [LoginController::class, 'delete']);
+        });
     });
 
     Route::group(['middleware' => ['CekUserLogin:2']], function () {
         // Dashboard
         Route::get('/dashboard_sekretariat', [DashboardSekretariatController::class, 'index']);
-        //Route Data Kematians
-        Route::get('/index_data_kematian_sekretariat', [KematianSekretariatController::class, 'index']);
-        Route::get('/create_data_kematian_sekretariat', [KematianSekretariatController::class, 'create']);
-        Route::post('/store_data_kematian_sekretariat', [KematianSekretariatController::class, 'store']);
-        Route::get('/show_data_kematian_sekretariat/{id}', [KematianSekretariatController::class, 'show']);
-        Route::get('/edit_data_kematian_sekretariat/{id}', [KematianSekretariatController::class, 'edit']);
-        Route::post('/update_data_kematian_sekretariat/{id}', [KematianSekretariatController::class, 'update']);
-        Route::get('/delete_data_kematian_sekretariat/{id}', [KematianSekretariatController::class, 'delete']);
+        Route::group(['prefix' => 'kematian_sekretariat'], function () {
+            //Route Data Kematians
+            Route::get('/', [KematianSekretariatController::class, 'index']);
+            Route::get('/create', [KematianSekretariatController::class, 'create']);
+            Route::post('/store', [KematianSekretariatController::class, 'store']);
+            Route::get('/detail/{id}', [KematianSekretariatController::class, 'show']);
+            Route::get('/edit/{id}', [KematianSekretariatController::class, 'edit']);
+            Route::post('/update/{id}', [KematianSekretariatController::class, 'update']);
+            Route::get('/delete/{id}', [KematianSekretariatController::class, 'delete']);
+        });
 
         // //expport pdf
         // Route::get('export_pdf_kematian', [KematianController::class, 'export_pdf_kematian'])->name('export_pdf_kematian');
 
-        Route::get('/index_data_pernikahan_sekretariat', [PernikahanSekretariatController::class, 'index']);
-        Route::get('/create_data_pernikahan_sekretariat', [PernikahanSekretariatController::class, 'create']);
-        Route::post('/store_data_pernikahan_sekretariat', [PernikahanSekretariatController::class, 'store']);
-        Route::get('/show_data_pernikahan_sekretariat/{id}', [PernikahanSekretariatController::class, 'show']);
-        Route::get('/edit_data_pernikahan_sekretariat/{id}', [PernikahanSekretariatController::class, 'edit']);
-        Route::post('/update_data_pernikahan_sekretariat/{id}', [PernikahanSekretariatController::class, 'update']);
-        Route::get('/delete_data_pernikahan_sekretariat/{id}', [PernikahanSekretariatController::class, 'delete']);
 
-        //Route Data Surat Keluar Undangan
-        Route::get('/index_sk_undangan_sekretariat', [SuratKeluarUndanganSekretariatController::class, 'index']);
-        Route::get('/create_sk_undangan_sekretariat', [SuratKeluarUndanganSekretariatController::class, 'create']);
-        Route::post('/store_sk_undangan_sekretariat', [SuratKeluarUndanganSekretariatController::class, 'store']);
-        Route::get('/edit_sk_undangan_sekretariat/{id}', [SuratKeluarUndanganSekretariatController::class, 'edit']);
-        Route::post('/update_sk_undangan_sekretariat/{id}', [SuratKeluarUndanganSekretariatController::class, 'update']);
-        Route::get('/delete_sk_undangan_sekretariat/{id}', [SuratKeluarUndanganSekretariatController::class, 'delete']);
+        Route::group(['prefix' => 'pernikahan_sekretariat'], function () {
+            Route::get('', [PernikahanSekretariatController::class, 'index']);
+            Route::get('/create', [PernikahanSekretariatController::class, 'create']);
+            Route::post('/store', [PernikahanSekretariatController::class, 'store']);
+            Route::get('/detail/{id}', [PernikahanSekretariatController::class, 'show']);
+            Route::get('/edit/{id}', [PernikahanSekretariatController::class, 'edit']);
+            Route::post('/update/{id}', [PernikahanSekretariatController::class, 'update']);
+            Route::get('/delete/{id}', [PernikahanSekretariatController::class, 'delete']);
+        });
 
-        //Route Data Surat Keluar Keputusan
-        Route::get('/index_sk_keputusan_sekretariat', [SuratKeluarKeputusanSekretariatController::class, 'index']);
-        Route::get('/create_sk_keputusan_sekretariat', [SuratKeluarKeputusanSekretariatController::class, 'create']);
-        Route::post('/store_sk_keputusan_sekretariat', [SuratKeluarKeputusanSekretariatController::class, 'store']);
-        Route::get('/edit_sk_keputusan_sekretariat/{id}', [SuratKeluarKeputusanSekretariatController::class, 'edit']);
-        Route::post('/update_sk_keputusan_sekretariat/{id}', [SuratKeluarKeputusanSekretariatController::class, 'update']);
-        Route::get('/delete_sk_keputusan_sekretariat/{id}', [SuratKeluarKeputusanSekretariatController::class, 'delete']);
+        Route::group(['prefix' => 'sk_undangan_sekretariat'], function () {
+            //Route Data Surat Keluar Undangan
+            Route::get('', [SuratKeluarUndanganSekretariatController::class, 'index']);
+            Route::get('/create', [SuratKeluarUndanganSekretariatController::class, 'create']);
+            Route::post('/store', [SuratKeluarUndanganSekretariatController::class, 'store']);
+            Route::get('/detail/{id}', [SuratKeluarUndanganSekretariatController::class, 'show']);
+            Route::get('/edit/{id}', [SuratKeluarUndanganSekretariatController::class, 'edit']);
+            Route::post('/update/{id}', [SuratKeluarUndanganSekretariatController::class, 'update']);
+            Route::get('/delete/{id}', [SuratKeluarUndanganSekretariatController::class, 'delete']);
+        });
+        Route::group(['prefix' => 'sk_keputusan_sekretariat'], function () {
+            //Route Data Surat Keluar Keputusan
+            Route::get('', [SuratKeluarKeputusanSekretariatController::class, 'index']);
+            Route::get('/create', [SuratKeluarKeputusanSekretariatController::class, 'create']);
+            Route::post('/store', [SuratKeluarKeputusanSekretariatController::class, 'store']);
+            Route::get('/detail/{id}', [SuratKeluarKeputusanSekretariatController::class, 'show']);
+            Route::get('/edit/{id}', [SuratKeluarKeputusanSekretariatController::class, 'edit']);
+            Route::post('/update/{id}', [SuratKeluarKeputusanSekretariatController::class, 'update']);
+            Route::get('/delete/{id}', [SuratKeluarKeputusanSekretariatController::class, 'delete']);
+        });
 
-        //Route Data Surat Keluar Proposal
-        Route::get('/index_sk_proposal_sekretariat', [SuratKeluarProposalSekretariatController::class, 'index']);
-        Route::get('/create_sk_proposal_sekretariat', [SuratKeluarProposalSekretariatController::class, 'create']);
-        Route::post('/store_sk_proposal_sekretariat', [SuratKeluarProposalSekretariatController::class, 'store']);
-        Route::get('/edit_sk_proposal_sekretariat/{id}', [SuratKeluarProposalSekretariatController::class, 'edit']);
-        Route::post('/update_sk_proposal_sekretariat/{id}', [SuratKeluarProposalSekretariatController::class, 'update']);
-        Route::get('/delete_sk_proposal_sekretariat/{id}', [SuratKeluarProposalSekretariatController::class, 'delete']);
+        Route::group(['prefix' => 'sk_proposal_sekretariat'], function () {
+            //Route Data Surat Keluar Proposal
+            Route::get('', [SuratKeluarProposalSekretariatController::class, 'index']);
+            Route::get('/create', [SuratKeluarProposalSekretariatController::class, 'create']);
+            Route::post('/store', [SuratKeluarProposalSekretariatController::class, 'store']);
+            Route::get('/detail/{id}', [SuratKeluarProposalSekretariatController::class, 'show']);
+            Route::get('/edit/{id}', [SuratKeluarProposalSekretariatController::class, 'edit']);
+            Route::post('/update/{id}', [SuratKeluarProposalSekretariatController::class, 'update']);
+            Route::get('/delete/{id}', [SuratKeluarProposalSekretariatController::class, 'delete']);
+        });
+        Route::group(['prefix' => 'sm_keputusan_sekretariat'], function () {
+            //Route Data Surat Masuk Keputusan
+            Route::get('', [SuratMasukKeputusanSekretariatController::class, 'index']);
+            Route::get('/create', [SuratMasukKeputusanSekretariatController::class, 'create']);
+            Route::post('/store', [SuratMasukKeputusanSekretariatController::class, 'store']);
+            Route::get('/detail/{id}', [SuratMasukKeputusanSekretariatController::class, 'show']);
+            Route::get('/edit/{id}', [SuratMasukKeputusanSekretariatController::class, 'edit']);
+            Route::post('/update/{id}', [SuratMasukKeputusanSekretariatController::class, 'update']);
+            Route::get('/delete/{id}', [SuratMasukKeputusanSekretariatController::class, 'delete']);
+        });
 
-        //Route Data Surat Masuk Keputusan
-        Route::get('/index_sm_keputusan_sekretariat', [SuratMasukKeputusanSekretariatController::class, 'index']);
-        Route::get('/create_sm_keputusan_sekretariat', [SuratMasukKeputusanSekretariatController::class, 'create']);
-        Route::post('/store_sm_keputusan_sekretariat', [SuratMasukKeputusanSekretariatController::class, 'store']);
-        Route::get('/edit_sm_keputusan_sekretariat/{id}', [SuratMasukKeputusanSekretariatController::class, 'edit']);
-        Route::post('/update_sm_keputusan_sekretariat/{id}', [SuratMasukKeputusanSekretariatController::class, 'update']);
-        Route::get('/delete_sm_keputusan_sekretariat/{id}', [SuratMasukKeputusanSekretariatController::class, 'delete']);
-
-        //Route Data Surat Masuk Proposal
-        Route::get('/index_sm_proposal_sekretariat', [SuratMasukProposalSekretariatController::class, 'index']);
-        Route::get('/create_sm_proposal_sekretariat', [SuratMasukProposalSekretariatController::class, 'create']);
-        Route::post('/store_sm_proposal_sekretariat', [SuratMasukProposalSekretariatController::class, 'store']);
-        Route::get('/edit_sm_proposal_sekretariat/{id}', [SuratMasukProposalSekretariatController::class, 'edit']);
-        Route::post('/update_sm_proposal_sekretariat/{id}', [SuratMasukProposalSekretariatController::class, 'update']);
-        Route::get('/delete_sm_proposal_sekretariat/{id}', [SuratMasukProposalSekretariatController::class, 'delete']);
-
-        //Route Data Surat Masuk Undangan
-        Route::get('/index_sm_undangan_sekretariat', [SuratMasukUndanganSekretariatController::class, 'index']);
-        Route::get('/create_sm_undangan_sekretariat', [SuratMasukUndanganSekretariatController::class, 'create']);
-        Route::post('/store_sm_undangan_sekretariat', [SuratMasukUndanganSekretariatController::class, 'store']);
-        Route::get('/edit_sm_undangan_sekretariat/{id}', [SuratMasukUndanganSekretariatController::class, 'edit']);
-        Route::post('/update_sm_undangan_sekretariat/{id}', [SuratMasukUndanganSekretariatController::class, 'update']);
-        Route::get('/delete_sm_undangan_sekretariat/{id}', [SuratMasukUndanganSekretariatController::class, 'delete']);
+        Route::group(['prefix' => 'sm_proposal_sekretariat'], function () {
+            //Route Data Surat Masuk Proposal
+            Route::get('', [SuratMasukProposalSekretariatController::class, 'index']);
+            Route::get('/create', [SuratMasukProposalSekretariatController::class, 'create']);
+            Route::post('/store', [SuratMasukProposalSekretariatController::class, 'store']);
+            Route::get('/detail/{id}', [SuratMasukProposalSekretariatController::class, 'show']);
+            Route::get('/edit/{id}', [SuratMasukProposalSekretariatController::class, 'edit']);
+            Route::post('/update/{id}', [SuratMasukProposalSekretariatController::class, 'update']);
+            Route::get('/delete/{id}', [SuratMasukProposalSekretariatController::class, 'delete']);
+        });
+        Route::group(['prefix' => 'sm_undangan_sekretariat'], function () {
+            //Route Data Surat Masuk Undangan
+            Route::get('', [SuratMasukUndanganSekretariatController::class, 'index']);
+            Route::get('/create', [SuratMasukUndanganSekretariatController::class, 'create']);
+            Route::post('/store', [SuratMasukUndanganSekretariatController::class, 'store']);
+            Route::get('/detail/{id}', [SuratMasukUndanganSekretariatController::class, 'show']);
+            Route::get('/edit/{id}', [SuratMasukUndanganSekretariatController::class, 'edit']);
+            Route::post('/update/{id}', [SuratMasukUndanganSekretariatController::class, 'update']);
+            Route::get('/delete/{id}', [SuratMasukUndanganSekretariatController::class, 'delete']);
+        });
     });
 
     Route::group(['middleware' => ['CekUserLogin:3']], function () {
         // Dashboard
         Route::get('/dashboard_kelihan', [DashboardKelihanController::class, 'index']);
-        //Route Data Kematians
-        Route::get('/index_data_kematian_kelihan', [KematianKelihanController::class, 'index']);
-        Route::get('/create_data_kematian_kelihan', [KematianKelihanController::class, 'create']);
-        Route::post('/store_data_kematian_kelihan', [KematianKelihanController::class, 'store']);
-        Route::get('/show_data_kematian_kelihan/{id}', [KematianKelihanController::class, 'show']);
-        Route::get('/edit_data_kematian_kelihan/{id}', [KematianKelihanController::class, 'edit']);
-        Route::post('/update_data_kematian_kelihan/{id}', [KematianKelihanController::class, 'update']);
-        Route::get('/delete_data_kematian_kelihan/{id}', [KematianKelihanController::class, 'delete']);
+        Route::group(['prefix' => 'kematian_kelihan'], function () {
+            //Route Data Kematians
+            Route::get('', [KematianKelihanController::class, 'index']);
+            Route::get('/create', [KematianKelihanController::class, 'create']);
+            Route::post('/store', [KematianKelihanController::class, 'store']);
+            Route::get('/detail/{id}', [KematianKelihanController::class, 'show']);
+            Route::get('/edit/{id}', [KematianKelihanController::class, 'edit']);
+            Route::post('/update/{id}', [KematianKelihanController::class, 'update']);
+            Route::get('/delete/{id}', [KematianKelihanController::class, 'delete']);
+        });
 
         // //expport pdf
         // Route::get('export_pdf_kematian', [KematianKelihanController::class, 'export_pdf_kematian'])->name('export_pdf_kematian');
 
-        Route::get('/index_data_pernikahan_kelihan', [PernikahanKelihanController::class, 'index']);
-        Route::get('/show_data_pernikahan_kelihan/{id}', [PernikahanKelihanController::class, 'show']);
-        Route::get('/delete_data_pernikahan_kelihan/{id}', [PernikahanKelihanController::class, 'delete']);
+        Route::group(['prefix' => 'pernikahan_kelihan'], function () {
+            Route::get('', [PernikahanKelihanController::class, 'index']);
+            Route::get('/detail/{id}', [PernikahanKelihanController::class, 'show']);
+        });
 
         //Route Data Surat Keluar Undangan
-        Route::get('/index_sk_undangan_kelihan', [SuratKeluarUndanganKelihanController::class, 'index']);
-        Route::get('/show_sk_undangan_kelihan/{id}', [SuratKeluarUndanganKelihanController::class, 'show']);
-
-        //Route Data Surat Keluar Keputusan
-        Route::get('/index_sk_keputusan_kelihan', [SuratKeluarKeputusanKelihanController::class, 'index']);
-        Route::get('/show_sk_keputusan_kelihan/{id}', [SuratKeluarKeputusanKelihanController::class, 'show']);
+        Route::group(['prefix' => 'sk_undangan_kelihan'], function () {
+            Route::get('', [SuratKeluarUndanganKelihanController::class, 'index']);
+            Route::get('/detail/{id}', [SuratKeluarUndanganKelihanController::class, 'show']);
+        });
+        Route::group(['prefix' => 'sk_keputusan_kelihan'], function () {
+            //Route Data Surat Keluar Keputusan
+            Route::get('', [SuratKeluarKeputusanKelihanController::class, 'index']);
+            Route::get('/detail/{id}', [SuratKeluarKeputusanKelihanController::class, 'show']);
+        });
     });
 
     // Route::group(['middleware' => ['CekUserLogin:4']], function () {

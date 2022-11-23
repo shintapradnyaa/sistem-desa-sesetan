@@ -17,10 +17,23 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('level', 3);
             $table->string('username', 50)->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('level', 5)->unique();
+            $table->string('no_telfon');
+            $table->enum('banjar', [
+                'Banjar Kaja',
+                'Banjar Pembungan',
+                'Banjar Tengah',
+                'Banjar Gaduh',
+                'Banjar Puri Agung',
+                'Banjar Lantang Bejuh',
+                'Banjar Dukuh Sari',
+                'Banjar Pegok',
+                'Banjar Suwung Batan Kendal'
+            ]);
+            $table->string('foto_pengguna');
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

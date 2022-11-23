@@ -31,7 +31,9 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-
+            <a class="btn btn-warning" href="{{ url('kematian_sekretariat') }}" role="button"><i
+                    class="fa fa-chevron-left"></i>
+                Kembali</a>
             <!-- Main content -->
             <section class="content">
                 <div class="container">
@@ -63,29 +65,35 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Lahir</label>
-                                                <p>{{ $data->tgl_lahir }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_lahir)) }}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Agama</label>
-                                        <p>{{ $data->agama }}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Alamat</label>
-                                        <p>{{ $data->alamat }}</p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Agama</label>
+                                                <p>{{ $data->agama }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Alamat</label>
+                                                <p>{{ $data->alamat }}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Kematian</label>
-                                                <p>{{ $data->tgl_kematian }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_kematian)) }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Ngaben</label>
-                                                <p>{{ $data->tgl_ngaben }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_ngaben)) }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -106,7 +114,8 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Foto KTP</label>
-                                            <img src="{{ url('foto_ktp_kematian/' . $data->foto_ktp) }}">
+                                            <img src="{{ url('foto_ktp_kematian/' . $data->foto_ktp) }}"
+                                                class="img-thumbnail">
                                         </div>
                                     </div>
                                 </div>

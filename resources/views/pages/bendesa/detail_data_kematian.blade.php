@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    @include('layout_sekretariat.header')
+    @include('layout_bendesa.header')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         <!-- Navbar -->
-        @include('layout_sekretariat.navbar')
+        @include('layout_bendesa.navbar')
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('layout_sekretariat.sidebar')
+        @include('layout_bendesa.sidebar')
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
@@ -31,6 +31,9 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
+            <a class="btn btn-warning" href="{{ url('kematian_bendesa') }}" role="button"><i
+                    class="fa fa-chevron-left"></i>
+                Kembali</a>
 
             <!-- Main content -->
             <section class="content">
@@ -63,29 +66,35 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Lahir</label>
-                                                <p>{{ $data->tgl_lahir }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_lahir)) }}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Agama</label>
-                                        <p>{{ $data->agama }}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Alamat</label>
-                                        <p>{{ $data->alamat }}</p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Agama</label>
+                                                <p>{{ $data->agama }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Alamat</label>
+                                                <p>{{ $data->alamat }}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Kematian</label>
-                                                <p>{{ $data->tgl_kematian }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_ngaben)) }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Ngaben</label>
-                                                <p>{{ $data->tgl_ngaben }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_ngaben)) }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -106,7 +115,8 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Foto KTP</label>
-                                            <img src="{{ url('foto_ktp_kematian/' . $data->foto_ktp) }}">
+                                            <img src="{{ url('foto_ktp_kematian/' . $data->foto_ktp) }}"
+                                                class="img-thumbnail">
                                         </div>
                                     </div>
                                 </div>
@@ -128,10 +138,10 @@
 
 
         <!-- Main Footer -->
-        @include('layout_sekretariat.footer')
+        @include('layout_bendesa.footer')
     </div>
     <!-- ./wrapper -->
-    @include('layout_sekretariat.script')
+    @include('layout_bendesa.script')
 </body>
 
 </html>

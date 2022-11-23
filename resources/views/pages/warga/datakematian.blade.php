@@ -20,12 +20,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Blank Page</h1>
+                            <h1>Data Kematian</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Blank Page</li>
+                                <li class="breadcrumb-item active">Data Kematian</li>
                             </ol>
                         </div>
                     </div>
@@ -35,11 +35,6 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="row g-3 align-items-center mb-3">
-                    <div class="col-auto">
-                        <a href="export_pdf_kematian" class="btn btn-info">Export PDF </a>
-                    </div>
-                </div>
                 <!-- Default box -->
                 <div class="card">
                     <div class="card-body">
@@ -60,17 +55,17 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $index => $row_kematian)
+                                @foreach ($data as $row_kematian)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row_kematian->nama }}</td>
                                         <td>{{ $row_kematian->banjar }}</td>
                                         <td>{{ $row_kematian->jenis_kelamin }}</td>
-                                        <td>{{ $row_kematian->tgl_lahir }}</td>
-                                        <td>{{ $row_kematian->tgl_kematian }}</td>
-                                        <td>{{ $row_kematian->tgl_ngaben }}</td>
+                                        <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_lahir)) }}</td>
+                                        <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_kematian)) }}</td>
+                                        <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}</td>
                                         <td>
-                                            <a href="{{ url('show_data_kematian_warga', $row_kematian->id) }}"
+                                            <a href="{{ url('detail_kematian/' . $row_kematian->id) }}"
                                                 class="btn btn-sm btn-info">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>

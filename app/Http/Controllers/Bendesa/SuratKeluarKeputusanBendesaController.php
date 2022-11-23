@@ -16,38 +16,9 @@ class SuratKeluarKeputusanBendesaController extends Controller
         $data = SuratKeluarKeputusan::all();
         return view('pages.bendesa.data_sk_keputusan', compact('data'));
     }
-
-    public function create()
-    {
-        return view('create_sk_keputusan_bendesa');
-    }
-
-    public function store(Request $request)
-    {
-        $data = SuratKeluarKeputusan::create($request->all());
-        if ($request->hasFile('foto_sk_keputusan')) {
-            $request->file('foto_sk_keputusan')->move('foto_sk_keputusan/', $request->file('foto_sk_keputusan')->getClientOriginalName());
-            $data->foto_sk_keputusan = $request->file('foto_sk_keputusan')->getClientOriginalName();
-            $data->save();
-        }
-        return redirect('index_sk_keputusan_bendesa');
-    }
-    public function edit($id)
+    public function show($id)
     {
         $data = SuratKeluarKeputusan::find($id);
-        return view('pages.bendesa.edit_sk_keputusan', compact('data'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $data = SuratKeluarKeputusan::find($id);
-        $data->update($request->all());
-        return redirect('index_sk_keputusan_bendesa')->with('success', 'Data Berhasil Di Tambahkan');
-    }
-    public function delete($id)
-    {
-        $data = SuratKeluarKeputusan::find($id);
-        $data->delete();
-        return redirect('index_sk_keputusan_bendesa');
+        return view('pages.bendesa.detail_sk_keputusan', compact('data'));
     }
 }

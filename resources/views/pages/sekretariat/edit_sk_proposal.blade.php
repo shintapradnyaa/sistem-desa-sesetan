@@ -31,7 +31,9 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-
+            <a class="btn btn-warning" href="{{ url('sk_proposal_sekretariat') }}" role="button"><i
+                    class="fa fa-chevron-left"></i>
+                Kembali</a>
             <!-- Main content -->
             <section class="content">
                 <div class="container">
@@ -39,8 +41,9 @@
                         <div class="col-8">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="row g-3" action="{{ url('/update_sk_proposal_sekretariat', $data->id) }}"
-                                        method="POST" enctype="multipart/form-data">
+                                    <form class="row g-3"
+                                        action="{{ url('sk_proposal_sekretariat/update/' . $data->id) }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="col-md-12">
                                             <div class="form-group">

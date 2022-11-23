@@ -16,13 +16,38 @@ class PernikahanSekretariatController extends Controller
 
     public function create()
     {
-        return view('create_data_pernikahan_sekretariat');
+        return view('create');
     }
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'no_suket'       => 'required',
+            'tgl_pernikahan' => 'required',
+            'banjar'         => 'required',
+            'nama_pria'      => 'required',
+            'status_pria'    => 'required',
+            'tgl_lahir_pria' => 'required',
+            'alamat_pria'    => 'required',
+            'nama_wanita'    => 'required',
+            'status_wanita'  => 'required',
+            'tgl_lahir_wanita' => 'required',
+            'alamat_wanita'   => 'required'
+        ], [
+            'no_suket.required'         => 'Nomor Surat Tidak Boleh Kosong',
+            'tgl_pernikahan.required'   => 'Tanggal Pernikahan Tidak Boleh Kosong',
+            'banjar.required'           => 'Banjar Tidak Boleh Kosong',
+            'nama_pria.required'        => 'Nama Pria Tidak Boleh Kosong',
+            'status_pria.required'      => 'Status Pria Tidak Boleh Kosong',
+            'tgl_lahir_pria.required'   => 'Tanggal Lahir Tidak Boleh Kosong',
+            'alamat_pria.required'      => 'Alamat Tidak Boleh Kosong',
+            'nama_wanita.required'      => 'Nama Wanita Tidak Boleh Kosong',
+            'status_wanita.required'    => 'Status Wanita Tidak Boleh Kosong',
+            'tgl_lahir_wanita.required' => 'Tanggal Lahir Tidak Boleh Kosong',
+            'alamat_wanita.required'    => 'Alamat Tidak Boleh Kosong'
+        ]);
         $data = Pernikahan::create($request->all());
-        return redirect('index_data_pernikahan_sekretariat')->with('success', 'Data Berhasil Di Tambahkan');
+        return redirect('pernikahan_sekretariat')->with('message', 'Data Berhasil Di Tambahkan');
     }
 
     public function show($id)
@@ -40,13 +65,13 @@ class PernikahanSekretariatController extends Controller
     {
         $data = Pernikahan::find($id);
         $data->update($request->all());
-        return redirect('index_data_pernikahan_sekretariat')->with('success', 'Data Berhasil Di Tambahkan');
+        return redirect('pernikahan_sekretariat')->with('message', 'Data Berhasil Di Update');
     }
 
     public function delete($id)
     {
         $data = Pernikahan::find($id);
         $data->delete();
-        return redirect('index_data_pernikahan_sekretariat')->with('success', 'Data Berhasil Di Hapus');
+        return redirect('pernikahan_sekretariat')->with('message', 'Data Berhasil Di Hapus');
     }
 }

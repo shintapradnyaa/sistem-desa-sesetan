@@ -31,6 +31,9 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
+            <a class="btn btn-warning" href="{{ url('kematian_bendesa') }}" role="button"><i
+                    class="fa fa-chevron-left"></i>
+                Kembali</a>
 
             <!-- Main content -->
             <section class="content">
@@ -39,17 +42,17 @@
                         <div class="col-8">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="row g-3" action="{{ url('/update_data_kematian_bendesa', $data->id) }}"
+                                    <form class="row g-3" action="{{ url('kematian_bendesa/update/' . $data->id) }}"
                                         method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        <div class="col-md-6">
+                                        <div class="col-md-12 mb-3">
                                             <label for="input_nama" class="form-label">Nama</label>
                                             <input type="text" class="form-control" name="nama" id="input_nama"
                                                 value="{{ $data->nama }}">
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-6 mb-3">
                                             <label for="input_banjar" class="form-label">Banjar</label>
-                                            <select id="input_banjar" class="form-select" name="banjar">
+                                            <select id="input_banjar" class="form-select form-control" name="banjar">
                                                 <option selected>{{ $data->banjar }}</option>
                                                 <option value="Hindu">Hindu</option>
                                                 <option value="Islam">Islam</option>
@@ -59,22 +62,24 @@
                                                 <option value="Konghucu">Konghucu</option>
                                             </select>
                                         </div>
-                                        <div class="col-12">
-                                            <label for="input_jenis_kelamin" class="form-label">Jenis Kelamin</label>
-                                            <select id="input_jenis_kelamin" class="form-select" name="jenis_kelamin">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="input_jenis_kelamin" class="form-label">Jenis
+                                                Kelamin</label>
+                                            <select id="input_jenis_kelamin" class="form-select form-control"
+                                                name="jenis_kelamin">
                                                 <option selected>{{ $data->jenis_kelamin }}</option>
                                                 <option value="Pria">Pria</option>
                                                 <option value="Wanita">Wanita</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 ">
                                             <label for="input_tgl_lahir" class="form-label">Tanggal Lahir</label>
                                             <input type="date" class="form-control" name="tgl_lahir"
                                                 id="input_tgl_lahir" value="{{ $data->tgl_lahir }}">
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6 mb-3">
                                             <label for="input" class="form-label">Agama</label>
-                                            <select id="input_agama" class="form-select" name="agama">
+                                            <select id="input_agama" class="form-select form-control" name="agama">
                                                 <option selected>{{ $data->agama }}</option>
                                                 <option value="Hindu">Hindu</option>
                                                 <option value="Islam">Islam</option>
@@ -84,40 +89,40 @@
                                                 <option value="Konghucu">Konghucu</option>
                                             </select>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-md-12 mb-3">
                                             <label for="input_alamat" class="form-label">Alamat</label>
                                             <input type="text" class="form-control" name="alamat" id="input_alamat"
                                                 value="{{ $data->alamat }}">
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 mb-3">
                                             <label for="input_tgl_kematian" class="form-label">Tanggal Kematian</label>
                                             <input type="date" class="form-control" name="tgl_kematian"
                                                 id="input_tgl_kematian" value="{{ $data->tgl_kematian }}">
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 mb-3">
                                             <label for="input_tgl_ngaben" class="form-label">Tanggal Ngaben</label>
                                             <input type="date" class="form-control" name="tgl_ngaben"
                                                 id="input_tgl_ngaben" value="{{ $data->tgl_ngaben }}">
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-md-12 mb-3">
                                             <label for="input_sebab_kematian" class="form-label">Sebab
                                                 Kematian</label>
                                             <input type="text" class="form-control" name="sebab_kematian"
                                                 id="input_sebab_kematian" value="{{ $data->sebab_kematian }}">
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-md-12 mb-3">
                                             <label for="input_ahli_waris" class="form-label">Nama Ahli Waris</label>
                                             <input type="text" class="form-control" name="ahli_waris"
                                                 id="input_ahli_waris" value="{{ $data->ahli_waris }}">
                                         </div>
-                                        <div class="mb-12">
+                                        <div class="col-md-12 mb-3">
                                             <label for="formFile" class="form-label">Foto KTP</label>
                                             <input class="form-control" name="foto_ktp" type="file"
                                                 id="formFile">
                                         </div>
                                         <div class="col-12">
                                             <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
+                                                data-dismiss="modal">Tutup</button>
                                             <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
                                     </form>

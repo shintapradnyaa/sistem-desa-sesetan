@@ -24,13 +24,17 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v2</li>
+                                <li class="breadcrumb-item active">Edit Surat Masuk Undangan</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
+
+            <a class="btn btn-warning" href="{{ url('sm_undangan_sekretariat') }}" role="button"><i
+                    class="fa fa-chevron-left"></i>
+                Kembali</a>
 
             <!-- Main content -->
             <section class="content">
@@ -40,7 +44,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <form class="row g-3"
-                                        action="{{ url('/update_sm_undangan_sekretariat', $data->id) }}" method="POST"
+                                        action="{{ url('sm_undangan_sekretariat/update/' . $data->id) }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="col-md-12">
@@ -50,16 +54,17 @@
                                                 <input type="text" class="form-control" name="no_sm_undangan"
                                                     id="input_no_sm_undangan" value="{{ $data->no_sm_undangan }}">
                                             </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="input_tgl_sm_masuk" class="form-label">Tanggal Surat
-                                                        undangan Masuk</label>
-                                                    <input type="date" class="form-control form-control"
-                                                        name="tgl_sm_masuk" id="input_tgl_sm_masuk"
-                                                        value="{{ $data->tgl_sm_masuk }}">
-                                                </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="input_tgl_sm_masuk" class="form-label">Tanggal Surat
+                                                    Undangan Masuk</label>
+                                                <input type="date" class="form-control form-control"
+                                                    name="tgl_sm_masuk" id="input_tgl_sm_masuk"
+                                                    value="{{ $data->tgl_sm_masuk }}">
                                             </div>
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="input_perihal_sm" class="form-label">Perihal Surat

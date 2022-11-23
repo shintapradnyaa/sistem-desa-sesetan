@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    @include('layout_sekretariat.header')
+    @include('layout_kelihan.header')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         <!-- Navbar -->
-        @include('layout_sekretariat.navbar')
+        @include('layout_kelihan.navbar')
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('layout_sekretariat.sidebar')
+        @include('layout_kelihan.sidebar')
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
@@ -32,6 +32,10 @@
             </div>
             <!-- /.content-header -->
 
+            <a class="btn btn-warning" href="{{ url('pernikahan_sekretariat') }}" role="button"><i
+                    class="fa fa-chevron-left"></i>
+                Kembali</a>
+
             <!-- Main content -->
             <section class="content">
                 <div class="container">
@@ -48,8 +52,22 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
+                                                <label>Status Surat</label>
+                                                <p>{{ $data->status_surat }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
                                                 <label>Tanggal Pernikahan</label>
-                                                <p>{{ $data->tgl_pernikahan }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_pernikahan)) }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Banjar</label>
+                                                <p>{{ $data->banjar }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +89,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Lahir Pria</label>
-                                                <p>{{ $data->tgl_lahir_pria }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_lahir_pria)) }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -99,7 +117,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Lahir Wanita</label>
-                                                <p>{{ $data->tgl_lahir_wanita }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_lahir_wanita)) }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -128,10 +146,10 @@
 
 
         <!-- Main Footer -->
-        @include('layout_sekretariat.footer')
+        @include('layout_kelihan.footer')
     </div>
     <!-- ./wrapper -->
-    @include('layout_sekretariat.script')
+    @include('layout_kelihan.script')
 </body>
 
 </html>

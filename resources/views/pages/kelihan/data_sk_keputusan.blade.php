@@ -35,11 +35,6 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="row g-3 align-items-center mb-3">
-                    <div class="col-auto">
-                        <a href="export_pdf_kematian" class="btn btn-info">Export PDF </a>
-                    </div>
-                </div>
                 <!-- Default box -->
                 <div class="card">
                     <div class="card-body">
@@ -59,11 +54,11 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $index => $row)
+                                @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->no_sk_keputusan }}</td>
-                                        <td>{{ $row->tgl_sk_keluar }}</td>
+                                        <td>{{ date('d-M-Y', strtotime($row->tgl_sk_keluar)) }}</td>
                                         <td>{{ $row->perihal_sk }}</td>
                                         <td>{{ $row->ditujukan_sk }}</td>
                                         <td>
@@ -71,9 +66,13 @@
                                                 alt="" style="width:100px;">
                                         </td>
                                         <td>
-                                            <a href="{{ url('show_sk_keputusan_kelihan', $row->id) }}"
+                                            <a href="{{ url('sk_keputusan_kelihan/detail/' . $row->id) }}"
                                                 class="btn btn-sm btn-info">
                                                 <i class="fas fa-info-circle"></i>
+                                            </a>
+                                            <a href="{{ url('foto_sk_keputusan/' . $row->foto_sk_keputusan) }}"
+                                                download="{{ $row->foto_sk_keputusan }}" class="btn btn-sm btn-primary">
+                                                <i class="fas fa-download"></i>
                                             </a>
                                         </td>
                                     </tr>

@@ -18,35 +18,37 @@ class UserData extends Seeder
         $user = [
             [
                 'name' => 'Bendesa Adat',
+                'email' => 'bendesa@gmail.com',
+                'level' => 1,
                 'username' => 'bendesa',
                 'password' => bcrypt('bendesa'),
-                'level' => 1,
-                'email' => 'bendesa@gmail.com'
+                'banjar' => 'Banjar Pegok',
+                'no_telfon' => '82133745676',
+                'foto_pengguna' => 'foto'
             ],
             [
                 'name' => 'Sekretariat Adat',
+                'level' => 2,
+                'email' => 'sekretariat@gmail.com',
                 'username' => 'sekretariat',
                 'password' => bcrypt('sekretariat'),
-                'level' => 2,
-                'email' => 'sekretariat@gmail.com'
+                'banjar' => 'Banjar Tengah',
+                'no_telfon' => '81234567890',
+                'foto_pengguna' => 'foto'
             ],
             [
                 'name' => 'Kelihan Adat Banjar',
+                'email' => 'kelihan@gmail.com',
+                'level' => 3,
                 'username' => 'kelihan',
                 'password' => bcrypt('kelihan'),
-                'level' => 3,
-                'email' => 'kelihan@gmail.com'
-            ],
-            [
-                'name' => 'Warga Adat',
-                'username' => 'warga',
-                'password' => bcrypt('warga'),
-                'level' => 4,
-                'email' => 'warga@gmail.com'
+                'banjar'  => 'Banjar Kaja',
+                'no_telfon' => '81234567890',
+                'foto_pengguna' => 'foto'
             ],
         ];
 
-        foreach($user as $key =>$value)
-        User::create($value);
+        foreach ($user as $key => $value)
+            User::create($value);
     }
 }

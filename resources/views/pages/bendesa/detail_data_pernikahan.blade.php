@@ -32,6 +32,10 @@
             </div>
             <!-- /.content-header -->
 
+            <a class="btn btn-warning" href="{{ url('pernikahan_bendesa') }}" role="button"><i
+                    class="fa fa-chevron-left"></i>
+                Kembali</a>
+
             <!-- Main content -->
             <section class="content">
                 <div class="container">
@@ -48,8 +52,22 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
+                                                <label>Status Surat</label>
+                                                <p>{{ $data->status_surat }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
                                                 <label>Tanggal Pernikahan</label>
-                                                <p>{{ $data->tgl_pernikahan }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_pernikahan)) }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Banjar</label>
+                                                <p>{{ $data->banjar }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +89,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Lahir Pria</label>
-                                                <p>{{ $data->tgl_lahir_pria }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_lahir_pria)) }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -99,13 +117,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Lahir Wanita</label>
-                                                <p>{{ $data->tgl_lahir_wanita }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label>Alamat Wanita</label>
-                                                <p>{{ $data->alamat_wanita }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($data->tgl_lahir_wanita)) }}</p>
                                             </div>
                                         </div>
                                     </div>

@@ -19,16 +19,11 @@ class PernikahanKelihanController extends Controller
         $data = Pernikahan::find($id);
         return view('pages.kelihan.detail_data_pernikahan', compact('data'));
     }
-    public function edit($id)
-    {
-        $data = Pernikahan::find($id);
-        return view('pages.kelihan.edit_data_pernikahan', compact('data'));
-    }
 
     public function delete($id)
     {
         $data = Pernikahan::find($id);
         $data->delete();
-        return redirect('index_data_pernikahan_kelihan')->with('success', 'Data Berhasil Di Hapus');
+        return redirect('index_data_pernikahan_kelihan')->with('message', 'Data Berhasil Di Hapus');
     }
 }

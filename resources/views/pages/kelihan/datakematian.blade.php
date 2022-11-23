@@ -20,12 +20,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Blank Page</h1>
+                            <h1>Data Kematian</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Blank Page</li>
+                                <li class="breadcrumb-item active">Data Kematian</li>
                             </ol>
                         </div>
                     </div>
@@ -40,6 +40,23 @@
                     <i class="fa fa-plus"> Data Kematian</i>
                 </button>
 
+                @if ($errors->all())
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Gagal menyimpan data</strong> Silahkan lihat dan lengkapi form yang isi.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+                @if ($message = Session::get('message'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ $message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -51,7 +68,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form class="row g-3" action="{{ url('/store_data_kematian_kelihan') }}" method="POST"
+                            <form class="row g-3" action="{{ url('kematian_kelihan/store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 <div class="modal-body">
                                     @csrf
@@ -168,11 +185,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row g-3 align-items-center mb-3">
-                    <div class="col-auto">
-                        <a href="export_pdf_kematian" class="btn btn-info">Export PDF </a>
-                    </div>
-                </div>
                 <!-- Default box -->
                 <div class="card">
                     <div class="card-body">
@@ -199,19 +211,24 @@
                                         <td>{{ $row_kematian->nama }}</td>
                                         <td>{{ $row_kematian->banjar }}</td>
                                         <td>{{ $row_kematian->jenis_kelamin }}</td>
-                                        <td>{{ $row_kematian->tgl_lahir }}</td>
-                                        <td>{{ $row_kematian->tgl_kematian }}</td>
-                                        <td>{{ $row_kematian->tgl_ngaben }}</td>
+                                        <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_lahir)) }}</td>
+                                        <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_kematian)) }}</td>
+                                        <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}</td>
                                         <td>
-                                            <a href="{{ url('show_data_kematian_kelihan', $row_kematian->id) }}"
+                                            <a href="{{ url('kematian_kelihan/detail/' . $row_kematian->id) }}"
                                                 class="btn btn-sm btn-info">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
-                                            <a href="{{ url('edit_data_kematian_kelihan', $row_kematian->id) }}"
+                                            <a href="{{ url('kematian_kelihan/edit/' . $row_kematian->id) }}"
                                                 class="btn btn-sm btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="{{ url('/delete_data_kematian_kelihan', $row_kematian->id) }}"
+                                            <a href="{{ url('foto_ktp_kematian/' . $row_kematian->foto_ktp) }}"
+                                                download="{{ $row_kematian->foto_ktp }}"
+                                                class="btn btn-sm btn-primary">
+                                                <i class="fas fa-download"></i>
+                                            </a>
+                                            <a href="{{ url('kematian_kelihan/delete/' . $row_kematian->id) }}"
                                                 class="btn btn-sm btn-danger">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>

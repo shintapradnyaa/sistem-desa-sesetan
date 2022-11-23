@@ -16,18 +16,40 @@ class SuratKeluarKeputusanSekretariatController extends Controller
 
     public function create()
     {
-        return view('create_sk_keputusan_sekretariat');
+        return view('create');
     }
 
     public function store(Request $request)
     {
+        $this->validate(
+            $request,
+            [
+                'no_sk_keputusan' => 'required',
+                'tgl_sk_keluar'   => 'required',
+                'perihal_sk'      => 'required',
+                'ditujukan_sk'    => 'required',
+                'foto_sk_keputusan' => 'required|mimes:jpg,png,jpeg|image|max:2048'
+            ],
+            [
+                'no_sk_keputusan.required' => 'Nomor Surat Tidak Boleh Kosong',
+                'tgl_sk_keluar.required'   => 'Tanggal Surat Keluar Tidak Boleh Kosong',
+                'perihal_sk.required'      => 'Perihal Surat Tidak Boleh Kosong',
+                'ditujukan_sk.required'    => 'Tidak Boleh Kosong',
+                'foto_sk_keputusan.required' => 'Foto Surat Keputusan Tidak Boleh Kosong'
+            ]
+        );
         $data = SuratKeluarKeputusan::create($request->all());
         if ($request->hasFile('foto_sk_keputusan')) {
             $request->file('foto_sk_keputusan')->move('foto_sk_keputusan/', $request->file('foto_sk_keputusan')->getClientOriginalName());
             $data->foto_sk_keputusan = $request->file('foto_sk_keputusan')->getClientOriginalName();
             $data->save();
         }
-        return redirect('index_sk_keputusan_sekretariat');
+        return redirect('sk_keputusan_sekretariat')->with('message', 'Data Berhasil Di Tambahkan');
+    }
+    public function show($id)
+    {
+        $data = SuratKeluarKeputusan::find($id);
+        return view('pages.sekretariat.detail_sk_keputusan', compact('data'));
     }
     public function edit($id)
     {
@@ -37,14 +59,39 @@ class SuratKeluarKeputusanSekretariatController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = SuratKeluarKeputusan::find($id);
-        $data->update($request->all());
-        return redirect('index_sk_keputusan_sekretariat')->with('success', 'Data Berhasil Di Tambahkan');
+        $request->validate(
+            [
+                'no_sk_keputusan' => 'required',
+                'tgl_sk_keluar'   => 'required',
+                'perihal_sk'      => 'required',
+                'ditujukan_sk'    => 'required',
+                'foto_sk_keputusan' => 'mimes:jpg,png,jpeg|image|max:2048'
+            ],
+            [
+                'no_sk_keputusan.required' => 'Nomor Surat Tidak Boleh Kosong',
+                'tgl_sk_keluar.required'   => 'Tanggal Surat Keluar Tidak Boleh Kosong',
+                'perihal_sk.required'      => 'Perihal Surat Tidak Boleh Kosong',
+                'ditujukan_sk.required'    => 'Tidak Boleh Kosong',
+                'foto_sk_keputusan.required' => 'Foto Surat Keputusan Tidak Boleh Kosong'
+            ]
+        );
+        $data = $request->all();
+        if ($image = $request->file('foto_sk_keputusan')) {
+            $destination    = 'foto_sk_keputusan/';
+            $profileImage   = $image->getClientOriginalName();
+            $image->move($destination, $profileImage);
+            $data['foto_sk_keputusan']   = "$profileImage";
+        } else {
+            unset($data['foto_sk_keputusan']);
+        }
+        $update = SuratKeluarKeputusan::findOrFail($id);
+        $update->update($data);
+        return redirect('sk_keputusan_sekretariat')->with('message', 'Data Berhasil Diperbaharui');
     }
     public function delete($id)
     {
         $data = SuratKeluarKeputusan::find($id);
         $data->delete();
-        return redirect('index_sk_keputusan_sekretariat');
+        return redirect('sk_keputusan_sekretariat')->with('message', 'Data Berhasil Di Hapus');
     }
 }

@@ -17,6 +17,17 @@ return new class extends Migration
             $table->id();
             $table->string('no_suket');
             $table->date('tgl_pernikahan');
+            $table->enum('banjar', [
+                'Banjar Kaja',
+                'Banjar Pembungan',
+                'Banjar Tengah',
+                'Banjar Gaduh',
+                'Banjar Puri Agung',
+                'Banjar Lantang Bejuh',
+                'Banjar Dukuh Sari',
+                'Banjar Pegok',
+                'Banjar Suwung Batan Kendal'
+            ]);
             $table->string('nama_pria');
             $table->enum('status_pria', ['Purusa', 'Pradana']);
             $table->date('tgl_lahir_pria');
@@ -25,6 +36,7 @@ return new class extends Migration
             $table->enum('status_wanita', ['Purusa', 'Pradana']);
             $table->date('tgl_lahir_wanita');
             $table->string('alamat_wanita');
+            $table->enum('status_surat', ['Proses', 'Selesai']);
         });
     }
 

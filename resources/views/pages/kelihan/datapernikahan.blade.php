@@ -35,11 +35,6 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="row g-3 align-items-center mb-3">
-                    <div class="col-auto">
-                        <a href="#" class="btn btn-info">Export PDF </a>
-                    </div>
-                </div>
                 <!-- Default box -->
                 <div class="card">
                     <div class="card-body">
@@ -49,9 +44,11 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Nomor Surat Keterangan</th>
                                     <th scope="col">Tanggal Pernikahan</th>
+                                    <th scope="col">Banjar</th>
                                     <th scope="col">Nama Pria</th>
                                     <th scope="col">Status Pria</th>
                                     <th scope="col">Nama Wanita</th>
+                                    <th scope="col">Status Surat</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -63,12 +60,17 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row_pernikahan->no_suket }}</td>
-                                        <td>{{ $row_pernikahan->tgl_pernikahan }}</td>
+                                        <td>{{ date('d-M-Y', strtotime($row_pernikahan->tgl_pernikahan)) }}</td>
+                                        <td>{{ $row_pernikahan->banjar }}</td>
                                         <td>{{ $row_pernikahan->nama_pria }}</td>
                                         <td>{{ $row_pernikahan->status_pria }}</td>
                                         <td>{{ $row_pernikahan->nama_wanita }}</td>
+                                        <td><label
+                                                class="badge {{ $row_pernikahan->status_surat == 'Proses' ? 'badge-primary' : 'badge-success' }}">
+                                                {{ $row_pernikahan->status_surat == 'Proses' ? 'Proses' : 'Selesai' }}</label>
+                                        </td>
                                         <td>
-                                            <a href="{{ url('show_data_pernikahan_kelihan', $row_pernikahan->id) }}"
+                                            <a href="{{ url('pernikahan_kelihan/detail/' . $row_pernikahan->id) }}"
                                                 class="btn btn-sm btn-info">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
@@ -85,11 +87,11 @@
         </div>
         <!-- /.content-wrapper -->
 
-        @include('layout_bendesa.footer')
+        @include('layout_kelihan.footer')
     </div>
     <!-- ./wrapper -->
 
-    @include('layout_bendesa.script')
+    @include('layout_kelihan.script')
 </body>
 
 </html>

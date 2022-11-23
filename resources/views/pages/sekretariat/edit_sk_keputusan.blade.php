@@ -31,7 +31,9 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-
+            <a class="btn btn-warning" href="{{ url('sk_keputusan_sekretariat') }}" role="button"><i
+                    class="fa fa-chevron-left"></i>
+                Kembali</a>
             <!-- Main content -->
             <section class="content">
                 <div class="container">
@@ -40,8 +42,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <form class="row g-3"
-                                        action="{{ url('/update_sk_keputusan_sekretariat', $data->id) }}" method="POST"
-                                        enctype="multipart/form-data">
+                                        action="{{ url('sk_keputusan_sekretariat/update/' . $data->id) }}"
+                                        method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -50,14 +52,13 @@
                                                 <input type="text" class="form-control" name="no_sk_keputusan"
                                                     id="input_no_sk_keputusan" value="{{ $data->no_sk_keputusan }}">
                                             </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="input_tgl_sk_keluar" class="form-label">Tanggal Surat
-                                                        Keputusan Keluar</label>
-                                                    <input type="date" class="form-control form-control"
-                                                        name="tgl_sk_keluar" id="input_tgl_sk_keluar"
-                                                        value="{{ $data->tgl_sk_keluar }}">
-                                                </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="input_tgl_sk_keluar" class="form-label">Tanggal Surat
+                                                    Keputusan Keluar</label>
+                                                <input type="date" class="form-control" name="tgl_sk_keluar"
+                                                    id="input_tgl_sk_keluar" value="{{ $data->tgl_sk_keluar }}">
                                             </div>
                                         </div>
                                         <div class="col-md-12">

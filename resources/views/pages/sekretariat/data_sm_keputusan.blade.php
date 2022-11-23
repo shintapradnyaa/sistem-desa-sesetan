@@ -41,6 +41,22 @@
                 </button>
 
                 <!-- Modal -->
+                @if ($errors->all())
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Gagal menyimpan data!</strong> Silahkan lihat dan lengkapi form yang isi.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+                @if ($message = Session::get('message'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ $message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -51,7 +67,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form class="row g-3" action="{{ url('/store_sm_keputusan_sekretariat') }}" method="POST"
+                            <form class="row g-3" action="{{ url('sm_keputusan_sekretariat/store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 <div class="modal-body">
                                     @csrf
@@ -60,14 +76,32 @@
                                             <div class="form-group">
                                                 <label for="input_no_sm_keputusan" class="form-label">Nomor Surat
                                                     Masuk</label>
-                                                <input type="text" class="form-control" name="no_sm_keputusan"
-                                                    id="input_no_sm_keputusan">
+                                                <input type="text" name="no_sm_keputusan" id="input_no_sm_keputusan"
+                                                    class="form-control
+                                                    @error('no_sm_keputusan')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('no_sm_keputusan') }}">
+                                                @error('no_sm_keputusan')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label for="input_tgl_sm_masuk" class="form-label">Tanggal Surat
                                                     Keputusan Masuk</label>
-                                                <input type="date" class="form-control form-control"
-                                                    name="tgl_sm_masuk" id="input_tgl_sm_masuk">
+                                                <input type="date" name="tgl_sm_masuk" id="input_tgl_sm_masuk"
+                                                    class="form-control
+                                                    @error('tgl_sm_masuk')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('tgl_sm_masuk') }}">
+                                                @error('tgl_sm_masuk')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -76,27 +110,63 @@
                                             <div class="col-12">
                                                 <label for="input_perihal_sm" class="form-label">Perihal Surat Masuk
                                                     Keputusan</label>
-                                                <input type="text" class="form-control" name="perihal_sm"
-                                                    id="input_perihal_sm">
+                                                <input type="text" name="perihal_sm" id="input_perihal_sm"
+                                                    class="form-control
+                                                    @error('perihal_sm')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('perihal_sm') }}">
+                                                @error('perihal_sm')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
-                                            <div class="col-12">
+                                            <div class="col-md-12">
                                                 <label for="input_asal_sm" class="form-label">Asal Surat Masuk
                                                     Keputusan</label>
-                                                <input type="text" class="form-control" name="asal_sm"
-                                                    id="input_asal_sm">
+                                                <input type="text" name="asal_sm" id="input_asal_sm"
+                                                    class="form-control
+                                                    @error('asal_sm')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('asal_sm') }}">
+                                                @error('asal_sm')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                             <div class="col-12">
                                                 <label for="input_ditujukan_sm" class="form-label">Ditujukan
                                                     Kepada</label>
-                                                <input type="text" class="form-control" name="ditujukan_sm"
-                                                    id="input_ditujukan_sm">
+                                                <input type="text" name="ditujukan_sm" id="input_ditujukan_sm"
+                                                    class="form-control
+                                                    @error('ditujukan_sm')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('ditujukan_sm') }}">
+                                                @error('ditujukan_sm')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mb-12">
+                                    <div class="col-mb-12">
                                         <label for="formFile" class="form-label">Foto Surat Masuk</label>
-                                        <input class="form-control" name="foto_sm_keputusan" type="file"
-                                            id="formFile">
+                                        <input name="foto_sm_keputusan" type="file" id="formFile"
+                                            class="form-control
+                                            @error('foto_sm_keputusan')
+                                            is-invalid
+                                            @enderror"
+                                            value="{{ old('foto_sm_keputusan') }}">
+                                        @error('foto_sm_keputusan')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -106,11 +176,6 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
-                </div>
-                <div class="row g-3 align-items-center mb-3">
-                    <div class="col-auto">
-                        <a href="export_pdf_kematian" class="btn btn-info">Export PDF </a>
                     </div>
                 </div>
                 <!-- Default box -->
@@ -137,7 +202,7 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->no_sm_keputusan }}</td>
-                                        <td>{{ $row->tgl_sm_masuk }}</td>
+                                        <td>{{ date('d-M-Y', strtotime($row->tgl_sm_masuk)) }}</td>
                                         <td>{{ $row->perihal_sm }}</td>
                                         <td>{{ $row->asal_sm }}</td>
                                         <td>{{ $row->ditujukan_sm }}</td>
@@ -146,15 +211,20 @@
                                                 alt="" style="width:100px;">
                                         </td>
                                         <td>
-                                            <a href="{{ url('show_data_kematian_sekretariat', $row->id) }}"
+                                            <a href="{{ url('sm_keputusan_sekretariat/detail/' . $row->id) }}"
                                                 class="btn btn-sm btn-info">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
-                                            <a href="{{ url('edit_sm_keputusan_sekretariat', $row->id) }}"
+                                            <a href="{{ url('sm_keputusan_sekretariat/edit/' . $row->id) }}"
                                                 class="btn btn-sm btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="{{ url('/delete_sm_keputusan_sekretariat', $row->id) }}"
+                                            <a href="{{ url('foto_sm_keputusan/' . $row->foto_sm_keputusan) }}"
+                                                download="{{ $row->foto_sm_keputusan }}"
+                                                class="btn btn-sm btn-primary">
+                                                <i class="fas fa-download"></i>
+                                            </a>
+                                            <a href="{{ url('sm_keputusan_sekretariat/delete/' . $row->id) }}"
                                                 class="btn btn-sm btn-danger">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>

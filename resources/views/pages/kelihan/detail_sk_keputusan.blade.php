@@ -31,7 +31,9 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-
+            <a class="btn btn-warning" href="{{ url('sk_keputusan_kelihan') }}" role="button"><i
+                    class="fa fa-chevron-left"></i>
+                Kembali</a>
             <!-- Main content -->
             <section class="content">
                 <div class="container">
@@ -39,32 +41,29 @@
                         <div class="col-8">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label>Nomor Surat Keluar</label></label>
-                                                <p>{{ $data->no_sk_keputusan }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label>Tanggal Surat Keputusan Keluar</label>
-                                                <p>{{ $data->tgl_sk_keluar }}</p>
-                                            </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Nomor Surat Keluar</label></label>
+                                            <p>{{ $data->no_sk_keputusan }}</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label>Perihal Surat Keputusan Keluar</label>
-                                                <p>{{ $data->perihal_sk }}</p>
-                                            </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Tanggal Surat Keputusan Keluar</label>
+                                            <p>{{ date('d-M-Y', strtotime($data->tgl_sk_keluar)) }}</p>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Perihal Surat Keputusan Keluar</label>
+                                            <p>{{ $data->perihal_sk }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Foto Surat Keluar Keputusan</label>
-                                            <img src="{{ url('foto_sk_keputusan/' . $data->foto_sk_keputusan) }}">
+                                            <img src="{{ url('foto_sk_keputusan/' . $data->foto_sk_keputusan) }}"
+                                                class="img-thumbnail">
                                         </div>
                                     </div>
                                 </div>
