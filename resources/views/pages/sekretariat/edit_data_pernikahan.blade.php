@@ -31,10 +31,11 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-
-            <a class="btn btn-warning" href="{{ url('pernikahan_sekretariat') }}" role="button"><i
-                    class="fa fa-chevron-left"></i>
-                Kembali</a>
+            <div class="div ml-3">
+                <a class="btn btn-warning" href="{{ url('pernikahan_sekretariat') }}" role="button"><i
+                        class="fa fa-chevron-left"></i>
+                    Kembali</a>
+            </div>
 
             <!-- Main content -->
             <section class="content">
@@ -59,7 +60,7 @@
                                             <input type="date" class="form-control" name="tgl_pernikahan"
                                                 id="input_tgl_pernikahan" value="{{ $data->tgl_pernikahan }}">
                                         </div>
-                                        <div class="col-md-12 mb-3">
+                                        <div class="col-md-6 mb-3">
                                             <label for="input_banjar" class="form-label">Banjar</label>
                                             <select id="input_banjar" class="form-select form-control" name="banjar">
                                                 <option selected disabled>{{ $data->banjar }}</option>
@@ -73,6 +74,16 @@
                                                 <option value="Banjar Pegok">Banjar Pegok</option>
                                                 <option value="Banjar Suwung Batan Kendal">Banjar Suwung Batan
                                                     Kendal</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="input_status_surat" class="form-label">Status
+                                                Surat</label>
+                                            <select id="input_status_surat" class="form-select form-control"
+                                                name="status_surat">
+                                                <option selected disabled>{{ $data->status_surat }}</option>
+                                                <option value="Proses">Proses</option>
+                                                <option value="Selesai">Selesai</option>
                                             </select>
                                         </div>
                                         <div class="col-md-12 mb-3">
@@ -127,18 +138,8 @@
                                             <input type="text" class="form-control" name="alamat_wanita"
                                                 id="input_alamat_wanita" value="{{ $data->alamat_wanita }}">
                                         </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_status_surat" class="form-label">Status
-                                                Surat</label>
-                                            <select id="input_status_surat" class="form-select form-control"
-                                                name="status_surat">
-                                                <option selected disabled>{{ $data->status_surat }}</option>
-                                                <option value="Proses">Proses</option>
-                                                <option value="Selesai">Selesai</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary btn-block">Update</button>
                                         </div>
                                     </form>
                                 </div>

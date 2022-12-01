@@ -67,11 +67,12 @@
                                         </td>
                                         <td>
                                             <a href="{{ url('sk_proposal_bendesa/detail/' . $row->id) }}"
-                                                class="btn btn-sm btn-info">
+                                                class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
                                             <a href="{{ url('foto_sk_proposal/' . $row->foto_sk_proposal) }}"
-                                                download="{{ $row->foto_sk_proposal }}" class="btn btn-sm btn-primary">
+                                                download="{{ $row->foto_sk_proposal }}" class="btn btn-sm btn-primary"
+                                                title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
                                         </td>

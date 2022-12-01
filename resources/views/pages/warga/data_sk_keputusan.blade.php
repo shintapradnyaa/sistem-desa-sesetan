@@ -71,7 +71,7 @@
                                             </a>
                                             <a href="{{ url('foto_sk_keputusan/' . $row->foto_sk_keputusan) }}"
                                                 download="{{ $row->foto_sk_keputusan }}" class="btn btn-sm btn-primary">
-                                                <i class="fas fa-download"></i>
+                                                <i class="fas fa-download" title="Lihat Data"></i>
                                             </a>
                                         </td>
                                     </tr>

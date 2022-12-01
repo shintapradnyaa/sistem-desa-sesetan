@@ -212,20 +212,22 @@
                                         </td>
                                         <td>
                                             <a href="{{ url('sm_keputusan_sekretariat/detail/' . $row->id) }}"
-                                                class="btn btn-sm btn-info">
+                                                class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
                                             <a href="{{ url('sm_keputusan_sekretariat/edit/' . $row->id) }}"
-                                                class="btn btn-sm btn-warning">
+                                                class="btn btn-sm btn-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <a href="{{ url('foto_sm_keputusan/' . $row->foto_sm_keputusan) }}"
                                                 download="{{ $row->foto_sm_keputusan }}"
-                                                class="btn btn-sm btn-primary">
+                                                class="btn btn-sm btn-primary" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
                                             <a href="{{ url('sm_keputusan_sekretariat/delete/' . $row->id) }}"
-                                                class="btn btn-sm btn-danger">
+                                                class="btn btn-sm btn-danger"
+                                                onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data Tersebut?')"
+                                                title="Hapus Data">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </td>

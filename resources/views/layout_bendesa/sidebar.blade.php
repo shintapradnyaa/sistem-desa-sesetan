@@ -14,15 +14,16 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ url('dashboard_bendesa') }}" class="nav-link">
+                    <a href="{{ url('dashboard_bendesa') }}"
+                        class="nav-link {{ request()->is('dashboard_bendesa') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             DASHBOARD
                         </p>
                     </a>
                 </li>
-
-                <li class="nav-item has-treeview menu-close">
+                <li
+                    class="nav-item has-treeview {{ request()->is('kematian_bendesa') || request()->is('pernikahan_bendesa') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="fas fa-users"></i>
                         <p>
@@ -32,20 +33,23 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ url('kematian_bendesa') }}" class="nav-link">
+                            <a href="{{ url('kematian_bendesa') }}"
+                                class="nav-link {{ request()->is('kematian_bendesa') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Kematian</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('pernikahan_bendesa') }}" class="nav-link">
+                            <a href="{{ url('pernikahan_bendesa') }}"
+                                class="nav-link {{ request()->is('pernikahan_bendesa') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Pernikahan</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview menu-close">
+                <li
+                    class="nav-item has-treeview {{ request()->is('sk_keputusan_bendesa') || request()->is('sk_undangan_bendesa') || request()->is('sk_proposal_bendesa') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-envelope"></i>
                         <p>
@@ -55,26 +59,30 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ url('sk_keputusan_bendesa') }}" class="nav-link">
+                            <a href="{{ url('sk_keputusan_bendesa') }}"
+                                class="nav-link {{ request()->is('sk_keputusan_bendesa') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>surat Keluar Keputusan</p>
+                                <p>Surat Keluar Keputusan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('sk_undangan_bendesa') }}" class="nav-link">
+                            <a href="{{ url('sk_undangan_bendesa') }}"
+                                class="nav-link {{ request()->is('sk_undangan_bendesa') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Keluar Undangan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('sk_proposal_bendesa') }}" class="nav-link">
+                            <a href="{{ url('sk_proposal_bendesa') }}"
+                                class="nav-link {{ request()->is('sk_proposal_bendesa') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Keluar Proposal</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview menu-close">
+                <li
+                    class="nav-item has-treeview {{ request()->is('sm_keputusan_bendesa') || request()->is('sm_undangan_bendesa') || request()->is('sm_proposal_bendesa') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-folder-open"></i>
                         <p>
@@ -84,19 +92,22 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ url('sm_keputusan_bendesa') }}" class="nav-link">
+                            <a href="{{ url('sm_keputusan_bendesa') }}"
+                                class="nav-link {{ request()->is('sm_keputusan_bendesa') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Masuk Keputusan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('sm_undangan_bendesa') }}" class="nav-link">
+                            <a href="{{ url('sm_undangan_bendesa') }}"
+                                class="nav-link {{ request()->is('sm_undangan_bendesa') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Masuk Undangan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('sm_proposal_bendesa') }}" class="nav-link">
+                            <a href="{{ url('sm_proposal_bendesa') }}"
+                                class="nav-link {{ request()->is('sm_proposal_bendesa') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Masuk Proposal</p>
                             </a>
@@ -104,7 +115,8 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('kelola_pengguna') }}" class="nav-link">
+                    <a href="{{ url('kelola_pengguna') }}"
+                        class="nav-link {{ request()->is('kelola_pengguna') || request()->is('kelola_pengguna/edit/' . request()->segment(3)) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
                             PENGGUNA

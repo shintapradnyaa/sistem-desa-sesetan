@@ -30,10 +30,12 @@
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-            <!-- /.content-header -->
-            <a class="btn btn-warning" href="{{ url('warga_kematian') }}" role="button"><i
-                    class="fa fa-chevron-left"></i>
-                Kembali</a>
+
+            <div class="div ml-3">
+                <a class="btn btn-warning" href="{{ url('warga_kematian') }}" role="button"><i
+                        class="fa fa-chevron-left"></i>
+                    Kembali</a>
+            </div>
 
             <!-- Main content -->
             <section class="content">

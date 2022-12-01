@@ -72,7 +72,7 @@
                                         </td>
                                         <td>
                                             <a href="{{ url('detail/' . $row_pernikahan->id) }}"
-                                                class="btn btn-sm btn-info">
+                                                class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
                                         </td>

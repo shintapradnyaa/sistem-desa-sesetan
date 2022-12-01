@@ -19,12 +19,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Detail Surat Undangan</h1>
+                            <h1 class="m-0 text-dark">Detail Surat Masuk Undangan</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Detail Surat Undangan</li>
+                                <li class="breadcrumb-item active">Detail Surat Masuk Undangan</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -43,13 +43,13 @@
                                 <div class="card-body">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label>Nomor Surat Masukr</label></label>
+                                            <label>Nomor Surat Masuk</label></label>
                                             <p>{{ $data->no_sm_undangan }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Tanggal Surat Undangan Masukr</label>
+                                            <label>Tanggal Surat Undangan Masuk</label>
                                             <p>{{ date('d-M-Y', strtotime($data->tgl_sm_masuk)) }}</p>
                                         </div>
                                     </div>

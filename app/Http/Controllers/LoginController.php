@@ -17,9 +17,7 @@ class LoginController extends Controller
                 return redirect()->intended('dashboard_sekretariat');
             } elseif ($user->level == '3') {
                 return redirect()->intended('dashboard_kelihan');
-            } //elseif ($user->level == '4') {
-            //     return redirect()->intended('dashboard_warga');
-            // }
+            }
         }
         return view('login.view_login');
     }
@@ -46,8 +44,6 @@ class LoginController extends Controller
                 return redirect()->intended('dashboard_sekretariat');
             } elseif ($user->level == '3') {
                 return redirect()->intended('dashboard_kelihan');
-                // } elseif ($user->level == '4') {
-                //     return redirect()->intended('dashboard_warga');
             }
             return redirect()->intended('/');
         }

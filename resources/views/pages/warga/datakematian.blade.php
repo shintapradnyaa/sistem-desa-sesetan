@@ -66,7 +66,7 @@
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}</td>
                                         <td>
                                             <a href="{{ url('detail_kematian/' . $row_kematian->id) }}"
-                                                class="btn btn-sm btn-info">
+                                                class="btn btn-sm btn-info" title="Lihats Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
                                         </td>

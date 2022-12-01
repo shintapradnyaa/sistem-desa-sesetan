@@ -20,9 +20,32 @@
                 <div class="dropdown-divider"></div>
                 <form action="{{ url('/logout') }}" method="get">
                     @csrf
-                    <button type="submit" class="dropdown-item">
-                        Logout
-                    </button>
+                    <div class="row mb-3 ml-2 mt-2">
+                        <div class="col-3">
+                            <div class="u-img">
+                                <img src="{{ asset('') }}template/adminlte/dist/img/user2-160x160.jpg"
+                                    class="img-circle elevation-2" alt="User Image" width="70px">
+                            </div>
+                        </div>
+                        <div class="col-">
+                            <div class="info">
+                                <p class="dropdown-item">{{ Auth::user()->name }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row mb-3 ml-2">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-rounded btn-primary btn-sm">
+                                Profil
+                                <i class=" fas fa-user-edit"></i>
+                            </button>
+                            <button type="submit" class="btn btn-rounded btn-danger btn-sm">
+                                Logout
+                                <i class="fas fa-power-off"></i>
+                            </button>
+                        </div>
+                    </div>
                 </form>
                 <div class="dropdown-divider"></div>
             </div>

@@ -30,9 +30,11 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-            <a class="btn btn-warning" href="{{ url('kelola_pengguna') }}" role="button"><i
-                    class="fa fa-chevron-left"></i>
-                Kembali</a>
+            <div class="div ml-3">
+                <a class="btn btn-warning" href="{{ url('kelola_pengguna') }}" role="button"><i
+                        class="fa fa-chevron-left"></i>
+                    Kembali</a>
+            </div>
             <!-- Main content -->
             <section class="content">
                 <div class="container">
@@ -127,10 +129,8 @@
                                             <input name="foto_pengguna" type="file"
                                                 id="formFile"class="form-control">
                                         </div>
-                                        <div class="col-md-12">
-                                            <a href="{{ url('kelola_pengguna', []) }}"
-                                                class="btn btn-secondary">Kembali</a>
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                        <div class="col-12 mt-3">
+                                            <button type="submit" class="btn btn-primary btn-block">Update</button>
                                         </div>
                                     </form>
                                 </div>
@@ -154,6 +154,11 @@
     </div>
     <!-- ./wrapper -->
     @include('layout_bendesa.script')
+
+</body>
+
+</html>
+
 </body>
 
 </html>

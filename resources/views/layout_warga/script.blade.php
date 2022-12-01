@@ -29,6 +29,8 @@
  <script src="{{ asset('') }}template/adminlte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
  <script src="{{ asset('') }}template/adminlte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
  <script src="{{ asset('') }}template/adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+ <script src="{{ asset('') }}template/adminlte/plugins/chart.js/Chart.min.js"></script>
+
  <script>
      $(function() {
          $(function() {
@@ -40,4 +42,26 @@
              }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
          });
      });
+ </script>
+ <script>
+     //- BAR CHART -
+     //-------------
+     var barChartCanvas = $('#barChart').get(0).getContext('2d')
+     var barChartData = $.extend(true, {}, areaChartData)
+     var temp0 = areaChartData.datasets[0]
+     var temp1 = areaChartData.datasets[1]
+     barChartData.datasets[0] = temp1
+     barChartData.datasets[1] = temp0
+
+     var barChartOptions = {
+         responsive: true,
+         maintainAspectRatio: false,
+         datasetFill: false
+     }
+
+     new Chart(barChartCanvas, {
+         type: 'bar',
+         data: barChartData,
+         options: barChartOptions
+     })
  </script>

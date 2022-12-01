@@ -230,11 +230,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row g-3 align-items-center mb-3">
-                    <div class="col-auto">
-                        <a href="export_pdf_kematian" class="btn btn-info">Export PDF </a>
-                    </div>
-                </div>
                 <!-- Default box -->
                 <div class="card">
                     <div class="card-body">
@@ -262,7 +257,15 @@
                                             <img src="{{ asset('foto_user_login/' . $row->foto_pengguna) }}"
                                                 alt="" style="width:100px;">
                                         </td>
-                                        <td>{{ $row->level }}</td>
+                                        <td>
+                                            @if ($row->level == 1)
+                                                Bendesa
+                                            @elseif ($row->level == 2)
+                                                Sekretariat
+                                            @else
+                                                Kelihan
+                                            @endif
+                                        </td>
                                         <td>{{ $row->username }}</td>
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->no_telfon }}</td>

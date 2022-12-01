@@ -14,7 +14,7 @@
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                   data-accordion="false">
                   <li class="nav-item">
-                      <a href="{{ url('/') }}" class="nav-link">
+                      <a href="{{ url('/') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
                               Dashboard
@@ -23,7 +23,8 @@
                   </li>
                   <li class="nav-header"> <i class="fas fa-users"></i> DATA WARGA ADAT</li>
                   <li class="nav-item">
-                      <a href="warga_kematian" class="nav-link">
+                      <a href="{{ url('warga_kematian') }}"
+                          class="nav-link {{ request()->is('warga_kematian') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Data Kematian
@@ -31,7 +32,8 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="warga_pernikahan" class="nav-link">
+                      <a href="{{ url('warga_pernikahan') }}"
+                          class="nav-link {{ request()->is('warga_pernikahan') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Data Pernikahan
@@ -40,7 +42,7 @@
                   </li>
                   <li class="nav-header"><i class="nav-icon fa fa-envelope"></i> SURAT KELUAR</li>
                   <li class="nav-item">
-                      <a href="warga_sk" class="nav-link">
+                      <a href="{{ url('warga_sk') }}" class="nav-link {{ request()->is('warga_sk') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Surat Keputusan

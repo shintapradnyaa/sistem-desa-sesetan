@@ -20,6 +20,7 @@ use App\Http\Controllers\Bendesa\SuratKeluarUndanganBendesaController;
 use App\Http\Controllers\Bendesa\SuratMasukKeputusanBendesaController;
 use App\Http\Controllers\Kelihan\SuratKeluarUndanganKelihanController;
 use App\Http\Controllers\Bendesa\SuratKeluarKeputusanBendesaController;
+use App\Http\Controllers\Kelihan\ProfileKelihanController;
 use App\Http\Controllers\Kelihan\SuratKeluarKeputusanKelihanController;
 use App\Http\Controllers\Sekretariat\SuratKeluarKeputusanSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukProposalSekretariatController;
@@ -235,9 +236,6 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/delete/{id}', [KematianKelihanController::class, 'delete']);
         });
 
-        // //expport pdf
-        // Route::get('export_pdf_kematian', [KematianKelihanController::class, 'export_pdf_kematian'])->name('export_pdf_kematian');
-
         Route::group(['prefix' => 'pernikahan_kelihan'], function () {
             Route::get('', [PernikahanKelihanController::class, 'index']);
             Route::get('/detail/{id}', [PernikahanKelihanController::class, 'show']);
@@ -253,40 +251,11 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('', [SuratKeluarKeputusanKelihanController::class, 'index']);
             Route::get('/detail/{id}', [SuratKeluarKeputusanKelihanController::class, 'show']);
         });
+
+        Route::group(['prefix' => 'edit_profile'], function () {
+            Route::get('', [ProfileKelihanController::class, 'index']);
+            Route::get('/edit/{id}', [ProfileKelihanController::class, 'edit']);
+            Route::post('/update/{id}', [ProfileKelihanController::class, 'update']);
+        });
     });
-
-    // Route::group(['middleware' => ['CekUserLogin:4']], function () {
-    //     // Dashboard
-    //     Route::get('/dashboard_warga', [DashboardWargaController::class, 'index']);
-    //     //Route Data Kematians
-    //     Route::get('/index_data_kematian_warga', [KematianWargaController::class, 'index']);
-    //     Route::get('/show_data_kematian/{id}', [KematianWargaController::class, 'show']);
-
-    //     // //expport pdf
-    //     // Route::get('export_pdf_kematian', [KematianWargaController::class, 'export_pdf_kematian'])->name('export_pdf_kematian');
-
-    //     Route::get('/index_data_pernikahan', [PernikahanController::class, 'index']);
-    //     Route::get('/create_data_pernikahan', [PernikahanController::class, 'create']);
-    //     Route::post('/store_data_pernikahan', [PernikahanController::class, 'store']);
-    //     Route::get('/show_data_pernikahan/{id}', [PernikahanController::class, 'show']);
-    //     Route::get('/edit_data_pernikahan/{id}', [PernikahanController::class, 'edit']);
-    //     Route::post('/update_data_pernikahan/{id}', [PernikahanController::class, 'update']);
-    //     Route::get('/delete_data_pernikahan/{id}', [PernikahanController::class, 'delete']);
-
-    //     //Route Data Surat Keluar Undangan
-    //     Route::get('/index_sk_undangan', [SuratKeluarUndanganController::class, 'index']);
-    //     Route::get('/create_sk_undangan', [SuratKeluarUndanganController::class, 'create']);
-    //     Route::post('/store_sk_undangan', [SuratKeluarUndanganController::class, 'store']);
-    //     Route::get('/edit_sk_undangan/{id}', [SuratKeluarUndanganController::class, 'edit']);
-    //     Route::post('/update_sk_undangan/{id}', [SuratKeluarUndanganController::class, 'update']);
-    //     Route::get('/delete_sk_undangan/{id}', [SuratKeluarUndanganController::class, 'delete']);
-
-    //     //Route Data Surat Keluar Keputusan
-    //     Route::get('/index_sk_keputusan', [SuratKeluarKeputusanController::class, 'index']);
-    //     Route::get('/create_sk_keputusan', [SuratKeluarKeputusanController::class, 'create']);
-    //     Route::post('/store_sk_keputusan', [SuratKeluarKeputusanController::class, 'store']);
-    //     Route::get('/edit_sk_keputusan/{id}', [SuratKeluarKeputusanController::class, 'edit']);
-    //     Route::post('/update_sk_keputusan/{id}', [SuratKeluarKeputusanController::class, 'update']);
-    //     Route::get('/delete_sk_keputusan/{id}', [SuratKeluarKeputusanController::class, 'delete']);
-    // });
 });

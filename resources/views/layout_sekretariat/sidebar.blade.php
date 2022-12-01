@@ -16,15 +16,16 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ url('dashboard_sekretariat') }}" class="nav-link">
+                    <a href="{{ url('dashboard_sekretariat') }}"
+                        class="nav-link {{ request()->is('dashboard_sekretariat') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             DASHBOARD
                         </p>
                     </a>
                 </li>
-
-                <li class="nav-item has-treeview menu-close">
+                <li
+                    class="nav-item has-treeview {{ request()->is('kematian_sekretariat') || request()->is('pernikahan_sekretariat') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="fas fa-users"></i>
                         <p>
@@ -34,20 +35,23 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ url('kematian_sekretariat') }}" class="nav-link">
+                            <a href="{{ url('kematian_sekretariat') }}"
+                                class="nav-link {{ request()->is('kematian_sekretariat') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Kematian</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('pernikahan_sekretariat') }}" class="nav-link">
+                            <a href="{{ url('pernikahan_sekretariat') }}"
+                                class="nav-link {{ request()->is('pernikahan_sekretariat') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Pernikahan</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview menu-close">
+                <li
+                    class="nav-item has-treeview {{ request()->is('sk_keputusan_sekretariat') || request()->is('sk_undangan_sekretariat') || request()->is('sk_proposal_sekretariat') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-envelope"></i>
                         <p>
@@ -57,26 +61,30 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ url('sk_keputusan_sekretariat') }}" class="nav-link">
+                            <a href="{{ url('sk_keputusan_sekretariat') }}"
+                                class="nav-link {{ request()->is('sk_keputusan_sekretariat') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Keluar Keputusan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('sk_undangan_sekretariat') }}" class="nav-link">
+                            <a href="{{ url('sk_undangan_sekretariat') }}"
+                                class="nav-link {{ request()->is('sk_undangan_sekretariat') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Keluar Undangan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('sk_proposal_sekretariat') }}" class="nav-link">
+                            <a href="{{ url('sk_proposal_sekretariat') }}"
+                                class="nav-link {{ request()->is('sk_proposal_sekretariat') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Keluar Proposal</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview menu-close">
+                <li
+                    class="nav-item has-treeview {{ request()->is('sm_keputusan_sekretariat') || request()->is('sm_undangan_sekretariat') || request()->is('sm_proposal_sekretariat') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-folder-open"></i>
                         <p>
@@ -86,19 +94,22 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ url('sm_keputusan_sekretariat') }}" class="nav-link">
+                            <a href="{{ url('sm_keputusan_sekretariat') }}"
+                                class="nav-link {{ request()->is('sm_keputusan_sekretariat') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Masuk Keputusan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('sm_undangan_sekretariat') }}" class="nav-link">
+                            <a href="{{ url('sm_undangan_sekretariat') }}"
+                                class="nav-link{{ request()->is('sm_undangan_sekretariat') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Masuk Undangan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('sm_proposal_sekretariat') }}" class="nav-link">
+                            <a href="{{ url('sm_proposal_sekretariat') }}"
+                                class="nav-link {{ request()->is('sm_proposal_sekretariat') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Masuk Proposal</p>
                             </a>

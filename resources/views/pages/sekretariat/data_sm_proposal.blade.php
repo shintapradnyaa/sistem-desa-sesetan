@@ -178,11 +178,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row g-3 align-items-center mb-3">
-                    <div class="col-auto">
-                        <a href="export_pdf_kematian" class="btn btn-info">Export PDF </a>
-                    </div>
-                </div>
                 <!-- Default box -->
                 <div class="card">
                     <div class="card-body">
@@ -203,7 +198,7 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $index => $row)
+                                @foreach ($data as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->no_sm_proposal }}</td>
@@ -217,20 +212,22 @@
                                         </td>
                                         <td>
                                             <a href="{{ url('sm_proposal_sekretariat/detail/' . $row->id) }}"
-                                                class="btn btn-sm btn-info">
+                                                class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
                                             <a href="{{ url('sm_proposal_sekretariat/edit/' . $row->id) }}"
-                                                class="btn btn-sm btn-warning">
+                                                class="btn btn-sm btn-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <a href="{{ url('foto_sm_proposal/' . $row->foto_sm_proposal) }}"
                                                 download="{{ $row->foto_sm_proposal }}"
-                                                class="btn btn-sm btn-primary">
+                                                class="btn btn-sm btn-primary" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
                                             <a href="{{ url('sm_proposal_sekretariat/delete/' . $row->id) }}"
-                                                class="btn btn-sm btn-danger">
+                                                class="btn btn-sm btn-danger"
+                                                onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data Tersebut?')"
+                                                title="Hapus Data">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </td>

@@ -31,9 +31,11 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-            <a class="btn btn-warning" href="{{ url('sm_undangan_sekretariat') }}" role="button"><i
-                    class="fa fa-chevron-left"></i>
-                Kembali</a>
+            <div class="div ml-3">
+                <a class="btn btn-warning" href="{{ url('sm_undangan_sekretariat') }}" role="button"><i
+                        class="fa fa-chevron-left"></i>
+                    Kembali</a>
+            </div>
             <!-- Main content -->
             <section class="content">
                 <div class="container">
@@ -86,9 +88,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Tutup</button>
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Update</button>
                                         </div>
                                     </form>
                                 </div>

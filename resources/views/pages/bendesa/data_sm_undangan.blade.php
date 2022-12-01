@@ -69,11 +69,12 @@
                                         </td>
                                         <td>
                                             <a href="{{ url('sm_undangan_bendesa/detail/' . $row->id) }}"
-                                                class="btn btn-sm btn-info">
+                                                class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
                                             <a href="{{ url('foto_sm_undangan/' . $row->foto_sm_undangan) }}"
-                                                download="{{ $row->foto_sm_undangan }}" class="btn btn-sm btn-primary">
+                                                download="{{ $row->foto_sm_undangan }}" class="btn btn-sm btn-primary"
+                                                title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
                                         </td>

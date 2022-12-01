@@ -66,20 +66,22 @@
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}</td>
                                         <td>
                                             <a href="{{ url('kematian_bendesa/detail/' . $row_kematian->id) }}"
-                                                class="btn btn-sm btn-info">
+                                                class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
                                             <a href="{{ url('kematian_bendesa/edit/' . $row_kematian->id) }}"
-                                                class="btn btn-sm btn-warning">
+                                                class="btn btn-sm btn-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <a href="{{ url('foto_ktp_kematian/' . $row_kematian->foto_ktp) }}"
-                                                download="{{ $row_kematian->foto_ktp }}"
-                                                class="btn btn-sm btn-primary">
+                                                download="{{ $row_kematian->foto_ktp }}" class="btn btn-sm btn-primary"
+                                                title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
                                             <a href="{{ url('kematian_bendesa/delete/' . $row_kematian->id) }}"
-                                                class="btn btn-sm btn-danger delete">
+                                                class="btn btn-sm btn-danger delete"
+                                                onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data Tersebut?')"
+                                                title="Hapus Data">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </td>

@@ -35,10 +35,6 @@
 
             <!-- Main content -->
             <section class="content">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fa fa-plus"> Data Kematian</i>
-                </button>
 
                 @if ($errors->all())
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -56,146 +52,6 @@
                         </button>
                     </div>
                 @endif
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kematian</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form class="row g-3" action="{{ url('kematian_sekretariat/store') }}" method="POST"
-                                enctype="multipart/form-data">
-                                <div class="modal-body">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="input_nama" class="form-label">Nama</label>
-                                                <input type="text" class="form-control" name="nama"
-                                                    id="input_nama">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="input_banjar" class="form-label">Banjar</label>
-                                                <select id="input_banjar" class="form-select form-control"
-                                                    name="banjar">
-                                                    <option selected disabled>Pilih Banjar</option>
-                                                    <option value="Banjar Kaja">Banjar Kaja</option>
-                                                    <option value="Banjar Pembungan">Banjar Pembungan</option>
-                                                    <option value="Banjar Tengah">Banjar Tengah</option>
-                                                    <option value="Banjar Gaduh">Banjar Gaduh</option>
-                                                    <option value="Banjar Puri Agung">Banjar Puri Agung</option>
-                                                    <option value="Banjar Lantang Bejuh">Banjar Lantang Bejuh</option>
-                                                    <option value="Banjar Dukuh Sari">Banjar Dukuh Sari</option>
-                                                    <option value="Banjar Pegok">Banjar Pegok</option>
-                                                    <option value="Banjar Suwung Batan Kendal">Banjar Suwung Batan
-                                                        Kendal</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="input_jenis_kelamin" class="form-label">Jenis
-                                                    Kelamin</label>
-                                                <select id="input_jenis_kelamin" class="form-select form-control"
-                                                    name="jenis_kelamin">
-                                                    <option selected disabled>Pilih Jenis Kelamin</option>
-                                                    <option value="pria">Pria</option>
-                                                    <option value="wanita">Wanita</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="input_tgl_lahir" class="form-label">Tanggal Lahir</label>
-                                                <input type="date" class="form-control form-control" name="tgl_lahir"
-                                                    id="input_tgl_lahir">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="div">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="input_agama" class="form-label">Agama</label>
-                                                <select id="input_agama" class="form-select form-control"
-                                                    name="agama">
-                                                    <option selected disabled>Pilih Agama</option>
-                                                    <option value="Hindu">Hindu</option>
-                                                    <option value="Islam">Islam</option>
-                                                    <option value="Budha">Budha</option>
-                                                    <option value="Kristen Protestan">Kristen Protestan</option>
-                                                    <option value="Kristen Katolik">Kristen Katolik</option>
-                                                    <option value="Konghucu">Konghucu</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="input_alamat" class="form-label">Alamat</label>
-                                                <input type="text" class="form-control" name="alamat"
-                                                    id="input_alamat">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form_group">
-                                                <label for="input_tgl_kematian" class="form-label">Tanggal
-                                                    Kematian</label>
-                                                <input type="date" class="form-control" name="tgl_kematian"
-                                                    id="input_tgl_kematian">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form_group">
-                                                <label for="input_tgl_ngaben" class="form-label">Tanggal
-                                                    Ngaben</label>
-                                                <input type="date" class="form-control" name="tgl_ngaben"
-                                                    id="input_tgl_ngaben">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="input_sebab_kematian" class="form-label">Sebab
-                                                Kematian</label>
-                                            <input type="text" class="form-control" name="sebab_kematian"
-                                                id="input_sebab_kematian">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form_group">
-                                            <label for="input_ahli_waris" class="form-label">Nama Ahli
-                                                Waris</label>
-                                            <input type="text" class="form-control" name="ahli_waris"
-                                                id="input_ahli_waris">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form_group">
-                                            <label for="formFile" class="form-label">Foto KTP</label>
-                                            <input class="form-control" name="foto_ktp" type="file"
-                                                id="formFile">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Tutup</button>
-                                        <button type="submit" class="btn btn-primary">Simpan</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
                 <!-- Default box -->
                 <div class="card">
                     <div class="card-body">
@@ -227,20 +83,22 @@
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}</td>
                                         <td>
                                             <a href="{{ url('kematian_sekretariat/detail/' . $row_kematian->id) }}"
-                                                class="btn btn-sm btn-info">
+                                                class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
                                             <a href="{{ url('kematian_sekretariat/edit/' . $row_kematian->id) }}"
-                                                class="btn btn-sm btn-warning">
+                                                class="btn btn-sm btn-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <a href="{{ url('foto_ktp_kematian/' . $row_kematian->foto_ktp) }}"
-                                                download="{{ $row_kematian->foto_ktp }}"
-                                                class="btn btn-sm btn-primary">
+                                                download="{{ $row_kematian->foto_ktp }}" class="btn btn-sm btn-primary"
+                                                title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
                                             <a href="{{ url('kematian_sekretariat/delete/' . $row_kematian->id) }}"
-                                                class="btn btn-sm btn-danger">
+                                                class="btn btn-sm btn-danger"
+                                                onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data Tersebut?')"
+                                                title="Hapus Data">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </td>

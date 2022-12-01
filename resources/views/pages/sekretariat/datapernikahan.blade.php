@@ -348,15 +348,17 @@
                                         </td>
                                         <td>
                                             <a href="{{ url('pernikahan_sekretariat/detail/' . $row_pernikahan->id) }}"
-                                                class="btn btn-sm btn-info">
+                                                class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
                                             <a href="{{ url('pernikahan_sekretariat/edit/' . $row_pernikahan->id) }}"
-                                                class="btn btn-sm btn-warning">
+                                                class="btn btn-sm btn-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <a href="{{ url('pernikahan_sekretariat/delete/' . $row_pernikahan->id) }}"
-                                                class="btn btn-sm btn-danger">
+                                                class="btn btn-sm btn-danger"
+                                                onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data Tersebut?')"
+                                                title="Hapus Data">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </td>

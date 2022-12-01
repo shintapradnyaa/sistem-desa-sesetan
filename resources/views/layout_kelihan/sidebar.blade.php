@@ -14,7 +14,8 @@
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                   data-accordion="false">
                   <li class="nav-item">
-                      <a href="dashboard_kelihan" class="nav-link">
+                      <a href="dashboard_kelihan"
+                          class="nav-link {{ request()->is('dashboard_kelihan') ? 'active' : '' }}">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
                               Dashboard
@@ -23,7 +24,8 @@
                   </li>
                   <li class="nav-header"> <i class="fas fa-users"></i> DATA WARGA ADAT</li>
                   <li class="nav-item">
-                      <a href="kematian_kelihan" class="nav-link">
+                      <a href="kematian_kelihan"
+                          class="nav-link {{ request()->is('kematian_kelihan') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Data Kematian
@@ -31,7 +33,8 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="pernikahan_kelihan" class="nav-link">
+                      <a href="pernikahan_kelihan"
+                          class="nav-link {{ request()->is('pernikahan_kelihan') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Data Pernikahan
@@ -40,7 +43,8 @@
                   </li>
                   <li class="nav-header"><i class="nav-icon fa fa-envelope"></i> SURAT KELUAR</li>
                   <li class="nav-item">
-                      <a href="sk_undangan_kelihan" class="nav-link">
+                      <a href="sk_undangan_kelihan"
+                          class="nav-link {{ request()->is('sk_undangan_kelihan') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Surat Undangan
@@ -48,7 +52,8 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="sk_keputusan_kelihan" class="nav-link">
+                      <a href="sk_keputusan_kelihan"
+                          class="nav-link {{ request()->is('sk_keputusan_kelihan') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Surat Keputusan

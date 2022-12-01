@@ -7,14 +7,14 @@
 
 <body class="hold-transition login-page">
     <div class="login-box">
-        <div class="login-logo">
-            <h1><strong>Login</strong></h1>
-        </div>
         <!-- /.login-logo -->
         <div class="card">
+            <div class="login-logo mt-5 mb-2">
+                <h2><strong>Login</strong></h2>
+                <h4><strong>Sistem Pendataan Warga Adat Desa Sesetan</strong></h4>
+            </div>
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Silahkan Masukkan Username dan Password</p>
-
                 <form action="{{ url('login/proses') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
@@ -23,7 +23,7 @@
                                 @error('username')
                                 is-invalid
                                 @enderror
-                            "placeholder="username"
+                            "placeholder="Username"
                             name="username" value="{{ old('username') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">

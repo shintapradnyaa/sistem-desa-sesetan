@@ -31,9 +31,11 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-            <a class="btn btn-warning" href="{{ url('kematian_kelihan') }}" role="button"><i
-                    class="fa fa-chevron-left"></i>
-                Kembali</a>
+            <div class="div ml-3">
+                <a class="btn btn-warning" href="{{ url('kematian_kelihan') }}" role="button"><i
+                        class="fa fa-chevron-left"></i>
+                    Kembali</a>
+            </div>
 
             <!-- Main content -->
             <section class="content">
@@ -53,13 +55,17 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="input_banjar" class="form-label">Banjar</label>
                                             <select id="input_banjar" class="form-select form-control" name="banjar">
-                                                <option selected>{{ $data->banjar }}</option>
-                                                <option value="Hindu">Hindu</option>
-                                                <option value="Islam">Islam</option>
-                                                <option value="Budha">Budha</option>
-                                                <option value="Kristen Protestan">Kristen Protestan</option>
-                                                <option value="Kristen Katolik">Kristen Katolik</option>
-                                                <option value="Konghucu">Konghucu</option>
+                                                <option selected disabled>{{ $data->banjar }}</option>
+                                                <option value="Banjar Kaja">Banjar Kaja</option>
+                                                <option value="Banjar Pembungan">Banjar Pembungan</option>
+                                                <option value="Banjar Tengah">Banjar Tengah</option>
+                                                <option value="Banjar Gaduh">Banjar Gaduh</option>
+                                                <option value="Banjar Puri Agung">Banjar Puri Agung</option>
+                                                <option value="Banjar Lantang Bejuh">Banjar Lantang Bejuh</option>
+                                                <option value="Banjar Dukuh Sari">Banjar Dukuh Sari</option>
+                                                <option value="Banjar Pegok">Banjar Pegok</option>
+                                                <option value="Banjar Suwung Batan Kendal">Banjar Suwung Batan
+                                                    Kendal</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 mb-3">
@@ -121,9 +127,7 @@
                                                 id="formFile">
                                         </div>
                                         <div class="col-12">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Tutup</button>
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Update</button>
                                         </div>
                                     </form>
                                 </div>
