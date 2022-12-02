@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Kelihan;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
 
 class ProfileKelihanController extends Controller
 {
@@ -17,10 +16,21 @@ class ProfileKelihanController extends Controller
 
     public function edit($id)
     {
-        $data = User::where("id", $id)
-            ->first();
-        return view('pages.kelihan.edit_pengguna', compact('data'));
+        $data['data']   = User::findOrFail($id);
+        $data['banjar'] = [
+            'Banjar Kaja',
+            'Banjar Pembungan',
+            'Banjar Tengah',
+            'Banjar Gaduh',
+            'Banjar Puri Agung',
+            'Banjar Lantang Bejuh',
+            'Banjar Dukuh Sari',
+            'Banjar Pegok',
+            'Banjar Suwung Batan Kendal'
+        ];
+        return view('pages.kelihan.edit_pengguna', $data);
     }
+
     public function update(Request $request, $id)
     {
         $request->validate(
@@ -42,21 +52,26 @@ class ProfileKelihanController extends Controller
             ]
         );
 
-        $data = $request->all();
+        $data = [
+            'name'          => $request->name,
+            'username'      => $request->username,
+            'no_telfon'     => $request->no_telfon,
+            'banjar'        => $request->banjar,
+            'email'         => $request->email,
+            'foto_pengguna' => $request->foto_pengguna
+        ];
 
         if ($image = $request->file('foto_pengguna')) {
             $destination    = 'foto_user_login/';
             $profileImage   = $image->getClientOriginalName();
             $image->move($destination, $profileImage);
             $data['foto_pengguna']   = "$profileImage";
-            dd($data);
         } else {
             unset($data['foto_pengguna']);
         }
         $update = User::findOrFail($id);
-        dd($update);
         $update->update($data);
 
-        return redirect('edit_profile')->with('message', 'Data Berhasil Diperbaharui');
+        return redirect('edit_profile/edit/' . $id)->with('message', 'Data Berhasil Diperbaharui');
     }
 }

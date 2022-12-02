@@ -11,10 +11,7 @@ class DashboardWargaController extends Controller
 {
     public function index()
     {
-        $totalKematian = Kematian::count();
-        $totalPernikahan = Pernikahan::count();
-        $total_sk_Keputusan = SuratKeluarKeputusan::count();
-
-        return view('pages.warga.dashboard_warga', compact('totalKematian', 'totalPernikahan', 'total_sk_Keputusan'));
+        $data['pernikahan'] = Pernikahan::all();
+        return view('pages.warga.dashboard_warga', $data);
     }
 }

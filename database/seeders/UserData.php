@@ -24,7 +24,7 @@ class UserData extends Seeder
                 'password' => bcrypt('bendesa'),
                 'banjar' => 'Banjar Pegok',
                 'no_telfon' => '82133745676',
-                'foto_pengguna' => 'foto'
+                'foto_pengguna' => ''
             ],
             [
                 'name' => 'Sekretariat Adat',
@@ -34,7 +34,7 @@ class UserData extends Seeder
                 'password' => bcrypt('sekretariat'),
                 'banjar' => 'Banjar Tengah',
                 'no_telfon' => '81234567890',
-                'foto_pengguna' => 'foto'
+                'foto_pengguna' => ''
             ],
             [
                 'name' => 'Kelihan Adat Banjar',
@@ -44,7 +44,7 @@ class UserData extends Seeder
                 'password' => bcrypt('kelihan'),
                 'banjar'  => 'Banjar Kaja',
                 'no_telfon' => '81234567890',
-                'foto_pengguna' => 'foto'
+                'foto_pengguna' => ''
             ],
         ];
 

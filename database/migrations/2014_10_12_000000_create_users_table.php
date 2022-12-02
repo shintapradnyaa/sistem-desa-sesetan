@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('level', 3);
-            $table->string('username', 50)->unique();
-            $table->string('password');
+            $table->string('username', 50);
+            $table->string('password')->nullable();
             $table->string('no_telfon');
             $table->enum('banjar', [
                 'Banjar Kaja',

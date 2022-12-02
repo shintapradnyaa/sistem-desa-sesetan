@@ -30,41 +30,44 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-            <a class="btn btn-warning" href="{{ url('dashboard_kelihan') }}" role="button"><i
-                    class="fa fa-chevron-left"></i>
-                Kembali</a>
             <!-- Main content -->
             <section class="content">
                 <form class="row g-3" action="{{ url('edit_profile/update/' . Auth::user()->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="container-fluid">
-                        <div class="row justify-content-center">
-                            <div class="col-6">
+                        @if ($message = Session::get('message'))
+                            <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                                <strong>{{ $message }}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-5">
+                                <div class="text-center">
+                                    <img src="{{ asset('foto_user_login/' . $data->foto_pengguna) }}"
+                                        class="img-thumbnail img-responsive" alt="User Image">
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="col-7">
                                 <div class="card card-primary card-outline">
                                     <div class="card-body box-profile">
-                                        <div class="text-center">
-                                            <img src="{{ asset('') }}template/adminlte/dist/img/user2-160x160.jpg"
-                                                class="img-circle elevation-2" alt="User Image">
-                                        </div>
-                                        <h3 class="profile-username text-center">
-                                            {{ $data->username }}</h3>
-                                        <p class="text text-center">
-                                            {{ date('d-M-Y', strtotime($data->created_at)) }}
-                                        </p>
-                                        <hr>
                                         <strong>
                                             <i class="fas fa-user mr-2"></i>
                                             Nama Lengkap
-                                        </strong> <input type="text" class="form-control" name="name"
-                                            id="input_name" value="{{ $data->name }}">
+                                        </strong>
+                                        <input type="text" class="form-control" name="name"
+                                            value="{{ $data->name }}">
                                         <hr>
                                         <strong>
                                             <i class="fas fa-user mr-2"></i>
-                                            Password
+                                            Username
                                         </strong>
-                                        <input type="text" class="form-control" name="password" id="input_name"
-                                            value="{{ $data->password }}">
+                                        <input type="text" class="form-control" name="username"
+                                            value="{{ $data->username }}">
                                         <hr>
                                         <strong>
                                             <i class="fas fa-phone mr-2"></i>
@@ -78,17 +81,15 @@
                                             Banjar
                                         </strong>
                                         <select id="input_banjar" class="form-select form-control" name="banjar">
-                                            <option selected disabled>{{ $data->banjar }}</option>
-                                            <option value="Banjar Kaja">Banjar Kaja</option>
-                                            <option value="Banjar Pembungan">Banjar Pembungan</option>
-                                            <option value="Banjar Tengah">Banjar Tengah</option>
-                                            <option value="Banjar Gaduh">Banjar Gaduh</option>
-                                            <option value="Banjar Puri Agung">Banjar Puri Agung</option>
-                                            <option value="Banjar Lantang Bejuh">Banjar Lantang Bejuh</option>
-                                            <option value="Banjar Dukuh Sari">Banjar Dukuh Sari</option>
-                                            <option value="Banjar Pegok">Banjar Pegok</option>
-                                            <option value="Banjar Suwung Batan Kendal">Banjar Suwung Batan
-                                                Kendal</option>
+                                            @foreach ($banjar as $item)
+                                                @if ($item == $data->banjar)
+                                                    <option value="{{ $item }}" selected>{{ $item }}
+                                                    </option>
+                                                @else
+                                                    <option value="{{ $item }}">{{ $item }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
                                         </select>
                                         <hr>
                                         <strong>
@@ -103,7 +104,11 @@
                                             Foto Pengguna
                                         </strong>
                                         <input type="file" class="form-control" name="foto_pengguna">
-                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        <button type="submit" class="btn btn-primary mt-3 float-right">Update</button>
+                                        <a class="btn btn-secondary mt-3 float-right mr-3"
+                                            href="{{ url('dashboard_kelihan') }}" role="button"><i
+                                                class="fa fa-chevron-left"></i>
+                                            Kembali</a>
                                     </div>
                                 </div>
                             </div>
