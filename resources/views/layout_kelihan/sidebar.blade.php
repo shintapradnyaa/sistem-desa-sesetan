@@ -14,7 +14,7 @@
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                   data-accordion="false">
                   <li class="nav-item">
-                      <a href="dashboard_kelihan"
+                      <a href="{{ url('dashboard_kelihan', []) }}"
                           class="nav-link {{ request()->is('dashboard_kelihan') ? 'active' : '' }}">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
@@ -24,7 +24,7 @@
                   </li>
                   <li class="nav-header"> <i class="fas fa-users"></i> DATA WARGA ADAT</li>
                   <li class="nav-item">
-                      <a href="kematian_kelihan"
+                      <a href="{{ url('kematian_kelihan', []) }}"
                           class="nav-link {{ request()->is('kematian_kelihan') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
@@ -33,7 +33,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="pernikahan_kelihan"
+                      <a href="{{ url('pernikahan_kelihan', []) }}"
                           class="nav-link {{ request()->is('pernikahan_kelihan') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
@@ -43,7 +43,7 @@
                   </li>
                   <li class="nav-header"><i class="nav-icon fa fa-envelope"></i> SURAT KELUAR</li>
                   <li class="nav-item">
-                      <a href="sk_undangan_kelihan"
+                      <a href="{{ url('sk_undangan_kelihan', []) }}"
                           class="nav-link {{ request()->is('sk_undangan_kelihan') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
@@ -52,7 +52,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="sk_keputusan_kelihan"
+                      <a href="{{ url('sk_keputusan_kelihan', []) }}"
                           class="nav-link {{ request()->is('sk_keputusan_kelihan') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
