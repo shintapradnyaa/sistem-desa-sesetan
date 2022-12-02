@@ -16,32 +16,35 @@
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <div class="dropdown-divider"></div>
-                <form action="{{ url('/logout') }}" method="get">
-                    @csrf
-                    <div class="row mb-3 ml-2 mt-2">
-                        <div class="col-3">
-                            <div class="u-img">
-                                <img src="{{ asset('foto_user_login/' . Auth::user()->foto_pengguna) }}"
-                                    class="img-circle elevation-2" alt="User Image" width="70px">
-                            </div>
-                        </div>
-                        <div class="col-">
-                            <div class="info">
-                                <p class="dropdown-item">{{ Auth::user()->name }}</p>
-                            </div>
+                <div class="row mb-3 ml-2 mt-2">
+                    <div class="col-3">
+                        <div class="u-img">
+                            <img src="{{ asset('foto_user_login/' . Auth::user()->foto_pengguna) }}"
+                                class="img-circle elevation-2" alt="User Image" width="70px">
                         </div>
                     </div>
-                    <hr />
-                    <div class="row mb-3 ml-2">
-                        <div class="col-12">
-                            <a href="{{ url('edit_profile/edit/' . Auth::user()->id) }}" type="submit"
-                                class="btn btn-rounded btn-primary btn-sm">Profil <i class="fas fa-user-edit"></i></a>
-                            <button type="submit" class="btn btn-rounded btn-danger btn-sm">
-                                Logout
-                                <i class="fas fa-power-off"></i>
-                            </button>
+                    <div class="col">
+                        <div class="info">
+                            <p class="dropdown-item">{{ Auth::user()->name }}</p>
                         </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col">
+                    <a href="{{ url('edit_profile/edit/' . Auth::user()->id) }}" type="submit"
+                        class="btn btn-rounded btn-primary btn-sm mr-3">Profil <i class="fas fa-user-edit"></i></a>
+                    <a href="{{ url('change_password/edit/' . Auth::user()->id) }}" type="submit"
+                        class="btn btn-rounded btn-primary btn-sm">Change Password <i class="fa fa-unlock-alt"
+                            aria-hidden="true"></i></a>
+                </div>
+                <hr>
+                <form action="{{ url('/logout') }}" method="get">
+                    @csrf
+                    <div class="row mb-3 ml-2">
+                        <button type="submit" class="btn btn-rounded btn-danger btn-sm">
+                            Logout
+                            <i class="fas fa-power-off"></i>
+                        </button>
                     </div>
                 </form>
                 <div class="dropdown-divider"></div>

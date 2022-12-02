@@ -257,5 +257,10 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/edit/{id}', [ProfileKelihanController::class, 'edit']);
             Route::post('/update/{id}', [ProfileKelihanController::class, 'update']);
         });
+
+        Route::group(['prefix' => 'change_password'], function () {
+            Route::get('/edit/{id}', [ProfileKelihanController::class, 'edit_password']);
+            Route::post('/update/{id}', [ProfileKelihanController::class, 'update_password']);
+        });
     });
 });

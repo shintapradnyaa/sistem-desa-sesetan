@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Kelihan;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class ProfileKelihanController extends Controller
 {
@@ -73,5 +75,34 @@ class ProfileKelihanController extends Controller
         $update->update($data);
 
         return redirect('edit_profile/edit/' . $id)->with('message', 'Data Berhasil Diperbaharui');
+    }
+
+    public function edit_password($id)
+    {
+        return view('pages.kelihan.edit_password');
+    }
+
+    public function update_password(Request $request)
+    {
+        $request->validate(
+            [
+                'current_password'  => 'required',
+                'password'          => 'required|confirmed'
+            ],
+            [
+                'current_password.required' => 'Password lama tidak boleh kosong',
+                'password.required'         => 'Password baru tidak boleh kosong',
+                'password.confirmed'        => 'Password baru anda tidak sama!'
+            ]
+        );
+
+        if (Hash::check($request->current_password, auth()->user()->password)) {
+            auth()->user()->update(['password' => Hash::make($request->password)]);
+            return back()->with('message', 'Password berhasil diperbaharui');
+        }
+
+        throw ValidationException::withMessages([
+            'current_password' => 'Password lama anda salah!'
+        ]);
     }
 }
