@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Bendesa;
 
+use App\Http\Controllers\Controller;
 use App\Models\SuratKeluarKeputusan;
 use App\Models\SuratKeluarProposal;
 use App\Models\SuratKeluarUndangan;

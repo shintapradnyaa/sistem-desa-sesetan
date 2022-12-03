@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Sekretariat;
 
+use App\Http\Controllers\Controller;
 use App\Models\Kematian;
 use App\Models\Pernikahan;
 use App\Models\SuratKeluarKeputusan;
