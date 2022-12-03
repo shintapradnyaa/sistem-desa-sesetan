@@ -27,22 +27,29 @@
                                     class="img-thumbnail">
                             </div>
                         </div>
-                        <div class="col-">
-                            <div class="info">
-                                <p class="dropdown-item">{{ Auth::user()->name }}</p>
-                            </div>
+                    </div>
+                    <div class="col">
+                        <div class="info">
+                            <p class="dropdown-item">{{ Auth::user()->name }}</p>
                         </div>
                     </div>
-                    <hr />
+                </div>
+                <hr>
+                <div class="col">
+                    <a href="{{ url('edit_profile/edit/' . Auth::user()->id) }}" type="submit"
+                        class="btn btn-rounded btn-primary btn-sm mr-3">Profil <i class="fas fa-user-edit"></i></a>
+                    <a href="{{ url('change_password/edit/' . Auth::user()->id) }}" type="submit"
+                        class="btn btn-rounded btn-primary btn-sm">Change Password <i class="fa fa-unlock-alt"
+                            aria-hidden="true"></i></a>
+                </div>
+                <hr>
+                <form action="{{ url('/logout') }}" method="get">
+                    @csrf
                     <div class="row mb-3 ml-2">
-                        <div class="col-12">
-                            <a href="{{ url('edit_profile/edit/' . Auth::user()->id) }}" type="submit"
-                                class="btn btn-rounded btn-primary btn-sm">Profil <i class="fas fa-user-edit"></i></a>
-                            <button type="submit" class="btn btn-rounded btn-danger btn-sm">
-                                Logout
-                                <i class="fas fa-power-off"></i>
-                            </button>
-                        </div>
+                        <button type="submit" class="btn btn-rounded btn-danger btn-sm">
+                            Logout
+                            <i class="fas fa-power-off"></i>
+                        </button>
                     </div>
                 </form>
                 <div class="dropdown-divider"></div>
