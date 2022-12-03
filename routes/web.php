@@ -1,12 +1,9 @@
 <?php
 
+use App\Http\Controllers\Bendesa\DashboardBendesaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardWargaController;
-use App\Http\Controllers\DashboardBendesaController;
-use App\Http\Controllers\DashboardKelihanController;
-use App\Http\Controllers\Warga\KematianWargaController;
-use App\Http\Controllers\DashboardSekretariatController;
 use App\Http\Controllers\Bendesa\KematianBendesaController;
 use App\Http\Controllers\Kelihan\KematianKelihanController;
 use App\Http\Controllers\Bendesa\PernikahanBendesaController;
@@ -20,16 +17,17 @@ use App\Http\Controllers\Bendesa\SuratKeluarUndanganBendesaController;
 use App\Http\Controllers\Bendesa\SuratMasukKeputusanBendesaController;
 use App\Http\Controllers\Kelihan\SuratKeluarUndanganKelihanController;
 use App\Http\Controllers\Bendesa\SuratKeluarKeputusanBendesaController;
+use App\Http\Controllers\Kelihan\DashboardKelihanController;
 use App\Http\Controllers\Kelihan\ProfileKelihanController;
 use App\Http\Controllers\Kelihan\SuratKeluarKeputusanKelihanController;
+use App\Http\Controllers\Sekretariat\DashboardSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratKeluarKeputusanSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukProposalSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukUndanganSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratKeluarProposalSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratKeluarUndanganSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukKeputusanSekretariatController;
-use App\Http\Controllers\Warga\PernikahanWargaController;
-use App\Http\Controllers\Warga\SuratKeluarKeputusanWargaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,12 +46,6 @@ use App\Http\Controllers\Warga\SuratKeluarKeputusanWargaController;
 
 Route::group(['prefix' => '/'], function () {
     route::get('', [DashboardWargaController::class, 'index']);
-    route::get('/warga_kematian', [KematianWargaController::class, 'index']);
-    route::get('/detail_kematian/{id}', [KematianWargaController::class, 'show']);
-    route::get('/warga_pernikahan', [PernikahanWargaController::class, 'index']);
-    route::get('/detail/{id}', [PernikahanWargaController::class, 'show']);
-    route::get('/warga_sk', [SuratKeluarKeputusanWargaController::class, 'index']);
-    route::get('/detail_sk/{id}', [SuratKeluarKeputusanWargaController::class, 'show']);
 });
 
 

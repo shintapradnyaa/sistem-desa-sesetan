@@ -32,8 +32,7 @@
             </div>
             <!-- /.content-header -->
             <div class="div ml-3">
-                <a class="btn btn-warning" href="{{ url('/warga_pernikahan') }}" role="button"><i
-                        class="fa fa-chevron-left"></i>
+                <a class="btn btn-warning" href="{{ url('#') }}" role="button"><i class="fa fa-chevron-left"></i>
                     Kembali</a>
             </div>
 
