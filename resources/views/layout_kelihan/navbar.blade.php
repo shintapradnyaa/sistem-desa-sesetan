@@ -23,7 +23,8 @@
                         <div class="col-3">
                             <div class="u-img">
                                 <img src="{{ asset('foto_user_login/' . Auth::user()->foto_pengguna) }}"
-                                    class="img-circle elevation-2" alt="User Image" width="70px">
+                                    class="img-circle elevation-2" alt="User Image" width="70px"
+                                    class="img-thumbnail">
                             </div>
                         </div>
                         <div class="col-">

@@ -25,9 +25,28 @@ class KematianBendesaController extends Controller
 
     public function edit($id)
     {
-        $data = Kematian::find($id);
-
-        return view('pages.bendesa.edit_data_kematian', compact('data'));
+        $data['data']   = Kematian::find($id);
+        $data['banjar'] = [
+            'Banjar Tengah',
+            'Banjar Pembungan',
+            'Banjar Gaduh',
+            'Banjar Kaja',
+            'Banjar Puri Agung',
+            'Banjar Lantang Bejuh',
+            'Banjar Dukuh Sari',
+            'Banjar Pegok',
+            'Banjar Suwung Batan Kendal'
+        ];
+        $data['jenis_kelamin'] = ['Pria', 'Wanita   '];
+        $data['agama'] = [
+            'Hindu',
+            'Islam',
+            'Budha',
+            'Kristen Protestan',
+            'Kristen Katolik',
+            'Konghucu'
+        ];
+        return view('pages.bendesa.edit_data_kematian', $data);
     }
 
     public function update(Request $request, $id)
@@ -55,7 +74,6 @@ class KematianBendesaController extends Controller
                 'tgl_kematian.required' => 'Tanggal Kematian Tidak Boleh Kosong',
                 'sebab_kematian.required' => 'Sebab Kematian Tidak Boleh Kosong',
                 'ahli_waris.required' => 'Nama Ahli Waris Tidak Boleh Kosong',
-                'foto_ktp.required' => 'Foto KTP tidak Boleh Kosong'
             ]
         );
 
@@ -81,12 +99,4 @@ class KematianBendesaController extends Controller
         $data->delete();
         return redirect('kematian_bendesa')->with('message', 'Data Berhasil Di Hapus');
     }
-
-    // public function export_pdf_kematian()
-    // {
-    //     $data = Kematian::all();
-    //     view()->share('data', $data);
-    //     $pdf = PDF::loadview('data_kematian-pdf');
-    //     return $pdf->download('Data_Kematian.pdf');
-    // }
 }

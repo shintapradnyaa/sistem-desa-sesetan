@@ -40,94 +40,173 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container">
-                    <div class="row mt-4 justify-content-center">
-                        <div class="col-8">
-                            <div class="card">
-                                <div class="card-body">
-                                    <form class="row g-3" action="{{ url('kematian_bendesa/update/' . $data->id) }}"
-                                        method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="col-md-12 mb-3">
-                                            <label for="input_nama" class="form-label">Nama</label>
-                                            <input type="text" class="form-control" name="nama" id="input_nama"
-                                                value="{{ $data->nama }}">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <form action="{{ url('kematian_bendesa/update/' . $data->id, []) }}" method="post"
+                                enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <Label>Nama</Label>
+                                            <input type="text" name="nama"
+                                                class="form-control
+                                                @error('nama')
+                                                    is-invalid
+                                                @enderror
+                                                "
+                                                value="{{ $data->nama }} ">
+                                            @error('nama')
+                                                <span class="text-danger text-sm">{{ $message }}</span>
+                                            @enderror
                                         </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_banjar" class="form-label">Banjar</label>
-                                            <select id="input_banjar" class="form-select form-control" name="banjar">
-                                                <option selected>{{ $data->banjar }}</option>
-                                                <option value="Hindu">Hindu</option>
-                                                <option value="Islam">Islam</option>
-                                                <option value="Budha">Budha</option>
-                                                <option value="Kristen Protestan">Kristen Protestan</option>
-                                                <option value="Kristen Katolik">Kristen Katolik</option>
-                                                <option value="Konghucu">Konghucu</option>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Banjar</label>
+                                            <select name="banjar" class="form-control">
+                                                @foreach ($banjar as $item)
+                                                    @if ($item == $data->banjar)
+                                                        <option value="{{ $item }}" selected>{{ $item }}
+                                                        </option>
+                                                    @else
+                                                        <option value="{{ $item }}">{{ $item }}
+                                                        </option>
+                                                    @endif
+                                                @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_jenis_kelamin" class="form-label">Jenis
-                                                Kelamin</label>
-                                            <select id="input_jenis_kelamin" class="form-select form-control"
-                                                name="jenis_kelamin">
-                                                <option selected>{{ $data->jenis_kelamin }}</option>
-                                                <option value="Pria">Pria</option>
-                                                <option value="Wanita">Wanita</option>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Jenis Kelamin</label>
+                                            <select name="jenis_kelamin" class="form-control">
+                                                @foreach ($jenis_kelamin as $jk)
+                                                    @if ($jk == $data->jenis_kelamin)
+                                                        <option value="{{ $jk }}" selected>
+                                                            {{ $jk }}
+                                                        </option>
+                                                    @else
+                                                        <option value="{{ $jk }}">{{ $jk }}
+                                                        </option>
+                                                    @endif
+                                                @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-md-6 ">
-                                            <label for="input_tgl_lahir" class="form-label">Tanggal Lahir</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <Label>Tanggal Lahir</Label>
                                             <input type="date" class="form-control" name="tgl_lahir"
                                                 id="input_tgl_lahir" value="{{ $data->tgl_lahir }}">
                                         </div>
-                                        <div class="col-6 mb-3">
-                                            <label for="input" class="form-label">Agama</label>
-                                            <select id="input_agama" class="form-select form-control" name="agama">
-                                                <option selected>{{ $data->agama }}</option>
-                                                <option value="Hindu">Hindu</option>
-                                                <option value="Islam">Islam</option>
-                                                <option value="Budha">Budha</option>
-                                                <option value="Kristen Protestan">Kristen Protestan</option>
-                                                <option value="Kristen Katolik">Kristen Katolik</option>
-                                                <option value="Konghucu">Konghucu</option>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <div class="label">Agama</div>
+                                            <select name="agama" class="form-control">
+                                                @foreach ($agama as $ag)
+                                                    @if ($ag == $data->agama)
+                                                        <option value="{{ $ag }}" selected>
+                                                            {{ $ag }}
+                                                        </option>
+                                                    @else
+                                                        <option value="{{ $ag }}">{{ $ag }}
+                                                        </option>
+                                                    @endif
+                                                @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="input_alamat" class="form-label">Alamat</label>
-                                            <input type="text" class="form-control" name="alamat" id="input_alamat"
-                                                value="{{ $data->alamat }}">
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <Label>Alamat</Label>
+                                            <input type="text" name="alamat"
+                                                class="form-control
+                                                @error('alamat')
+                                                    is-invalid
+                                                @enderror
+                                                "
+                                                value="{{ $data->alamat }} ">
+                                            @error('alamat')
+                                                <span class="text-danger text-sm">{{ $message }}</span>
+                                            @enderror
                                         </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_tgl_kematian" class="form-label">Tanggal Kematian</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Tanggal Kematian</label>
                                             <input type="date" class="form-control" name="tgl_kematian"
                                                 id="input_tgl_kematian" value="{{ $data->tgl_kematian }}">
                                         </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_tgl_ngaben" class="form-label">Tanggal Ngaben</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Tanggal Ngaben</label>
                                             <input type="date" class="form-control" name="tgl_ngaben"
                                                 id="input_tgl_ngaben" value="{{ $data->tgl_ngaben }}">
                                         </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="input_sebab_kematian" class="form-label">Sebab
-                                                Kematian</label>
-                                            <input type="text" class="form-control" name="sebab_kematian"
-                                                id="input_sebab_kematian" value="{{ $data->sebab_kematian }}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <Label>Sebab Kematian</Label>
+                                            <input type="text" name="sebab_kematian"
+                                                class="form-control
+                                                @error('sebab_kematian')
+                                                    is-invalid
+                                                @enderror
+                                                "
+                                                value="{{ $data->sebab_kematian }} ">
+                                            @error('sebab_kematian')
+                                                <span class="text-danger text-sm">{{ $message }}</span>
+                                            @enderror
                                         </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="input_ahli_waris" class="form-label">Nama Ahli Waris</label>
-                                            <input type="text" class="form-control" name="ahli_waris"
-                                                id="input_ahli_waris" value="{{ $data->ahli_waris }}">
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <Label>Ahli Waris</Label>
+                                            <input type="text" name="ahli_waris"
+                                                class="form-control
+                                                @error('ahli_waris')
+                                                    is-invalid
+                                                @enderror
+                                                "
+                                                value="{{ $data->ahli_waris }} ">
+                                            @error('ahli_waris')
+                                                <span class="text-danger text-sm">{{ $message }}</span>
+                                            @enderror
                                         </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="formFile" class="form-label">Foto KTP</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Foto KTP</label>
                                             <input class="form-control" name="foto_ktp" type="file"
                                                 id="formFile">
                                         </div>
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-primary btn-block">Update</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <img src="{{ asset('foto_ktp_kematian/' . $data->foto_ktp) }}"
+                                                class="img-thumbnail">
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-primary float-right">Update</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
