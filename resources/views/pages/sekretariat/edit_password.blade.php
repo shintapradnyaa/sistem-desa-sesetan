@@ -36,7 +36,7 @@
                         </button>
                     </div>
                 @endif
-                <form action="{{ url('change_password_kelihan/update/' . Auth::user()->id, []) }}" method="post">
+                <form action="{{ url('change_password_sekretariat/update/' . Auth::user()->id, []) }}" method="post">
                     @csrf
                     <div class="form-group mb-3">
                         <input type="password" name="current_password" class="form-control" placeholder="Password lama">
@@ -62,7 +62,7 @@
                             <button type="submit" class="btn btn-primary">Konfirmasi</button>
                         </div>
                         <div class="col-6 text-left">
-                            <a href="{{ url('dashboard_kelihan', []) }}" class="btn btn-secondary">Kembali</a>
+                            <a href="{{ url('dashboard_sekretariat', []) }}" class="btn btn-secondary">Kembali</a>
                         </div>
                     </div>
                 </form>

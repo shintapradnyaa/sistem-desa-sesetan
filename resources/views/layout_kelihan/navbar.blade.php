@@ -5,9 +5,9 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
     </ul>
-
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+        <!-- Notifications -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <div class="user-panel pb-3 mb-3 d-flex">
@@ -17,32 +17,28 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <div class="dropdown-divider"></div>
-                <form action="{{ url('/logout') }}" method="get">
-                    @csrf
-                    <div class="row mb-3 ml-2 mt-2">
-                        <div class="col-3">
-                            <div class="u-img">
-                                <img src="{{ asset('foto_user_login/' . Auth::user()->foto_pengguna) }}"
-                                    class="img-circle elevation-2" alt="User Image" width="70px"
-                                    class="img-thumbnail">
-                            </div>
+                <div class="row mb-3 ml-2 mt-2">
+                    <div class="col-3">
+                        <div class="u-img">
+                            <img src="{{ asset('foto_user_login/' . Auth::user()->foto_pengguna) }}"
+                                class="img-circle elevation-2" alt="User Image" width="70px">
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-9">
                         <div class="info">
                             <p class="dropdown-item">{{ Auth::user()->name }}</p>
                         </div>
                     </div>
                 </div>
-                <hr>
-                <div class="col">
-                    <a href="{{ url('edit_profile/edit/' . Auth::user()->id) }}" type="submit"
-                        class="btn btn-rounded btn-primary btn-sm mr-3">Profil <i class="fas fa-user-edit"></i></a>
-                    <a href="{{ url('change_password/edit/' . Auth::user()->id) }}" type="submit"
-                        class="btn btn-rounded btn-primary btn-sm">Change Password <i class="fa fa-unlock-alt"
-                            aria-hidden="true"></i></a>
+                <hr />
+                <div class="row mb-3 ml-2 mt-2">
+                    <a href="{{ url('edit_profile/edit/' . Auth::user()->id) }}"
+                        class="btn btn-rounded btn-primary btn-sm mr-2">Profil <i class="fas fa-user-edit"></i></a>
+                    <a href="{{ url('change_password/edit/' . Auth::user()->id) }}"
+                        class="btn btn-rounded btn-primary btn-sm float-left">Change Password <i
+                            class="fa fa-unlock-alt" aria-hidden="true"></i></a>
                 </div>
-                <hr>
+                <hr />
                 <form action="{{ url('/logout') }}" method="get">
                     @csrf
                     <div class="row mb-3 ml-2">
@@ -56,4 +52,5 @@
             </div>
         </li>
     </ul>
+
 </nav>

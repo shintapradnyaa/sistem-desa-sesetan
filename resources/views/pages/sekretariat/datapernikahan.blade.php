@@ -120,7 +120,7 @@
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
-                                                    <option selected>Pilih Banjar</option>
+                                                    <option selected disabled>Pilih Banjar</option>
                                                     <option value="Banjar Kaja">Banjar Kaja</option>
                                                     <option value="Banjar Pembungan">Banjar Pembungan</option>
                                                     <option value="Banjar Tengah">Banjar Tengah</option>
@@ -167,7 +167,7 @@
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
-                                                    <option selected>Pilih Status Pria</option>
+                                                    <option selected disabled>Pilih Status Pria</option>
                                                     <option value="Purusa">Purusa</option>
                                                     <option value="Pradana">Pradana</option>
                                                 </select>
@@ -239,7 +239,7 @@
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
-                                                    <option selected>Pilih Status Wanita</option>
+                                                    <option selected disabled>Pilih Status Wanita</option>
                                                     <option value="Purusa">Purusa</option>
                                                     <option value="Pradana">Pradana</option>
                                                 </select>
@@ -296,7 +296,7 @@
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
-                                                <option selected>Pilih Status Surat</option>
+                                                <option selected disabled>Pilih Status Surat</option>
                                                 <option value="Proses">Proses</option>
                                                 <option value="Selesai">Selesai</option>
                                             </select>

@@ -111,52 +111,6 @@ class LoginController extends Controller
         $data = User::find($id);
         return view('pages.bendesa.detail_pengguna', compact('data'));
     }
-    public function edit($id)
-    {
-        $data = User::find($id);
-
-        return view('pages.bendesa.edit_pengguna', compact('data'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $request->validate(
-            [
-                'level'     => 'required',
-                'username'  => 'required',
-                'name'      => 'required',
-                'no_telfon' => 'required',
-                'banjar'    => 'required',
-                'email'     => 'required|email',
-                'foto_pengguna' => 'mimes:jpg,png,jpeg|image|max:2048'
-            ],
-            [
-                'level.required' => 'Level Tidak Boleh Kosong',
-                'username.required' => 'Username Tidak Boleh Kosong',
-                'password.required' => 'Password Tidak Boleh Kosong',
-                'name.required' => 'Nama Lengkap Tidak Boleh Kosong',
-                'no_telfon.required' => 'Nomor Telepon Tidak Boleh Kosong',
-                'banjar.required' => 'Banjar Tidak Boleh Kosong',
-                'email.required' => 'Email Tidak Boleh Kosong'
-            ]
-        );
-
-        $data = $request->all();
-
-        if ($image = $request->file('foto_pengguna')) {
-            $destination    = 'foto_user_login/';
-            $profileImage   = $image->getClientOriginalName();
-            $image->move($destination, $profileImage);
-            $data['foto_pengguna']   = "$profileImage";
-        } else {
-            unset($data['foto_pengguna']);
-        }
-        $update = User::findOrFail($id);
-        $update->update($data);
-
-
-        return redirect('kelola_pengguna')->with('message', 'Data Berhasil Diperbaharui');
-    }
     public function delete($id)
     {
         $data = User::find($id);

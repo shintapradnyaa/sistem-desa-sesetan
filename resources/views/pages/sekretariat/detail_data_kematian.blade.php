@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    @include('layout_bendesa.header')
+    @include('layout_sekretariat.header')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         <!-- Navbar -->
-        @include('layout_bendesa.navbar')
+        @include('layout_sekretariat.navbar')
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('layout_bendesa.sidebar')
+        @include('layout_sekretariat.sidebar')
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
@@ -139,10 +139,10 @@
 
 
         <!-- Main Footer -->
-        @include('layout_bendesa.footer')
+        @include('layout_sekretariat.footer')
     </div>
     <!-- ./wrapper -->
-    @include('layout_bendesa.script')
+    @include('layout_sekretariat.script')
 </body>
 
 </html>

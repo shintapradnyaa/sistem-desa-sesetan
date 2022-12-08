@@ -275,10 +275,6 @@
                                                 class="btn btn-sm btn-info">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
-                                            <a href="{{ url('kelola_pengguna/edit/' . $row->id) }}"
-                                                class="btn btn-sm btn-warning">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
                                             <a href="{{ url('kelola_pengguna/delete/' . $row->id) }}"
                                                 class="btn btn-sm btn-danger">
                                                 <i class="fas fa-trash-alt"></i>

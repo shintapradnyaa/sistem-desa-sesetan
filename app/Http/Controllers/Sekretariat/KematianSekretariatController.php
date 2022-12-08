@@ -67,9 +67,29 @@ class KematianSekretariatController extends Controller
 
     public function edit($id)
     {
-        $data = Kematian::find($id);
+        $data['data']   = Kematian::find($id);
+        $data['banjar'] = [
+            'Banjar Tengah',
+            'Banjar Pembungan',
+            'Banjar Gaduh',
+            'Banjar Kaja',
+            'Banjar Puri Agung',
+            'Banjar Lantang Bejuh',
+            'Banjar Dukuh Sari',
+            'Banjar Pegok',
+            'Banjar Suwung Batan Kendal'
+        ];
+        $data['jenis_kelamin'] = ['Pria', 'Wanita'];
+        $data['agama'] = [
+            'Hindu',
+            'Islam',
+            'Budha',
+            'Kristen Protestan',
+            'Kristen Katolik',
+            'Konghucu'
+        ];
 
-        return view('pages.sekretariat.edit_data_kematian', compact('data'));
+        return view('pages.sekretariat.edit_data_kematian', $data);
     }
 
     public function update(Request $request, $id)

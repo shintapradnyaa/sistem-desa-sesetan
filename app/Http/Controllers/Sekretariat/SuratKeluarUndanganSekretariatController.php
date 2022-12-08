@@ -21,6 +21,22 @@ class SuratKeluarUndanganSekretariatController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'no_sk_undangan' => 'required',
+                'tgl_sk_keluar'   => 'required',
+                'perihal_sk'      => 'required',
+                'ditujukan_sk'    => 'required',
+                'foto_sk_undangan' => 'mimes:jpg,png,jpeg|image|max:2048'
+            ],
+            [
+                'no_sk_undangan.required' => 'Nomor Surat Tidak Boleh Kosong',
+                'tgl_sk_keluar.required'   => 'Tanggal Surat Keluar Tidak Boleh Kosong',
+                'perihal_sk.required'      => 'Perihal Surat Tidak Boleh Kosong',
+                'ditujukan_sk.required'    => 'Tidak Boleh Kosong',
+                'foto_sk_undangan.required' => 'Foto Surat Undangan Tidak Boleh Kosong'
+            ]
+        );
         $data = SuratKeluarUndangan::create($request->all());
         if ($request->hasFile('foto_sk_undangan')) {
             $request->file('foto_sk_undangan')->move('foto_sk_undangan/', $request->file('foto_sk_undangan')->getClientOriginalName());
@@ -38,7 +54,7 @@ class SuratKeluarUndanganSekretariatController extends Controller
 
     public function edit($id)
     {
-        $data = SuratKeluarUndangan::find($id);
+        $data= SuratKeluarUndangan::find($id);
         return view('pages.sekretariat.edit_sk_undangan', compact('data'));
     }
 

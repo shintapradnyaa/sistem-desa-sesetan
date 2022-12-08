@@ -85,7 +85,7 @@
                                                 <label for="input_banjar" class="form-label">Banjar</label>
                                                 <select id="input_banjar" class="form-select form-control"
                                                     name="banjar">
-                                                    <option selected>Pilih Banjar</option>
+                                                    <option selected disabled>Pilih Banjar</option>
                                                     <option value="Banjar Kaja">Banjar Kaja</option>
                                                     <option value="Banjar Pembungan">Banjar Pembungan</option>
                                                     <option value="Banjar Tengah">Banjar Tengah</option>
@@ -107,7 +107,7 @@
                                                     Kelamin</label>
                                                 <select id="input_jenis_kelamin" class="form-select form-control"
                                                     name="jenis_kelamin">
-                                                    <option selected>Pilih Jenis Kelamin</option>
+                                                    <option selected disabled>Pilih Jenis Kelamin</option>
                                                     <option value="pria">Pria</option>
                                                     <option value="wanita">Wanita</option>
                                                 </select>
@@ -129,7 +129,7 @@
                                                 <label for="input_agama" class="form-label">Agama</label>
                                                 <select id="input_agama" class="form-select form-control"
                                                     name="agama">
-                                                    <option selected>Pilih Agama</option>
+                                                    <option selected disabled>Pilih Agama</option>
                                                     <option value="Hindu">Hindu</option>
                                                     <option value="Islam">Islam</option>
                                                     <option value="Budha">Budha</option>
@@ -155,8 +155,8 @@
                                         <div class="col-md-6">
                                             <label for="input_tgl_ngaben" class="form-label">Tanggal
                                                 Ngaben</label>
-                                            <input type="date" class="form-control" name="tgl_ngaben"
-                                                id="input_tgl_ngaben">
+                                            <input class="form-control" id="Input_tgl_ngaben" type="date"
+                                                name="tgl_ngaben" readonly>
                                         </div>
                                     </div>
                                     <div class="col-12">

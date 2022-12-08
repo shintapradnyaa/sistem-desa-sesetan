@@ -142,7 +142,7 @@
                                     <div class="mb-12">
                                         <label for="formFile" class="form-label">Foto Surat Keluar</label>
                                         <input name="foto_sk_undangan" type="file" id="formFile"
-                                            class="form-control
+                                            class="form-control 
                                             @error('foto_sk_undangan')
                                             is-invalid
                                             @enderror"

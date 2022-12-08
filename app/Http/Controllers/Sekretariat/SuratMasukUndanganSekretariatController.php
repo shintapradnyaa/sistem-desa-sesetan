@@ -61,8 +61,36 @@ class SuratMasukUndanganSekretariatController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = SuratMasukUndangan::find($id);
-        $data->update($request->all());
+        $this->validate(
+            $request,
+            [
+                'no_sm_undangan' => 'required',
+                'tgl_sm_masuk'   => 'required',
+                'perihal_sm'      => 'required',
+                'asal_sm'         => 'required',
+                'ditujukan_sm'    => 'required',
+                'foto_sm_undangan' => 'mimes:jpg,png,jpeg|image|max:2048'
+            ],
+            [
+                'no_sm_undangan.required' => 'Nomor Surat Tidak Boleh Kosong',
+                'tgl_sm_masuk.required'   => 'Tanggal Surat Masuk Tidak Boleh Kosong',
+                'perihal_sm.required'      => 'Perihal Surat Tidak Boleh Kosong',
+                'asal_sm.required'         => 'Asal Surat Tidak Boleh Kosong',
+                'ditujukan_sm.required'    => 'Tidak Boleh Kosong',
+                'foto_sm_undangan.required' => 'Foto Surat Undangan Tidak Boleh Kosong'
+            ]
+        );
+        $data = $request->all();
+        if ($image = $request->file('foto_sm_undangan')) {
+            $destination    = 'foto_sm_undangan/';
+            $profileImage   = $image->getClientOriginalName();
+            $image->move($destination, $profileImage);
+            $data['foto_sm_undangan']   = "$profileImage";
+        } else {
+            unset($data['foto_sm_undangan']);
+        }
+        $update = SuratMasukUndangan::findOrFail($id);
+        $update->update($data);
         return redirect('sm_undangan_sekretariat')->with('message', 'Data Berhasil Di Update');
     }
 

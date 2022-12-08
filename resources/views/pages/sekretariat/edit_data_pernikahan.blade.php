@@ -40,110 +40,159 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container">
-                    <div class="row mt-4 justify-content-center">
-                        <div class="col-8">
-                            <div class="card">
-                                <div class="card-body">
-                                    <form class="row g-3"
-                                        action="{{ url('pernikahan_sekretariat/update/' . $data->id) }}" method="POST"
-                                        enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_no_suket" class="form-label">Nomor Surat
-                                                Keterangan</label>
-                                            <input type="text" class="form-control" name="no_suket"
-                                                id="input_no_suket" value="{{ $data->no_suket }}">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_tgl_pernikahan" class="form-label">Tanggal
-                                                Pernikahan</label>
-                                            <input type="date" class="form-control" name="tgl_pernikahan"
-                                                id="input_tgl_pernikahan" value="{{ $data->tgl_pernikahan }}">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_banjar" class="form-label">Banjar</label>
-                                            <select id="input_banjar" class="form-select form-control" name="banjar">
-                                                <option selected disabled>{{ $data->banjar }}</option>
-                                                <option value="Banjar Kaja">Banjar Kaja</option>
-                                                <option value="Banjar Pembungan">Banjar Pembungan</option>
-                                                <option value="Banjar Tengah">Banjar Tengah</option>
-                                                <option value="Banjar Gaduh">Banjar Gaduh</option>
-                                                <option value="Banjar Puri Agung">Banjar Puri Agung</option>
-                                                <option value="Banjar Lantang Bejuh">Banjar Lantang Bejuh</option>
-                                                <option value="Banjar Dukuh Sari">Banjar Dukuh Sari</option>
-                                                <option value="Banjar Pegok">Banjar Pegok</option>
-                                                <option value="Banjar Suwung Batan Kendal">Banjar Suwung Batan
-                                                    Kendal</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_status_surat" class="form-label">Status
-                                                Surat</label>
-                                            <select id="input_status_surat" class="form-select form-control"
-                                                name="status_surat">
-                                                <option selected disabled>{{ $data->status_surat }}</option>
-                                                <option value="Proses">Proses</option>
-                                                <option value="Selesai">Selesai</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="input_nama_pria" class="form-label">Nama Pria</label>
-                                            <input type="text" class="form-control" name="nama_pria"
-                                                id="input_nama_pria" value="{{ $data->nama_pria }}">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_status_pria" class="form-label">Status Pria</label>
-                                            <select id="input_status_pria" class="form-select form-control"
-                                                name="status_pria">
-                                                <option selected disabled>{{ $data->status_pria }}</option>
-                                                <option value="Purusa">Purusa</option>
-                                                <option value="Pradana">Pradana</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_tgl_lahir_pria" class="form-label">Tanggal
-                                                Lahir Pria</label>
-                                            <input type="date" class="form-control" name="tgl_lahir_pria"
-                                                id="input_tgl_lahir_pria" value="{{ $data->tgl_lahir_pria }}">
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="input_alamat_pria" class="form-label">Alamat Pria</label>
-                                            <input type="text" class="form-control" name="alamat_pria"
-                                                id="input_alamat_pria" value="{{ $data->alamat_pria }}">
-                                        </div>
-                                        <div class="col-md-12">
-                                            <label for="input_nama_wanita" class="form-label">Nama Wanita</label>
-                                            <input type="text" class="form-control" name="nama_wanita"
-                                                id="input_nama_wanita" value="{{ $data->nama_wanita }}">
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_status_wanita" class="form-label">Status
-                                                Wanita</label>
-                                            <select id="input_status_wanita" class="form-select form-control"
-                                                name="status_wanita">
-                                                <option selected disabled>{{ $data->status_wanita }}</option>
-                                                <option value="Purusa">Purusa</option>
-                                                <option value="Pradana">Pradana</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="input_tgl_lahir_wanita" class="form-label">Tanggal
-                                                Lahir Wanita</label>
-                                            <input type="date" class="form-control" name="tgl_lahir_wanita"
-                                                id="input_tgl_lahir_wanita" value="{{ $data->tgl_lahir_wanita }}">
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="input_alamat_wanita" class="form-label">Alamat
-                                                Wanita</label>
-                                            <input type="text" class="form-control" name="alamat_wanita"
-                                                id="input_alamat_wanita" value="{{ $data->alamat_wanita }}">
-                                        </div>
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-primary btn-block">Update</button>
-                                        </div>
-                                    </form>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <form class="row g-3" action="{{ url('pernikahan_sekretariat/update/' . $data->id) }}"
+                                method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="col-md-6 mb-3">
+                                    <label for="input_no_suket" class="form-label">Nomor Surat
+                                        Keterangan</label>
+                                    <input type="text" name="no_suket"
+                                        class="form-control 
+                                    @error('no_suket')
+                                        is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->no_suket }} ">
+                                    @error('no_suket')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
-                            </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input_tgl_pernikahan" class="form-label">Tanggal
+                                        Pernikahan</label>
+                                    <input type="date" class="form-control" name="tgl_pernikahan"
+                                        value="{{ $data->tgl_pernikahan }}">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input_banjar" class="form-label">Banjar</label>
+                                    <select id="input_banjar" name="banjar" class="form-select form-control">
+                                        @foreach ($banjar as $item)
+                                            @if ($item == $data->banjar)
+                                                <option value="{{ $item }}" selected>{{ $item }}
+                                                </option>
+                                            @else
+                                                <option value="{{ $item }}">{{ $item }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-6
+                                        mb-3">
+                                    <label for="input_status_surat" class="form-label">Status
+                                        Surat</label>
+                                    <select name="status_surat" class="form-select form-control">
+                                        @foreach ($status_surat as $st)
+                                            @if ($st == $data->status_surat)
+                                                <option value="{{ $st }}" selected>{{ $st }}
+                                                </option>
+                                            @else
+                                                <option value="{{ $st }}">{{ $st }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="input_nama_pria" class="form-label">Nama Pria</label>
+                                    <input type="text" name="nama_pria"
+                                        class="form-control  
+                                    @error('nama_pria')
+                                    is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->nama_pria }} ">
+                                    @error('nama_pria')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input_status_pria" class="form-label">Status Pria</label>
+                                    <select name="status_pria" class="form-control">
+                                        @foreach ($status_pria as $sp)
+                                            @if ($sp == $data->status_pria)
+                                                <option value="{{ $sp }}" selected>{{ $sp }}
+                                                </option>
+                                            @else
+                                                <option value="{{ $sp }}">{{ $sp }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input_tgl_lahir_pria" class="form-label">Tanggal
+                                        Lahir Pria</label>
+                                    <input type="date" class="form-control" name="tgl_lahir_pria"
+                                        value="{{ $data->tgl_lahir_pria }}">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="input_alamat_pria" class="form-label">Alamat Pria</label>
+                                    <input type="text"
+                                        name="alamat_pria"class="form-control 
+                                    @error('alamat_pria')
+                                    is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->alamat_pria }} ">
+                                    @error('alamat_pria')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="input_nama_wanita" class="form-label">Nama Wanita</label>
+                                    <input type="text" name="nama_wanita"
+                                        class="form-control 
+                                    @error('nama_wanita')
+                                    is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->nama_wanita }} ">
+                                    @error('nama_wanita')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input_status_wanita" class="form-label">Status
+                                        Wanita</label>
+                                    <select name="status_wanita" class="form-control">
+                                        @foreach ($status_wanita as $sw)
+                                            @if ($sw == $data->status_wanita)
+                                                <option value="{{ $sw }}" selected>{{ $sw }}
+                                                </option>
+                                            @else
+                                                <option value="{{ $sw }}">{{ $sw }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input_tgl_lahir_wanita" class="form-label">Tanggal
+                                        Lahir Wanita</label>
+                                    <input type="date" name="tgl_lahir_wanita" class="form-control"
+                                        value="{{ $data->tgl_lahir_wanita }}">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="input_alamat_wanita" class="form-label">Alamat
+                                        Wanita</label>
+                                    <input type="text" name="alamat_wanita"
+                                        class="form-control 
+                                    @error('alamat_wanita')
+                                    is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->alamat_wanita }} ">
+                                    @error('alamat_wanita')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-block">Update</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

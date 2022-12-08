@@ -85,12 +85,6 @@
                                                 title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="{{ url('kematian_bendesa/delete/' . $row_kematian->id) }}"
-                                                class="btn btn-sm btn-danger delete"
-                                                onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data Tersebut?')"
-                                                title="Hapus Data">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

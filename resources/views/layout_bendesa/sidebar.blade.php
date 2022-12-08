@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li
-                    class="nav-item has-treeview {{ request()->is('kematian_bendesa') || request()->is('pernikahan_bendesa') ? 'menu-open' : '' }}">
+                    class="nav-item has-treeview {{ request()->is('kematian_bendesa') || request()->is('kematian_bendesa/detail/' . request()->segment(3)) || request()->is('kematian_bendesa/edit/' . request()->segment(3)) || request()->is('pernikahan_bendesa') || request()->is('pernikahan_bendesa/detail/' . request()->segment(3)) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="fas fa-users"></i>
                         <p>
@@ -34,14 +34,14 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ url('kematian_bendesa') }}"
-                                class="nav-link {{ request()->is('kematian_bendesa') ? 'active' : '' }}">
+                                class="nav-link {{ request()->is('kematian_bendesa') || request()->is('kematian_bendesa/detail/' . request()->segment(3)) || request()->is('kematian_bendesa/edit/' . request()->segment(3)) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Kematian</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('pernikahan_bendesa') }}"
-                                class="nav-link {{ request()->is('pernikahan_bendesa') ? 'active' : '' }}">
+                                class="nav-link {{ request()->is('pernikahan_bendesa') || request()->is('pernikahan_bendesa/detail/' . request()->segment(3)) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Pernikahan</p>
                             </a>
@@ -49,7 +49,7 @@
                     </ul>
                 </li>
                 <li
-                    class="nav-item has-treeview {{ request()->is('sk_keputusan_bendesa') || request()->is('sk_undangan_bendesa') || request()->is('sk_proposal_bendesa') ? 'menu-open' : '' }}">
+                    class="nav-item has-treeview {{ request()->is('sk_keputusan_bendesa') || request()->is('sk_keputusan_bendesa/detail/' . request()->segment(3)) || request()->is('sk_undangan_bendesa') || request()->is('sk_undangan_bendesa/detail/' . request()->segment(3)) || request()->is('sk_proposal_bendesa') || request()->is('sk_proposal_bendesa/detail/' . request()->segment(3)) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-envelope"></i>
                         <p>
@@ -60,21 +60,21 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ url('sk_keputusan_bendesa') }}"
-                                class="nav-link {{ request()->is('sk_keputusan_bendesa') ? 'active' : '' }}">
+                                class="nav-link {{ request()->is('sk_keputusan_bendesa') || request()->is('sk_keputusan_bendesa/detail/' . request()->segment(3)) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Keluar Keputusan</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('sk_undangan_bendesa') }}"
-                                class="nav-link {{ request()->is('sk_undangan_bendesa') ? 'active' : '' }}">
+                                class="nav-link {{ request()->is('sk_undangan_bendesa') || request()->is('sk_undangan_bendesa/detail/' . request()->segment(3)) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Keluar Undangan</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('sk_proposal_bendesa') }}"
-                                class="nav-link {{ request()->is('sk_proposal_bendesa') ? 'active' : '' }}">
+                                class="nav-link {{ request()->is('sk_proposal_bendesa') || request()->is('sk_proposal_bendesa/detail/' . request()->segment(3)) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Keluar Proposal</p>
                             </a>
@@ -82,7 +82,7 @@
                     </ul>
                 </li>
                 <li
-                    class="nav-item has-treeview {{ request()->is('sm_keputusan_bendesa') || request()->is('sm_undangan_bendesa') || request()->is('sm_proposal_bendesa') ? 'menu-open' : '' }}">
+                    class="nav-item has-treeview {{ request()->is('sm_keputusan_bendesa') || request()->is('sm_keputusan_bendesa/detail/' . request()->segment(3)) || request()->is('sm_undangan_bendesa') || request()->is('sm_undangan_bendesa/detail/' . request()->segment(3)) || request()->is('sm_proposal_bendesa') || request()->is('sm_proposal_bendesa/detail/' . request()->segment(3)) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-folder-open"></i>
                         <p>
@@ -93,21 +93,21 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ url('sm_keputusan_bendesa') }}"
-                                class="nav-link {{ request()->is('sm_keputusan_bendesa') ? 'active' : '' }}">
+                                class="nav-link {{ request()->is('sm_keputusan_bendesa') || request()->is('sm_keputusan_bendesa/detail/' . request()->segment(3)) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Masuk Keputusan</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('sm_undangan_bendesa') }}"
-                                class="nav-link {{ request()->is('sm_undangan_bendesa') ? 'active' : '' }}">
+                                class="nav-link {{ request()->is('sm_undangan_bendesa') || request()->is('sm_undangan_bendesa/detail/' . request()->segment(3)) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Masuk Undangan</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('sm_proposal_bendesa') }}"
-                                class="nav-link {{ request()->is('sm_proposal_bendesa') ? 'active' : '' }}">
+                                class="nav-link {{ request()->is('sm_proposal_bendesa') || request()->is('sm_proposal_bendesa/detail/' . request()->segment(3)) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Surat Masuk Proposal</p>
                             </a>
@@ -116,7 +116,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('kelola_pengguna') }}"
-                        class="nav-link {{ request()->is('kelola_pengguna') || request()->is('kelola_pengguna/edit/' . request()->segment(3)) ? 'active' : '' }}">
+                        class="nav-link {{ request()->is('kelola_pengguna') || request()->is('kelola_pengguna/detail/' . request()->segment(3)) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
                             PENGGUNA

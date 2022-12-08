@@ -39,60 +39,78 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container">
-                    <div class="row mt-4 justify-content-center">
-                        <div class="col-8">
-                            <div class="card">
-                                <div class="card-body">
-                                    <form class="row g-3"
-                                        action="{{ url('sk_proposal_sekretariat/update/' . $data->id) }}" method="POST"
-                                        enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="input_no_sk_proposal" class="form-label">Nomor Surat
-                                                    Keluar</label>
-                                                <input type="text" class="form-control" name="no_sk_proposal"
-                                                    id="input_no_sk_proposal" value="{{ $data->no_sk_proposal }}">
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="input_tgl_sk_keluar" class="form-label">Tanggal Surat
-                                                        proposal Keluar</label>
-                                                    <input type="date" class="form-control form-control"
-                                                        name="tgl_sk_keluar" id="input_tgl_sk_keluar"
-                                                        value="{{ $data->tgl_sk_keluar }}">
-                                                </div>
-                                            </div>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <form class="row g-3" action="{{ url('sk_proposal_sekretariat/update/' . $data->id) }}"
+                                method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="input_no_sk_proposal" class="form-label">Nomor Surat
+                                            Keluar</label>
+                                        <input type="text" name="no_sk_proposal"
+                                            class="form-control 
+                                        @error('no_sk_proposal')
+                                        is-invalid
+                                        @enderror
+                                        "
+                                            value="{{ $data->no_sk_proposal }} ">
+                                        @error('no_sk_proposal')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="input_tgl_sk_keluar" class="form-label">Tanggal Surat
+                                                proposal Keluar</label>
+                                            <input type="date" name="tgl_sk_keluar" class="form-control"
+                                                value="{{ $data->tgl_sk_keluar }}">
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="input_perihal_sk" class="form-label">Perihal Surat
-                                                    Keluar proposal</label>
-                                                <input type="text" class="form-control" name="perihal_sk"
-                                                    id="input_perihal_sk" value="{{ $data->perihal_sk }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="input_ditujukan_sk" class="form-label">Ditujukan
-                                                    Kepada</label>
-                                                <input type="text" class="form-control" name="ditujukan_sk"
-                                                    id="input_ditujukan_sk" value="{{ $data->ditujukan_sk }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="formFile" class="form-label">Foto Surat Keluar</label>
-                                                <input class="form-control" name="foto_sk_proposal" type="file"
-                                                    id="formFile">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-primary btn-block">Update</button>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="input_perihal_sk" class="form-label">Perihal Surat
+                                            Keluar proposal</label>
+                                        <input type="text" name="perihal_sk"
+                                            class="form-control
+                                        @error('perihal_sk')
+                                        is-invalid
+                                        @enderror
+                                        "
+                                            value="{{ $data->perihal_sk }} ">
+                                        @error('perihal_sk')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="input_ditujukan_sk" class="form-label">Ditujukan
+                                            Kepada</label>
+                                        <input type="text" name="ditujukan_sk"
+                                            class="form-control
+                                        @error('perihal_sk')
+                                        is-invalid
+                                        @enderror
+                                        "
+                                            value="{{ $data->perihal_sk }} ">
+                                        @error('perihal_sk')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="formFile" class="form-label">Foto Surat Keluar</label>
+                                        <input class="form-control" name="foto_sk_proposal" type="file"
+                                            id="formFile">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-block">Update</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

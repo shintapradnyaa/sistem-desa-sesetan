@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardWargaController;
 use App\Http\Controllers\Bendesa\KematianBendesaController;
 use App\Http\Controllers\Kelihan\KematianKelihanController;
 use App\Http\Controllers\Bendesa\PernikahanBendesaController;
+use App\Http\Controllers\Bendesa\ProfileBendesaController;
 use App\Http\Controllers\Kelihan\PernikahanKelihanController;
 use App\Http\Controllers\Sekretariat\KematianSekretariatController;
 use App\Http\Controllers\Bendesa\SuratMasukProposalBendesaController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\Kelihan\DashboardKelihanController;
 use App\Http\Controllers\Kelihan\ProfileKelihanController;
 use App\Http\Controllers\Kelihan\SuratKeluarKeputusanKelihanController;
 use App\Http\Controllers\Sekretariat\DashboardSekretariatController;
+use App\Http\Controllers\Sekretariat\ProfileSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratKeluarKeputusanSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukProposalSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukUndanganSekretariatController;
@@ -116,9 +118,17 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/create', [LoginController::class, 'create']);
             Route::post('/store', [LoginController::class, 'store']);
             Route::get('/detail/{id}', [LoginController::class, 'show']);
-            Route::get('/edit/{id}', [LoginController::class, 'edit']);
-            Route::post('/update/{id}', [LoginController::class, 'update']);
             Route::get('/delete/{id}', [LoginController::class, 'delete']);
+        });
+        Route::group(['prefix' => 'edit_profile_bendesa'], function () {
+            Route::get('', [ProfileBendesaController::class, 'index']);
+            Route::get('/edit/{id}', [ProfileBendesaController::class, 'edit']);
+            Route::post('/update/{id}', [ProfileBendesaController::class, 'update']);
+        });
+
+        Route::group(['prefix' => 'change_password_bendesa'], function () {
+            Route::get('/edit/{id}', [ProfileBendesaController::class, 'edit_password']);
+            Route::post('/update/{id}', [ProfileBendesaController::class, 'update_password']);
         });
     });
 
@@ -211,6 +221,16 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/edit/{id}', [SuratMasukUndanganSekretariatController::class, 'edit']);
             Route::post('/update/{id}', [SuratMasukUndanganSekretariatController::class, 'update']);
             Route::get('/delete/{id}', [SuratMasukUndanganSekretariatController::class, 'delete']);
+        });
+        Route::group(['prefix' => 'edit_profile_sekretariat'], function () {
+            Route::get('', [ProfileSekretariatController::class, 'index']);
+            Route::get('/edit/{id}', [ProfileSekretariatController::class, 'edit']);
+            Route::post('/update/{id}', [ProfileSekretariatController::class, 'update']);
+        });
+
+        Route::group(['prefix' => 'change_password_sekretariat'], function () {
+            Route::get('/edit/{id}', [ProfileSekretariatController::class, 'edit_password']);
+            Route::post('/update/{id}', [ProfileSekretariatController::class, 'update_password']);
         });
     });
 
