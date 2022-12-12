@@ -12,7 +12,7 @@ class KematianBendesaController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Kematian::all();
+        $data = Kematian::orderBy('tgl_kematian', 'desc')->get();
         return view('pages.bendesa.datakematian', compact('data'));
     }
 

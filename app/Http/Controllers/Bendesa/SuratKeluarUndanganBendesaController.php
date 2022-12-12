@@ -10,7 +10,7 @@ class SuratKeluarUndanganBendesaController extends Controller
 {
     public function index()
     {
-        $data = SuratKeluarUndangan::all();
+        $data = SuratKeluarUndangan::orderBy('tgl_sk_keluar', 'desc')->get();
         return view('pages.bendesa.data_sk_undangan', compact('data'));
     }
 

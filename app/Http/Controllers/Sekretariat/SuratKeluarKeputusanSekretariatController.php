@@ -10,7 +10,7 @@ class SuratKeluarKeputusanSekretariatController extends Controller
 {
     public function index()
     {
-        $data = SuratKeluarKeputusan::all();
+        $data = SuratKeluarKeputusan::orderBy('tgl_sk_keluar', 'desc')->get();
         return view('pages.sekretariat.data_sk_keputusan', compact('data'));
     }
 

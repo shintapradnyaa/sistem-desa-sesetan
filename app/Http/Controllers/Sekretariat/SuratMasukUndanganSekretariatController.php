@@ -10,7 +10,7 @@ class SuratMasukUndanganSekretariatController extends Controller
 {
     public function index()
     {
-        $data = SuratMasukUndangan::all();
+        $data = SuratMasukUndangan::orderBy('tgl_sm_masuk', 'desc')->get();
         return view('pages.sekretariat.data_sm_undangan', compact('data'));
     }
 

@@ -7,13 +7,11 @@ use Illuminate\Http\Request;
 
 use App\Models\SuratKeluarKeputusan;
 
-use function GuzzleHttp\Promise\all;
-
 class SuratKeluarKeputusanBendesaController extends Controller
 {
     public function index()
     {
-        $data = SuratKeluarKeputusan::all();
+        $data = SuratKeluarKeputusan::orderBy('tgl_sk_keluar', 'desc')->get();
         return view('pages.bendesa.data_sk_keputusan', compact('data'));
     }
     public function show($id)

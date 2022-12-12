@@ -11,9 +11,9 @@ class DashboardWargaController extends Controller
 {
     public function index()
     {
-        $data['pernikahan'] = Pernikahan::orderBy('id', 'desc')->get();
-        $data['kematian'] = Kematian::orderBy('id', 'desc')->get();
-        $data['sk_keputusan'] = SuratKeluarKeputusan::orderBy('id', 'desc')->get();
+        $data['pernikahan'] = Pernikahan::orderBy('no_suket', 'desc')->get();
+        $data['kematian'] = Kematian::orderBy('tgl_kematian', 'desc')->get();
+        $data['sk_keputusan'] = SuratKeluarKeputusan::orderBy('tgl_sk_keluar', 'desc')->get();
 
         return view('pages.warga.dashboard_warga', $data);
     }

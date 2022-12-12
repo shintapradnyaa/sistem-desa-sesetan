@@ -180,7 +180,7 @@
                                             <tr>
                                                 <th scope="row">{{ $no++ }}</th>
                                                 <td>{{ $row->no_sk_keputusan }}</td>
-                                                <td>{{ $row->tgl_sk_keluar }}</td>
+                                                <td>{{ date('d-M-Y', strtotime($row->tgl_sk_keluar)) }}</td>
                                                 <td>{{ $row->perihal_sk }}</td>
                                                 <td>{{ $row->ditujukan_sk }}</td>
                                                 <td>

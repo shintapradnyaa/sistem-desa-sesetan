@@ -13,7 +13,7 @@ class PernikahanBendesaController extends Controller
 {
     public function index()
     {
-        $data = Pernikahan::all();
+        $data = Pernikahan::orderBy('no_suket', 'desc')->get();
         return view('pages.bendesa.datapernikahan', compact('data'));
     }
     public function show($id)

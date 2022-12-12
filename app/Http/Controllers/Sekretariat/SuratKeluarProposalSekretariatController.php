@@ -10,7 +10,7 @@ class SuratKeluarProposalSekretariatController extends Controller
 {
     public function index()
     {
-        $data = SuratKeluarProposal::all();
+        $data = SuratKeluarProposal::orderBy('tgl_sk_keluar', 'desc')->get();
         return view('pages.sekretariat.data_sk_proposal', compact('data'));
     }
 

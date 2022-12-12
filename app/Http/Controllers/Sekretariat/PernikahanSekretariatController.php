@@ -10,7 +10,7 @@ class PernikahanSekretariatController extends Controller
 {
     public function index()
     {
-        $data = Pernikahan::all();
+        $data = Pernikahan::orderBy('no_suket', 'desc')->get();
         return view('pages.sekretariat.datapernikahan', compact('data'));
     }
 

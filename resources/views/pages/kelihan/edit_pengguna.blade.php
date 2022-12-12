@@ -56,7 +56,7 @@
                                 <div class="card card-primary card-outline">
                                     <div class="card-body box-profile">
                                         <strong>
-                                            <i class="fas fa-user mr-2"></i>
+                                            <i class="fas fa-id-card mr-2"></i>
                                             Nama Lengkap
                                         </strong>
                                         <input type="text" class="form-control" name="name"

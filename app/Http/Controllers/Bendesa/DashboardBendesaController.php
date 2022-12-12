@@ -19,7 +19,7 @@ class DashboardBendesaController extends Controller
         $total_sm_undangan = SuratMasukUndangan::count();
         $total_sm_keputusan = SuratMasukKeputusan::count();
 
-        $total_sm = $total_sm_keputusan + $total_sm_proposal + $total_sm_proposal;
+        $total_sm = $total_sm_keputusan + $total_sm_undangan + $total_sm_proposal;
 
         $total_sk_proposal = SuratKeluarProposal::count();
         $total_sk_undangan = SuratKeluarUndangan::count();

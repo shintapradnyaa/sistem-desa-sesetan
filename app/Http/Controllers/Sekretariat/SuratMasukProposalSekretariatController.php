@@ -10,7 +10,7 @@ class SuratMasukProposalSekretariatController extends Controller
 {
     public function index()
     {
-        $data = SuratMasukProposal::all();
+        $data = SuratMasukProposal::orderBy('tgl_sm_masuk', 'desc')->get();
         return view('pages.sekretariat.data_sm_proposal', compact('data'));
     }
 

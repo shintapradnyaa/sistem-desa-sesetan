@@ -10,7 +10,7 @@ class SuratKeluarUndanganSekretariatController extends Controller
 {
     public function index()
     {
-        $data = SuratKeluarUndangan::all();
+        $data = SuratKeluarUndangan::orderBy('tgl_sk_keluar', 'desc')->get();
         return view('pages.sekretariat.data_sk_undangan', compact('data'));
     }
 
@@ -54,7 +54,7 @@ class SuratKeluarUndanganSekretariatController extends Controller
 
     public function edit($id)
     {
-        $data= SuratKeluarUndangan::find($id);
+        $data = SuratKeluarUndangan::find($id);
         return view('pages.sekretariat.edit_sk_undangan', compact('data'));
     }
 
