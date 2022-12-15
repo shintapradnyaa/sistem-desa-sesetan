@@ -21,6 +21,7 @@ use App\Http\Controllers\Bendesa\SuratKeluarKeputusanBendesaController;
 use App\Http\Controllers\Kelihan\DashboardKelihanController;
 use App\Http\Controllers\Kelihan\ProfileKelihanController;
 use App\Http\Controllers\Kelihan\SuratKeluarKeputusanKelihanController;
+use App\Http\Controllers\LupaPasswordController;
 use App\Http\Controllers\Sekretariat\DashboardSekretariatController;
 use App\Http\Controllers\Sekretariat\ProfileSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratKeluarKeputusanSekretariatController;
@@ -55,6 +56,13 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('login', 'index')->name('login');
     Route::post('login/proses', 'proses');
     Route::get('logout', 'logout');
+});
+
+Route::controller(LupaPasswordController::class)->group(function () {
+    Route::get('lupa_password', 'index');
+    Route::post('lupa_password/proses', 'proses');
+    Route::get('lupa_password/edit/{token}', 'edit');
+    Route::post('lupa_password/update', 'update');
 });
 
 Route::group(['middleware' => ['auth']], function () {

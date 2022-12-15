@@ -74,10 +74,8 @@
                                     <tr align="center">
                                         <th scope="col">No</th>
                                         <th scope="col">Nomor Surat Keterangan</th>
-                                        <th scope="col">Tanggal Pernikahan</th>
                                         <th scope="col">Banjar</th>
                                         <th scope="col">Nama Pria</th>
-                                        <th scope="col">Status Pria</th>
                                         <th scope="col">Nama Wanita</th>
                                         <th scope="col">Status Surat</th>
                                     </tr>
@@ -90,10 +88,8 @@
                                         <tr>
                                             <th scope="row">{{ $no++ }}</th>
                                             <td>{{ $row_pernikahan->no_suket }}</td>
-                                            <td>{{ date('d-M-Y', strtotime($row_pernikahan->tgl_pernikahan)) }}</td>
                                             <td>{{ $row_pernikahan->banjar }}</td>
                                             <td>{{ $row_pernikahan->nama_pria }}</td>
-                                            <td>{{ $row_pernikahan->status_pria }}</td>
                                             <td>{{ $row_pernikahan->nama_wanita }}</td>
                                             <td><label
                                                     class="btn btn-sm {{ $row_pernikahan->status_surat == 'Proses' ? 'btn-primary' : 'btn-success' }}">

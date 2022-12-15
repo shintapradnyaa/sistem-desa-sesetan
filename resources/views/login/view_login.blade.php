@@ -56,17 +56,13 @@
                         @enderror
                     </div>
                     <div class="row">
-                        {{-- <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div> --}}
+
                         <!-- /.col -->
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                        </div>
+                        <div class="col-8 mt-3">
+                            <a href="{{ url('lupa_password') }}">Lupa Password?</a>
                         </div>
                         <!-- /.col -->
                     </div>
