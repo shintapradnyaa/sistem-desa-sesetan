@@ -17,9 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string('level', 3);
-            $table->string('username', 50);
-            $table->string('password')->nullable();
+            $table->string('level', 4);
+            $table->string('password');
             $table->string('no_telfon');
             $table->enum('banjar', [
                 'Banjar Kaja',
@@ -32,7 +31,7 @@ return new class extends Migration
                 'Banjar Pegok',
                 'Banjar Suwung Batan Kendal'
             ]);
-            $table->string('foto_pengguna');
+            $table->string('foto_pengguna')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

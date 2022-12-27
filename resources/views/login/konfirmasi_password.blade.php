@@ -24,6 +24,7 @@
                 <p class="login-box-msg">Silahkan Masukkan Password Baru Anda</p>
                 <form action="{{ url('lupa_password/update') }}" method="POST">
                     @csrf
+                    <input type="hidden" name="email" value="{{ $reset->email }}">
                     <div class="form-group mb-3">
                         <input type="password" name="password" class="form-control" placeholder="Password baru">
                     </div>

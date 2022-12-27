@@ -1,15 +1,21 @@
 <?php
 
-use App\Http\Controllers\Bendesa\DashboardBendesaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LupaPasswordController;
 use App\Http\Controllers\DashboardWargaController;
+use App\Http\Controllers\Bendesa\ProfileBendesaController;
+use App\Http\Controllers\warga\DashboardRegisterWargaController;
+use App\Http\Controllers\Kelihan\ProfileKelihanController;
 use App\Http\Controllers\Bendesa\KematianBendesaController;
 use App\Http\Controllers\Kelihan\KematianKelihanController;
+use App\Http\Controllers\Bendesa\DashboardBendesaController;
+use App\Http\Controllers\Kelihan\DashboardKelihanController;
 use App\Http\Controllers\Bendesa\PernikahanBendesaController;
-use App\Http\Controllers\Bendesa\ProfileBendesaController;
 use App\Http\Controllers\Kelihan\PernikahanKelihanController;
+use App\Http\Controllers\Sekretariat\ProfileSekretariatController;
 use App\Http\Controllers\Sekretariat\KematianSekretariatController;
+use App\Http\Controllers\Sekretariat\DashboardSekretariatController;
 use App\Http\Controllers\Bendesa\SuratMasukProposalBendesaController;
 use App\Http\Controllers\Bendesa\SuratMasukUndanganBendesaController;
 use App\Http\Controllers\Sekretariat\PernikahanSekretariatController;
@@ -18,19 +24,15 @@ use App\Http\Controllers\Bendesa\SuratKeluarUndanganBendesaController;
 use App\Http\Controllers\Bendesa\SuratMasukKeputusanBendesaController;
 use App\Http\Controllers\Kelihan\SuratKeluarUndanganKelihanController;
 use App\Http\Controllers\Bendesa\SuratKeluarKeputusanBendesaController;
-use App\Http\Controllers\Kelihan\DashboardKelihanController;
-use App\Http\Controllers\Kelihan\ProfileKelihanController;
 use App\Http\Controllers\Kelihan\SuratKeluarKeputusanKelihanController;
-use App\Http\Controllers\LupaPasswordController;
-use App\Http\Controllers\Sekretariat\DashboardSekretariatController;
-use App\Http\Controllers\Sekretariat\ProfileSekretariatController;
-use App\Http\Controllers\Sekretariat\SuratKeluarKeputusanSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukProposalSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukUndanganSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratKeluarProposalSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratKeluarUndanganSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukKeputusanSekretariatController;
-
+use App\Http\Controllers\Sekretariat\SuratKeluarKeputusanSekretariatController;
+use App\Http\Controllers\warga\PernikahanWargaController;
+use App\Http\Controllers\warga\ProfileWargaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +58,8 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('login', 'index')->name('login');
     Route::post('login/proses', 'proses');
     Route::get('logout', 'logout');
+    Route::get('register', 'index_register');
+    Route::post('proses_register', 'proses_register');
 });
 
 Route::controller(LupaPasswordController::class)->group(function () {
@@ -77,9 +81,6 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/update/{id}', [KematianBendesaController::class, 'update']);
             Route::get('/delete/{id}', [KematianBendesaController::class, 'delete']);
         });
-
-        //expport pdf
-        Route::get('export_pdf_kematian', [KematianBendesaController::class, 'export_pdf_kematian'])->name('export_pdf_kematian');
 
         Route::group(['prefix' => 'pernikahan_bendesa'], function () {
             Route::get('', [PernikahanBendesaController::class, 'index']);
@@ -153,10 +154,6 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/update/{id}', [KematianSekretariatController::class, 'update']);
             Route::get('/delete/{id}', [KematianSekretariatController::class, 'delete']);
         });
-
-        // //expport pdf
-        // Route::get('export_pdf_kematian', [KematianController::class, 'export_pdf_kematian'])->name('export_pdf_kematian');
-
 
         Route::group(['prefix' => 'pernikahan_sekretariat'], function () {
             Route::get('', [PernikahanSekretariatController::class, 'index']);
@@ -281,6 +278,42 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['prefix' => 'change_password'], function () {
             Route::get('/edit/{id}', [ProfileKelihanController::class, 'edit_password']);
             Route::post('/update/{id}', [ProfileKelihanController::class, 'update_password']);
+        });
+    });
+
+    Route::group(['middleware' => ['CekUserLogin:4']], function () {
+        // Dashboard
+        Route::get('/dashboard_login_warga', [DashboardRegisterWargaController::class, 'index']);
+
+        Route::group(['prefix' => 'pernikahan_warga'], function () {
+            Route::get('', [PernikahanWargaController::class, 'index']);
+            Route::post('/store', [PernikahanWargaController::class, 'store']);
+            Route::get('/detail/{id}', [PernikahanWargaController::class, 'show']);
+            Route::get('/edit/{id}', [PernikahanWargaController::class, 'edit']);
+            Route::post('/update/{id}', [PernikahanWargaController::class, 'update']);
+            Route::get('/delete/{id}', [PernikahanWargaController::class, 'delete']);
+        });
+
+        // //Route Data Surat Keluar Undangan
+        // Route::group(['prefix' => 'sk_undangan_kelihan'], function () {
+        //     Route::get('', [SuratKeluarUndanganKelihanController::class, 'index']);
+        //     Route::get('/detail/{id}', [SuratKeluarUndanganKelihanController::class, 'show']);
+        // });
+        // Route::group(['prefix' => 'sk_keputusan_kelihan'], function () {
+        //     //Route Data Surat Keluar Keputusan
+        //     Route::get('', [SuratKeluarKeputusanKelihanController::class, 'index']);
+        //     Route::get('/detail/{id}', [SuratKeluarKeputusanKelihanController::class, 'show']);
+        // });
+
+        Route::group(['prefix' => 'edit_profile_warga'], function () {
+            Route::get('', [ProfileWargaController::class, 'index']);
+            Route::get('/edit/{id}', [ProfileWargaController::class, 'edit']);
+            Route::post('/update/{id}', [ProfileWargaController::class, 'update']);
+        });
+
+        Route::group(['prefix' => 'change_password_warga'], function () {
+            Route::get('/edit/{id}', [ProfileWargaController::class, 'edit_password']);
+            Route::post('/update/{id}', [ProfileWargaController::class, 'update_password']);
         });
     });
 });

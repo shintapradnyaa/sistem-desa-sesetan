@@ -21,7 +21,7 @@
                           </p>
                       </a>
                   </li>
-                  <li class="nav-header"> <i class="fas fa-users"></i> DATA WARGA ADAT</li>
+                  {{-- <li class="nav-header"> <i class="fas fa-users"></i> DATA WARGA ADAT</li>
                   <li class="nav-item">
                       <a href="{{ url('warga_kematian') }}"
                           class="nav-link {{ request()->is('warga_kematian') ? 'active' : '' }}">
@@ -30,10 +30,10 @@
                               Data Kematian
                           </p>
                       </a>
-                  </li>
+                  </li> --}}
                   <li class="nav-item">
-                      <a href="{{ url('warga_pernikahan') }}"
-                          class="nav-link {{ request()->is('warga_pernikahan') ? 'active' : '' }}">
+                      <a href="{{ url('pernikahan_warga') }}"
+                          class="nav-link {{ request()->is('pernikahan_warga') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Data Pernikahan

@@ -96,7 +96,7 @@
                                             <div class="form-group">
                                                 <label for="input_username" class="form-label">Username</label>
                                                 <input type="text" name="username" id="input_username"
-                                                    class="form-control  
+                                                    class="form-control
                                                         @error('username')
                                                         is-invalid
                                                         @enderror"
@@ -112,7 +112,7 @@
                                             <div class="form-group">
                                                 <label for="input_password" class="form-label">Password</label>
                                                 <input type="password" name="password" id="input_password"
-                                                    class="form-control  
+                                                    class="form-control
                                                         @error('password')
                                                         is-invalid
                                                         @enderror"
@@ -130,7 +130,7 @@
                                             <div class="form-group">
                                                 <label for="input_name" class="form-label">Nama Lengkap</label>
                                                 <input type="text" name="name" id="input_name"
-                                                    class="form-control  
+                                                    class="form-control
                                                         @error('name')
                                                         is-invalid
                                                         @enderror"
@@ -147,7 +147,7 @@
                                                 <label for="input_no_telfon" class="form-label">Nomor
                                                     Telepon</label>
                                                 <input type="text" name="no_telfon" id="input_no_telfon"
-                                                    class="form-control  
+                                                    class="form-control
                                                         @error('no_telfon')
                                                         is-invalid
                                                         @enderror"
@@ -193,7 +193,7 @@
                                             <div class="form-group">
                                                 <label for="input_email" class="form-label">Email</label>
                                                 <input type="email" name="email" id="input_email"
-                                                    class="form-control  
+                                                    class="form-control
                                                         @error('email')
                                                         is-invalid
                                                         @enderror"
@@ -262,8 +262,10 @@
                                                 Bendesa
                                             @elseif ($row->level == 2)
                                                 Sekretariat
-                                            @else
+                                            @elseif ($row->level == 3)
                                                 Kelihan
+                                            @else
+                                                Warga
                                             @endif
                                         </td>
                                         <td>{{ $row->username }}</td>

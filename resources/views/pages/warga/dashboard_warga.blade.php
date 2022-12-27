@@ -75,9 +75,9 @@
                                         <th scope="col">No</th>
                                         <th scope="col">Nomor Surat Keterangan</th>
                                         <th scope="col">Banjar</th>
-                                        <th scope="col">Nama Pria</th>
-                                        <th scope="col">Nama Wanita</th>
+                                        <th scope="col">Nama Pasangan</th>
                                         <th scope="col">Status Surat</th>
+                                        <th scope="col">Info</th>
                                     </tr>
                                 </thead>
                                 @php
@@ -89,8 +89,8 @@
                                             <th scope="row">{{ $no++ }}</th>
                                             <td>{{ $row_pernikahan->no_suket }}</td>
                                             <td>{{ $row_pernikahan->banjar }}</td>
-                                            <td>{{ $row_pernikahan->nama_pria }}</td>
-                                            <td>{{ $row_pernikahan->nama_wanita }}</td>
+                                            <td rowspan="2">{{ $row_pernikahan->nama_pria }} &
+                                                {{ $row_pernikahan->nama_wanita }}</td>
                                             <td><label
                                                     class="btn btn-sm {{ $row_pernikahan->status_surat == 'Proses' ? 'btn-primary' : 'btn-success' }}">
                                                     {{ $row_pernikahan->status_surat == 'Proses' ? 'Proses' : 'Selesai' }}</label>
@@ -127,6 +127,7 @@
                             </thead>
                             @php
                                 $no = 1;
+
                             @endphp
                             <tbody>
                                 @foreach ($kematian as $row_kematian)
@@ -136,6 +137,7 @@
                                         <td>{{ $row_kematian->banjar }}</td>
                                         <td>{{ $row_kematian->jenis_kelamin }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_lahir)) }}</td>
+
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_kematian)) }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}</td>
                                     </tr>

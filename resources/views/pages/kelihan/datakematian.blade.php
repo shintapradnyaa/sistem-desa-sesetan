@@ -113,8 +113,6 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_tgl_lahir" class="form-label">Tanggal Lahir</label>

@@ -2,16 +2,16 @@
 <html>
 
 <head>
-    @include('layout_sekretariat.header')
+    @include('layout_warga.header')
 </head>
 
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
-        @include('layout_sekretariat.navbar')
+        @include('layout_warga.navbar')
         <!-- Sidebar -->
-        @include('layout_sekretariat.sidebar')
+        @include('layout_warga.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -68,27 +68,10 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form class="row g-3" action="{{ url('pernikahan_sekretariat/store') }}" method="POST"
+                            <form class="row g-3" action="{{ url('pernikahan_warga/store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 <div class="modal-body">
                                     @csrf
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="input_no_suket" class="form-label">Nomor Surat
-                                                Keterangan</label>
-                                            <input type="text" name="no_suket" id="input_no_suket"
-                                                class="form-control
-                                            @error('no_suket')
-                                            is-invalid
-                                            @enderror"
-                                                value="{{ old('no_suket') }}">
-                                            @error('no_suket')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -281,27 +264,6 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="input_status_surat" class="form-label">Status
-                                                Surat</label>
-                                            <select id="input_status_surat" name="status_surat"
-                                                class="form-select form-control
-                                                @error('status_surat')
-                                                is-invalid
-                                                @enderror"
-                                                value="{{ old('status_surat') }}">
-                                                @error('status_surat')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                                <option selected disabled>Pilih Status Surat</option>
-                                                <option value="Proses">Proses</option>
-                                                <option value="Selesai">Selesai</option>
-                                            </select>
-                                        </div>
-                                    </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Tutup</button>
@@ -345,19 +307,9 @@
                                                 {{ $row_pernikahan->status_surat == 'Proses' ? 'Proses' : 'Selesai' }}</label>
                                         </td>
                                         <td>
-                                            <a href="{{ url('pernikahan_sekretariat/detail/' . $row_pernikahan->id) }}"
+                                            <a href="{{ url('pernikahan_warga/detail/' . $row_pernikahan->id) }}"
                                                 class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
-                                            </a>
-                                            <a href="{{ url('pernikahan_sekretariat/edit/' . $row_pernikahan->id) }}"
-                                                class="btn btn-sm btn-warning" title="Edit Data">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <a href="{{ url('pernikahan_sekretariat/delete/' . $row_pernikahan->id) }}"
-                                                class="btn btn-sm btn-danger"
-                                                onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data Tersebut?')"
-                                                title="Hapus Data">
-                                                <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -372,11 +324,11 @@
         </div>
         <!-- /.content-wrapper -->
 
-        @include('layout_sekretariat.footer')
+        @include('layout_warga.footer')
     </div>
     <!-- ./wrapper -->
 
-    @include('layout_sekretariat.script')
+    @include('layout_warga.script')
 </body>
 
 </html>

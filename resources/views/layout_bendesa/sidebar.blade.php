@@ -114,14 +114,31 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url('kelola_pengguna') }}"
-                        class="nav-link {{ request()->is('kelola_pengguna') || request()->is('kelola_pengguna/detail/' . request()->segment(3)) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-users-cog"></i>
+                <li
+                    class="nav-item has-treeview {{ request()->is('kelola_pengguna') || request()->is('kelola_pengguna/detail/' . request()->segment(3)) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-config"></i>
                         <p>
-                            PENGGUNA
+                            Pengguna
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ url('kelola_pengguna') }}"
+                                class="nav-link {{ request()->is('kelola_pengguna') || request()->is('kelola_pengguna/detail/' . request()->segment(3)) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Pengurus Desa Adat</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('sm_undangan_bendesa') }}"
+                                class="nav-link {{ request()->is('sm_undangan_bendesa') || request()->is('sm_undangan_bendesa/detail/' . request()->segment(3)) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Warga Adat</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>

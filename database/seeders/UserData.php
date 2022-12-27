@@ -20,7 +20,6 @@ class UserData extends Seeder
                 'name' => 'Bendesa Adat',
                 'email' => 'bendesa@gmail.com',
                 'level' => 1,
-                'username' => 'bendesa',
                 'password' => bcrypt('bendesa'),
                 'banjar' => 'Banjar Pegok',
                 'no_telfon' => '82133745676',
@@ -30,7 +29,6 @@ class UserData extends Seeder
                 'name' => 'Sekretariat Adat',
                 'level' => 2,
                 'email' => 'sekretariat@gmail.com',
-                'username' => 'sekretariat',
                 'password' => bcrypt('sekretariat'),
                 'banjar' => 'Banjar Tengah',
                 'no_telfon' => '81234567890',
@@ -40,10 +38,18 @@ class UserData extends Seeder
                 'name' => 'Kelihan Adat Banjar',
                 'email' => 'kelihan@gmail.com',
                 'level' => 3,
-                'username' => 'kelihan',
                 'password' => bcrypt('kelihan'),
                 'banjar'  => 'Banjar Kaja',
                 'no_telfon' => '81234567890',
+                'foto_pengguna' => ''
+            ],
+            [
+                'name' => 'Warga Adat',
+                'email' => 'warga@gmail.com',
+                'level' => 4,
+                'password' => bcrypt('warga'),
+                'banjar'  => 'Banjar Kaja',
+                'no_telfon' => '81765439876',
                 'foto_pengguna' => ''
             ],
         ];

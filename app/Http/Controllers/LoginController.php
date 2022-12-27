@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pernikahan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,8 @@ class LoginController extends Controller
                 return redirect()->intended('dashboard_sekretariat');
             } elseif ($user->level == '3') {
                 return redirect()->intended('dashboard_kelihan');
+            } elseif ($user->level == '4') {
+                return redirect()->intended('dashboard_login_warga');
             }
         }
         return view('login.view_login');
@@ -26,15 +29,15 @@ class LoginController extends Controller
     {
         $request->validate(
             [
-                'username' => 'required',
+                'email' => 'required',
                 'password' => 'required'
             ],
             [
-                'username.required' => 'Silahkan Periksa Kembali Username dan Password',
+                'email.required' => 'Silahkan Periksa Kembali Email dan Password',
             ]
         );
 
-        $kredensial = $request->only('username', 'password');
+        $kredensial = $request->only('email', 'password');
         if (Auth::attempt($kredensial)) {
             $request->session()->regenerate();
             $user = Auth::user();
@@ -44,14 +47,16 @@ class LoginController extends Controller
                 return redirect()->intended('dashboard_sekretariat');
             } elseif ($user->level == '3') {
                 return redirect()->intended('dashboard_kelihan');
+            } elseif ($user->level == '4') {
+                return redirect()->intended('dashboard_login_warga');
             }
             return redirect()->intended('/');
         }
 
 
         return back()->withErrors([
-            'username' => 'Maaf Username atau Password Anda Salah',
-        ])->onlyInput('username');
+            'email' => 'Maaf email atau Password Anda Salah',
+        ])->onlyInput('email');
     }
 
     public function logout(Request $request)
@@ -116,5 +121,42 @@ class LoginController extends Controller
         $data = User::find($id);
         $data->delete();
         return redirect('kelola_pengguna')->with('message', 'Data Berhasil Di Hapus');
+    }
+
+    public function index_register()
+    {
+        return view('login.register');
+    }
+    public function proses_register(Request $request)
+    {
+        $request->validate(
+            [
+                'name' => 'required',
+                'email' => 'required|email|unique:users,email',
+                'no_telfon' => 'required',
+                'banjar' => 'required',
+                'password' => 'required'
+            ],
+            [
+                'name.required' => 'Nama tidak boleh kosong',
+                'email.required' => 'Email tidak boleh kosong',
+                'email.unique' => 'Email sudah digunakan',
+                'no_telfon.required' => 'No Telepon tidak boleh kosong',
+                'banjar.required' => 'Banjar tidak boleh kosong',
+                'password.required' => 'Password tidak boleh kosong'
+            ]
+        );
+
+        $data = [
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'level'     => 4,
+            'password'  => bcrypt($request->password),
+            'no_telfon' => $request->no_telfon,
+            'banjar'    => $request->banjar
+        ];
+
+        $data = User::create($data);
+        return redirect('login')->with('message', 'Pendaftaran Berhasil');
     }
 }

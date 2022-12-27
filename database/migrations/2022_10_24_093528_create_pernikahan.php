@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('pernikahan', function (Blueprint $table) {
             $table->id();
-            $table->string('no_suket');
+            $table->unsignedBigInteger('user_id');
+            $table->string('no_suket')->nullable();
             $table->date('tgl_pernikahan');
             $table->enum('banjar', [
                 'Banjar Kaja',
