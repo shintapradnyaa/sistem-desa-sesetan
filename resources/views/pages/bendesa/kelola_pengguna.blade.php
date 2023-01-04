@@ -94,14 +94,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="input_username" class="form-label">Username</label>
-                                                <input type="text" name="username" id="input_username"
+                                                <label for="input_name" class="form-label">Nama Lengkap</label>
+                                                <input type="text" name="name" id="input_name"
                                                     class="form-control
-                                                        @error('username')
+                                                        @error('name')
                                                         is-invalid
                                                         @enderror"
-                                                    value="{{ old('username') }}">
-                                                @error('username')
+                                                    value="{{ old('name') }}">
+                                                @error('name')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -128,14 +128,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="input_name" class="form-label">Nama Lengkap</label>
-                                                <input type="text" name="name" id="input_name"
+                                                <label for="input_email" class="form-label">Email</label>
+                                                <input type="email" name="email" id="input_email"
                                                     class="form-control
-                                                        @error('name')
+                                                        @error('email')
                                                         is-invalid
                                                         @enderror"
-                                                    value="{{ old('name') }}">
-                                                @error('name')
+                                                    value="{{ old('email') }}">
+                                                @error('email')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -161,7 +161,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="input_banjar" class="form-label">Banjar</label>
                                                 <select id="input_banjar" name="banjar"
@@ -189,22 +189,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="input_email" class="form-label">Email</label>
-                                                <input type="email" name="email" id="input_email"
-                                                    class="form-control
-                                                        @error('email')
-                                                        is-invalid
-                                                        @enderror"
-                                                    value="{{ old('email') }}">
-                                                @error('email')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
+
                                     </div>
                                     <div class="col-mb-12">
                                         <label for="formFile" class="form-label">Foto Pengguna</label>
@@ -239,7 +224,6 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Foto Pengguna</th>
                                     <th scope="col">Hak Akses Pengguna</th>
-                                    <th scope="col">Username</th>
                                     <th scope="col">Nama Lengkap</th>
                                     <th scope="col">No Telepon</th>
                                     <th scope="col">Banjar</th>
@@ -268,7 +252,6 @@
                                                 Warga
                                             @endif
                                         </td>
-                                        <td>{{ $row->username }}</td>
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->no_telfon }}</td>
                                         <td>{{ $row->banjar }}</td>

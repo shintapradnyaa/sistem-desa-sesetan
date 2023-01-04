@@ -31,12 +31,19 @@ return new class extends Migration
             ]);
             $table->string('nama_pria');
             $table->enum('status_pria', ['Purusa', 'Pradana']);
+            $table->string('tmpt_lahir_pria');
             $table->date('tgl_lahir_pria');
+            $table->string('pekerjaan_pria');
             $table->string('alamat_pria');
             $table->string('nama_wanita');
             $table->enum('status_wanita', ['Purusa', 'Pradana']);
             $table->date('tgl_lahir_wanita');
+            $table->string('tmpt_lahir_wanita');
+            $table->string('pekerjaan_wanita');
             $table->string('alamat_wanita');
+            $table->string('rohaniawan');
+            $table->string('saksi1');
+            $table->string('saksi2');
             $table->enum('status_surat', ['Proses', 'Selesai']);
         });
     }

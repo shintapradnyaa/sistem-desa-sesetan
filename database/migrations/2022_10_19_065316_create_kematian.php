@@ -29,10 +29,11 @@ return new class extends Migration
             ]);
             $table->enum('jenis_kelamin', ['Pria', 'Wanita']);
             $table->date('tgl_lahir');
+            $table->string('umur');
             $table->enum('agama', ['Hindu', 'Islam', 'Budha', 'Kristen Protestan', 'Kristen Katolik', 'Konghucu']);
             $table->string('alamat');
             $table->date('tgl_kematian');
-            $table->date('tgl_ngaben');
+            $table->date('tgl_ngaben')->nullable();
             $table->string('sebab_kematian');
             $table->string('ahli_waris');
             $table->string('foto_ktp');

@@ -36,7 +36,7 @@
                         </button>
                     </div>
                 @endif
-                <form action="{{ url('change_password_kelihan/update/' . Auth::user()->id, []) }}" method="post">
+                <form action="{{ url('change_password/update/' . Auth::user()->id, []) }}" method="post">
                     @csrf
                     <div class="form-group mb-3">
                         <input type="password" name="current_password" class="form-control" placeholder="Password lama">

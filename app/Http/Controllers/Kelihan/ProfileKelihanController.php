@@ -37,7 +37,6 @@ class ProfileKelihanController extends Controller
     {
         $request->validate(
             [
-                'username'  => 'required',
                 'name'      => 'required',
                 'no_telfon' => 'required',
                 'banjar'    => 'required',
@@ -45,7 +44,6 @@ class ProfileKelihanController extends Controller
                 'foto_pengguna' => 'mimes:jpg,png,jpeg|image|max:2048'
             ],
             [
-                'username.required' => 'Username Tidak Boleh Kosong',
                 'name.required' => 'Nama Lengkap Tidak Boleh Kosong',
                 'no_telfon.required' => 'Nomor Telepon Tidak Boleh Kosong',
                 'banjar.required' => 'Banjar Tidak Boleh Kosong',
@@ -56,7 +54,6 @@ class ProfileKelihanController extends Controller
 
         $data = [
             'name'          => $request->name,
-            'username'      => $request->username,
             'no_telfon'     => $request->no_telfon,
             'banjar'        => $request->banjar,
             'email'         => $request->email,

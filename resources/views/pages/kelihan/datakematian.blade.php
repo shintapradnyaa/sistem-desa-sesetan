@@ -77,7 +77,7 @@
                                             <div class="form-group">
                                                 <label for="input_nama" class="form-label">Nama</label>
                                                 <input type="text" class="form-control" name="nama"
-                                                    id="input_nama">
+                                                    id="input_nama" placeholder="Input nama">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -117,12 +117,19 @@
                                             <div class="form-group">
                                                 <label for="input_tgl_lahir" class="form-label">Tanggal Lahir</label>
                                                 <input type="date" class="form-control form-control" name="tgl_lahir"
-                                                    id="input_tgl_lahir">
+                                                    id="date">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="div">
-                                        <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="umur" class="form-label">Umur</label>
+                                                <input type="text" class="form-control form-control"
+                                                    name="umur" id="umur">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_agama" class="form-label">Agama</label>
                                                 <select id="input_agama" class="form-select form-control"
@@ -137,11 +144,10 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <label for="input_alamat" class="form-label">Alamat</label>
-                                            <input type="text" class="form-control" name="alamat"
-                                                id="input_alamat">
-                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="input_alamat" class="form-label">Alamat</label>
+                                        <input type="text" class="form-control" name="alamat" id="input_alamat">
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -192,8 +198,8 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Banjar</th>
-                                    <th scope="col">Jenis Kelamin</th>
                                     <th scope="col">Tanggal Lahir</th>
+                                    <th scope="col">Umur</th>
                                     <th scope="col">Tanggal Kematian</th>
                                     <th scope="col">Tanggal Ngaben</th>
                                     <th scope="col">Aksi</th>
@@ -208,10 +214,11 @@
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row_kematian->nama }}</td>
                                         <td>{{ $row_kematian->banjar }}</td>
-                                        <td>{{ $row_kematian->jenis_kelamin }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_lahir)) }}</td>
+                                        <td>{{ $row_kematian->umur . ' Tahun' }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_kematian)) }}</td>
-                                        <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}</td>
+                                        <td>{{ $row_kematian->tgl_ngaben == null ? '' : date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}
+                                        </td>
                                         <td>
                                             <a href="{{ url('kematian_kelihan/detail/' . $row_kematian->id) }}"
                                                 class="btn btn-sm btn-info" title="Lihat Data">

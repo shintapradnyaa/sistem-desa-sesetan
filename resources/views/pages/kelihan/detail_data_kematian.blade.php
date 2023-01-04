@@ -75,11 +75,19 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
+                                                <label>Umur</label>
+                                                <p>{{ $data->umur . ' Tahun' }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
                                                 <label>Agama</label>
                                                 <p>{{ $data->agama }}</p>
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
                                             <div class="form-group">
                                                 <label>Alamat</label>
                                                 <p>{{ $data->alamat }}</p>

@@ -59,28 +59,37 @@
                                             <i class="fas fa-id-card mr-2"></i>
                                             Nama Lengkap
                                         </strong>
-                                        <input type="text" class="form-control" name="name"
-                                            value="{{ $data->name }}">
-                                        <hr>
-                                        <strong>
-                                            <i class="fas fa-user mr-2"></i>
-                                            Username
-                                        </strong>
-                                        <input type="text" class="form-control" name="username"
-                                            value="{{ $data->username }}">
+                                        <input type="text" name="name"
+                                            class="form-control
+                                        @error('name')
+                                        is-invalid
+                                        @enderror
+                                        "
+                                            value="{{ $data->name }} ">
+                                        @error('name')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
                                         <hr>
                                         <strong>
                                             <i class="fas fa-phone mr-2"></i>
                                             Nomor Telepon
                                         </strong>
-                                        <input type="text" class="form-control" name="no_telfon" id="input_no_telfon"
-                                            value="{{ $data->no_telfon }}">
+                                        <input type="text" name="no_telfon"
+                                            class="form-control
+                                        @error('no_telfon')
+                                        is-invalid
+                                        @enderror
+                                        "
+                                            value="{{ $data->no_telfon }} ">
+                                        @error('no_telfon')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
                                         <hr>
                                         <strong>
                                             <i class="fas fa-university mr-2"></i>
                                             Banjar
                                         </strong>
-                                        <select id="input_banjar" class="form-select form-control" name="banjar">
+                                        <select id="input_banjar" name="banjar" class="form-control">
                                             @foreach ($banjar as $item)
                                                 @if ($item == $data->banjar)
                                                     <option value="{{ $item }}" selected>{{ $item }}
@@ -96,8 +105,16 @@
                                             <i class="fas fa-envelope mr-2"></i>
                                             Email
                                         </strong>
-                                        <input type="text" class="form-control" name="email" id="input_email"
-                                            value="{{ $data->email }}">
+                                        <input type="text" name="email"
+                                            class="form-control
+                                        @error('email')
+                                        is-invalid
+                                        @enderror
+                                        "
+                                            value="{{ $data->email }} ">
+                                        @error('email')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
                                         <hr>
                                         <strong>
                                             <i class="fas fa-image mr-2"></i>

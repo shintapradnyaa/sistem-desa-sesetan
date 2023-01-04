@@ -85,6 +85,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['prefix' => 'pernikahan_bendesa'], function () {
             Route::get('', [PernikahanBendesaController::class, 'index']);
             Route::get('/detail/{id}', [PernikahanBendesaController::class, 'show']);
+            Route::get('/edit/{id}', [PernikahanBendesaController::class, 'edit']);
+            Route::post('/update/{id}', [PernikahanBendesaController::class, 'update']);
         });
 
         Route::group(['prefix' => 'sk_keputusan_bendesa'], function () {
@@ -294,16 +296,6 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/delete/{id}', [PernikahanWargaController::class, 'delete']);
         });
 
-        // //Route Data Surat Keluar Undangan
-        // Route::group(['prefix' => 'sk_undangan_kelihan'], function () {
-        //     Route::get('', [SuratKeluarUndanganKelihanController::class, 'index']);
-        //     Route::get('/detail/{id}', [SuratKeluarUndanganKelihanController::class, 'show']);
-        // });
-        // Route::group(['prefix' => 'sk_keputusan_kelihan'], function () {
-        //     //Route Data Surat Keluar Keputusan
-        //     Route::get('', [SuratKeluarKeputusanKelihanController::class, 'index']);
-        //     Route::get('/detail/{id}', [SuratKeluarKeputusanKelihanController::class, 'show']);
-        // });
 
         Route::group(['prefix' => 'edit_profile_warga'], function () {
             Route::get('', [ProfileWargaController::class, 'index']);

@@ -71,21 +71,6 @@
                                         @enderror
                                         <hr>
                                         <strong>
-                                            <i class="fas fa-user mr-2"></i>
-                                            Username
-                                        </strong>
-                                        <input type="text" name="username"
-                                            class="form-control
-                                        @error('username')
-                                        is-invalid
-                                        @enderror
-                                        "
-                                            value="{{ $data->username }} ">
-                                        @error('username')
-                                            <span class="text-danger text-sm">{{ $message }}</span>
-                                        @enderror
-                                        <hr>
-                                        <strong>
                                             <i class="fas fa-phone mr-2"></i>
                                             Nomor Telepon
                                         </strong>

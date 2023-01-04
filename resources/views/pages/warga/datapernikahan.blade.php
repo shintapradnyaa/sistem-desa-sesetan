@@ -60,7 +60,7 @@
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pernikahan</h5>
@@ -156,6 +156,27 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="input_tmpt_lahir_pria" class="form-label">Tempat Lahir
+                                                    Pria
+                                                </label>
+                                                <input type="text" name="tmpt_lahir_pria"
+                                                    id="input_tmpt_lahir_pria"
+                                                    class="form-control
+                                                    @error('tmpt_lahir_pria')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('tmpt_lahir_pria') }}">
+                                                @error('tmpt_lahir_pria')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_tgl_lahir_pria" class="form-label">Tanggal
@@ -167,6 +188,23 @@
                                                     @enderror"
                                                     value="{{ old('tgl_lahir_pria') }}">
                                                 @error('tgl_lahir_pria')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="input_pekerjaan_pria" class="form-label">Pekerjaan
+                                                    Pria</label>
+                                                <input type="text" name="pekerjaan_pria" id="input_pekerjaan_pria"
+                                                    class="form-control
+                                                    @error('pekerjaan_pria')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('pekerjaan_pria') }}">
+                                                @error('pekerjaan_pria')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -228,6 +266,27 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="input_tmpt_lahir_wanita" class="form-label">Tempat Lahir
+                                                    Wanita
+                                                </label>
+                                                <input type="text" name="tmpt_lahir_wanita"
+                                                    id="input_tmpt_lahir_wanita"
+                                                    class="form-control
+                                                    @error('tmpt_lahir_wanita')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('tmpt_lahir_wanita') }}">
+                                                @error('tmpt_lahir_wanita')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_tgl_lahir_wanita" class="form-label">Tanggal
@@ -240,6 +299,24 @@
                                                     @enderror"
                                                     value="{{ old('tgl_lahir_wanita') }}">
                                                 @error('tgl_lahir_wanita')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="input_pekerjaan_wanita" class="form-label">Pekerjaan
+                                                    Wanita</label>
+                                                <input type="text" name="pekerjaan_wanita"
+                                                    id="input_pekerjaan_wanita"
+                                                    class="form-control
+                                                    @error('pekerjaan_wanita')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('pekerjaan_wanita') }}">
+                                                @error('pekerjaan_wanita')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -264,6 +341,60 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="input_rohaniawan" class="form-label">Dipuput Oleh
+                                                Rohaniawan
+                                            </label>
+                                            <input type="text" name="rohaniawan" id="input_rohaniawan"
+                                                class="form-control
+                                                @error('rohaniawan')
+                                                is-invalid
+                                                @enderror"
+                                                value="{{ old('rohaniawan') }}">
+                                            @error('rohaniawan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="input_saksi1" class="form-label">
+                                                    Saksi 1</label>
+                                                <input type="text" name="saksi1" id="input_saksi1"
+                                                    class="form-control
+                                                    @error('saksi1')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('saksi1') }}">
+                                                @error('saksi1')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="input_saksi2" class="form-label">
+                                                    Saksi 2</label>
+                                                <input type="text" name="saksi2" id="input_saksi2"
+                                                    class="form-control
+                                                    @error('saksi2')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('saksi2') }}">
+                                                @error('saksi2')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Tutup</button>
@@ -286,6 +417,7 @@
                                     <th scope="col">Banjar</th>
                                     <th scope="col">Nama Pria</th>
                                     <th scope="col">Nama Wanita</th>
+                                    <th scope="col">Rohaniawan</th>
                                     <th scope="col">Status Surat</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -294,7 +426,7 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $row_pernikahan)
+                                @foreach ($pernikahan as $row_pernikahan)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row_pernikahan->no_suket }}</td>
@@ -302,11 +434,16 @@
                                         <td>{{ $row_pernikahan->banjar }}</td>
                                         <td>{{ $row_pernikahan->nama_pria }}</td>
                                         <td>{{ $row_pernikahan->nama_wanita }}</td>
+                                        <td>{{ $row_pernikahan->rohaniawan }}</td>
                                         <td><label
                                                 class="badge {{ $row_pernikahan->status_surat == 'Proses' ? 'badge-primary' : 'badge-success' }}">
                                                 {{ $row_pernikahan->status_surat == 'Proses' ? 'Proses' : 'Selesai' }}</label>
                                         </td>
                                         <td>
+                                            <a href="{{ url('pernikahan_warga/edit/' . $row_pernikahan->id) }}"
+                                                class="btn btn-sm btn-warning" title="Edit Data">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
                                             <a href="{{ url('pernikahan_warga/detail/' . $row_pernikahan->id) }}"
                                                 class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>

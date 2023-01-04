@@ -70,6 +70,10 @@
                                                 {{ $row_pernikahan->status_surat == 'Proses' ? 'Proses' : 'Selesai' }}</label>
                                         </td>
                                         <td>
+                                            <a href="{{ url('pernikahan_bendesa/edit/' . $row_pernikahan->id) }}"
+                                                class="btn btn-sm btn-warning" title="Lihat Data">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
                                             <a href="{{ url('pernikahan_bendesa/detail/' . $row_pernikahan->id) }}"
                                                 class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>

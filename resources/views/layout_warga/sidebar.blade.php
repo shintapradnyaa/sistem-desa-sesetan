@@ -21,31 +21,12 @@
                           </p>
                       </a>
                   </li>
-                  {{-- <li class="nav-header"> <i class="fas fa-users"></i> DATA WARGA ADAT</li>
-                  <li class="nav-item">
-                      <a href="{{ url('warga_kematian') }}"
-                          class="nav-link {{ request()->is('warga_kematian') ? 'active' : '' }}">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>
-                              Data Kematian
-                          </p>
-                      </a>
-                  </li> --}}
                   <li class="nav-item">
                       <a href="{{ url('pernikahan_warga') }}"
                           class="nav-link {{ request()->is('pernikahan_warga') ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Data Pernikahan
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-header"><i class="nav-icon fa fa-envelope"></i> SURAT KELUAR</li>
-                  <li class="nav-item">
-                      <a href="{{ url('warga_sk') }}" class="nav-link {{ request()->is('warga_sk') ? 'active' : '' }}">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>
-                              Surat Keputusan
                           </p>
                       </a>
                   </li>
