@@ -81,7 +81,7 @@
                         Hindu pada hari {{ $hari_pernikahan }} tanggal {{ $tanggal_pernikahan }} bulan
                         {{ $bulan_pernikahan }} tahun {{ $tahun_pernikahan }}
                         bertempat di
-                        {{ }} Kab/Kota <u>Denpasar</u>. Yang dipuput oleh Rohaniawan
+                        {{ $alamat_nikah }} Kab/Kota <u>Denpasar</u>. Yang dipuput oleh Rohaniawan
                         {{ $row_pernikahan->rohaniawan }}
                         dari {{ $row_pernikahan->banjar }} Sesetan
                     </p>
