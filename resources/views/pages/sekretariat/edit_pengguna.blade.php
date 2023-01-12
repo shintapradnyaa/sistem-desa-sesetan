@@ -19,6 +19,9 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0 text-dark">Edit Profil Pengguna</h1>
+                            <a class="btn btn-warning mt-3" href="{{ url('dashboard_sekretariat') }}" role="button"><i
+                                    class="fa fa-chevron-left"></i>
+                                Kembali</a>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -67,21 +70,6 @@
                                         "
                                             value="{{ $data->name }} ">
                                         @error('name')
-                                            <span class="text-danger text-sm">{{ $message }}</span>
-                                        @enderror
-                                        <hr>
-                                        <strong>
-                                            <i class="fas fa-user mr-2"></i>
-                                            Username
-                                        </strong>
-                                        <input type="text" name="username"
-                                            class="form-control
-                                        @error('username')
-                                        is-invalid
-                                        @enderror
-                                        "
-                                            value="{{ $data->username }} ">
-                                        @error('username')
                                             <span class="text-danger text-sm">{{ $message }}</span>
                                         @enderror
                                         <hr>
@@ -136,11 +124,8 @@
                                             Foto Pengguna
                                         </strong>
                                         <input type="file" class="form-control" name="foto_pengguna">
-                                        <button type="submit" class="btn btn-primary mt-3 float-right">Update</button>
-                                        <a class="btn btn-secondary mt-3 float-right mr-3"
-                                            href="{{ url('dashboard_sekretariat') }}" role="button"><i
-                                                class="fa fa-chevron-left"></i>
-                                            Kembali</a>
+                                        <button type="submit"
+                                            class="btn btn-primary mt-3 float-right col-12">Update</button>
                                     </div>
                                 </div>
                             </div>

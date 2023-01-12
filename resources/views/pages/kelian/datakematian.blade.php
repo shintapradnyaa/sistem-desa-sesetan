@@ -2,16 +2,16 @@
 <html>
 
 <head>
-    @include('layout_kelihan.header')
+    @include('layout_kelian.header')
 </head>
 
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
-        @include('layout_kelihan.navbar')
+        @include('layout_kelian.navbar')
         <!-- Sidebar -->
-        @include('layout_kelihan.sidebar')
+        @include('layout_kelian.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -68,7 +68,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form class="row g-3" action="{{ url('kematian_kelihan/store') }}" method="POST"
+                            <form class="row g-3" action="{{ url('kematian_kelian/store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 <div class="modal-body">
                                     @csrf
@@ -77,7 +77,7 @@
                                             <div class="form-group">
                                                 <label for="input_nama" class="form-label">Nama</label>
                                                 <input type="text" class="form-control" name="nama"
-                                                    id="input_nama" placeholder="Input nama">
+                                                    id="input_nama">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -209,7 +209,7 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $index => $row_kematian)
+                                @foreach ($data as $row_kematian)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row_kematian->nama }}</td>
@@ -220,11 +220,11 @@
                                         <td>{{ $row_kematian->tgl_ngaben == null ? '' : date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}
                                         </td>
                                         <td>
-                                            <a href="{{ url('kematian_kelihan/detail/' . $row_kematian->id) }}"
+                                            <a href="{{ url('kematian_kelian/detail/' . $row_kematian->id) }}"
                                                 class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
-                                            <a href="{{ url('kematian_kelihan/edit/' . $row_kematian->id) }}"
+                                            <a href="{{ url('kematian_kelian/edit/' . $row_kematian->id) }}"
                                                 class="btn btn-sm btn-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </a>
@@ -233,7 +233,7 @@
                                                 class="btn btn-sm btn-primary" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="{{ url('kematian_kelihan/delete/' . $row_kematian->id) }}"
+                                            <a href="{{ url('kematian_kelian/delete/' . $row_kematian->id) }}"
                                                 class="btn btn-sm btn-danger"
                                                 onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data Tersebut?')"
                                                 title="Hapus Data">
@@ -252,11 +252,11 @@
         </div>
         <!-- /.content-wrapper -->
 
-        @include('layout_kelihan.footer')
+        @include('layout_kelian.footer')
     </div>
     <!-- ./wrapper -->
 
-    @include('layout_kelihan.script')
+    @include('layout_kelian.script')
 </body>
 
 </html>

@@ -62,7 +62,7 @@
                             <button type="submit" class="btn btn-primary">Konfirmasi</button>
                         </div>
                         <div class="col-6 text-left">
-                            <a href="{{ url('dashboard_kelihan', []) }}" class="btn btn-secondary">Kembali</a>
+                            <a href="{{ url('dashboard_kelian', []) }}" class="btn btn-secondary">Kembali</a>
                         </div>
                     </div>
                 </form>

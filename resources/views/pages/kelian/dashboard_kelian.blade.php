@@ -2,18 +2,18 @@
 <html>
 
 <head>
-    @include('layout_kelihan.header')
+    @include('layout_kelian.header')
 </head>
 
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
-        @include('layout_kelihan.navbar')
+        @include('layout_kelian.navbar')
         <!-- /.navbar -->
 
         <!-- Sidebar -->
-        @include('layout_kelihan.sidebar')
+        @include('layout_kelian.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -104,11 +104,11 @@
         </div>
         <!-- /.content-wrapper -->
 
-        @include('layout_kelihan.footer')
+        @include('layout_kelian.footer')
     </div>
     <!-- ./wrapper -->
 
-    @include('layout_kelihan.script')
+    @include('layout_kelian.script')
 </body>
 
 </html>

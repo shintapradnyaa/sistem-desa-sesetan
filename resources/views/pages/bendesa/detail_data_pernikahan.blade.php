@@ -79,10 +79,18 @@
                                                 <p>{{ $data->nama_pria }}</p>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Status Pria</label>
                                                 <p>{{ $data->status_pria }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Tempat Lahir Pria</label>
+                                                <p>{{ $data->tmpt_lahir_pria }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -94,6 +102,14 @@
                                             </div>
                                         </div>
                                         <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Pekerjaan Pria</label>
+                                                <p>{{ $data->pekerjaan_pria }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
                                             <div class="form-group">
                                                 <label>Alamat Pria</label>
                                                 <p>{{ $data->alamat_pria }}</p>
@@ -107,10 +123,18 @@
                                                 <p>{{ $data->nama_wanita }}</p>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Status Wanita</label>
                                                 <p>{{ $data->status_wanita }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Tempat Lahir Wanita</label>
+                                                <p>{{ $data->tmpt_lahir_wanita }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -121,27 +145,64 @@
                                                 <p>{{ date('d-M-Y', strtotime($data->tgl_lahir_wanita)) }}</p>
                                             </div>
                                         </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Pekerjaan Wanita</label>
+                                                <p>{{ $data->pekerjaan_wanita }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Alamat Wanita</label>
+                                                <p>{{ $data->alamat_wanita }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Dipuput Oleh Rohaniawan</label>
+                                                <p>{{ $data->rohaniawan }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Saksi 1</label>
+                                                <p>{{ $data->saksi1 }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Saksi 2</label>
+                                                <p>{{ $data->saksi2 }}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--/. container-fluid -->
-            </section>
-            <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
+        <!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 
 
-        <!-- Main Footer -->
-        @include('layout_bendesa.footer')
+    <!-- Main Footer -->
+    @include('layout_bendesa.footer')
     </div>
     <!-- ./wrapper -->
     @include('layout_bendesa.script')

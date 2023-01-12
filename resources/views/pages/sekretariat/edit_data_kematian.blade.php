@@ -36,7 +36,6 @@
                         class="fa fa-chevron-left"></i>
                     Kembali</a>
             </div>
-
             <!-- Main content -->
             <section class="content">
                 <div class="container">
@@ -107,7 +106,22 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <div class="label">Agama</div>
+                                            <Label>Umur</Label>
+                                            <input type="text" name="umur"
+                                                class="form-control
+                                                @error('umur')
+                                                    is-invalid
+                                                @enderror
+                                                "
+                                                value="{{ $data->umur }} ">
+                                            @error('umur')
+                                                <span class="text-danger text-sm">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Agama</label>
                                             <select name="agama" class="form-control">
                                                 @foreach ($agama as $ag)
                                                     @if ($ag == $data->agama)
@@ -122,7 +136,9 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <Label>Alamat</Label>
                                             <input type="text" name="alamat"
@@ -149,8 +165,9 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Tanggal Ngaben</label>
-                                            <input type="date" class="form-control" name="tgl_ngaben"
-                                                id="input_tgl_ngaben" value="{{ $data->tgl_ngaben }}">
+                                            <input class="form-control" id="disabledInput" type="date"
+                                                value="{{ $data->tgl_ngaben }}" placeholder="Disabled input here..."
+                                                disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -203,7 +220,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <button type="submit" class="btn btn-primary float-right">Update</button>
+                                        <button type="submit" class="btn btn-primary col-12">Update</button>
                                     </div>
                                 </div>
                             </form>

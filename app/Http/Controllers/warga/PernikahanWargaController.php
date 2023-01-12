@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Pernikahan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\PDF;
+
 
 class PernikahanWargaController extends Controller
 {
@@ -115,7 +117,7 @@ class PernikahanWargaController extends Controller
             'Nov' => 'November',
             'Dec' => 'Desember'
         ];
-        
+
         $hari = null;
         foreach ($days as $key => $value) {
             if ($key == $hari_pernikahan) {
@@ -135,6 +137,74 @@ class PernikahanWargaController extends Controller
         $data['tahun_pernikahan'] = $tahun_pernikahan;
         $data['row_pernikahan'] = $pernikahan;
         return view('pages.warga.detail_data_pernikahan', $data);
+    }
+
+    public function download($id)
+    {
+        $pernikahan = Pernikahan::find($id);
+
+        $hari_pernikahan = date('D', strtotime($pernikahan->tgl_pernikahan));
+        $tanggal_pernikahan = date('d', strtotime($pernikahan->tgl_pernikahan));
+        $bulan_pernikahan = date('M', strtotime($pernikahan->tgl_pernikahan));
+        $tahun_pernikahan = date('Y', strtotime($pernikahan->tgl_pernikahan));
+
+        $days = [
+            'Sun' => 'Minggu',
+            'Mon' => 'Senin',
+            'The' => 'Selasa',
+            'Wed' => 'Rabu',
+            'Thu' => 'Kamis',
+            'Fri' => 'Jumat',
+            'Sat' => "Sabtu"
+        ];
+
+        $month = [
+            'Jan' => 'Januari',
+            'Feb' => 'Februari',
+            'Mar' => 'Maret',
+            'Apr' => 'April',
+            'May' => 'Mei',
+            'Jun' => 'Juni',
+            'Jul' => 'Juli',
+            'Aug' => 'Agustus',
+            'Sep' => 'September',
+            'Oct' => 'Oktober',
+            'Nov' => 'November',
+            'Dec' => 'Desember'
+        ];
+
+        $hari = null;
+        foreach ($days as $key => $value) {
+            if ($key == $hari_pernikahan) {
+                $hari = $value;
+            }
+        }
+        $bulan = null;
+        foreach ($month as $key => $value) {
+            if ($key == $bulan_pernikahan) {
+                $bulan = $value;
+            }
+        }
+
+        $data['hari_pernikahan'] = $hari;
+        $data['tanggal_pernikahan'] = $tanggal_pernikahan;
+        $data['bulan_pernikahan'] = $bulan;
+        $data['tahun_pernikahan'] = $tahun_pernikahan;
+        $data['row_pernikahan'] = $pernikahan;
+
+        $pdf = PDF::loadview('pages.warga.download', $data)->setPaper('f4', 'portrait');
+        // $pdf->getDomPDF()->setHttpContext(
+        //     stream_context_create([
+        //         'ssl' => [
+        //             'allow_self_signed' => TRUE,
+        //             'verify_peer' => FALSE,
+        //             'verify_peer_name' => FALSE,
+        //         ]
+        //     ])
+        // );
+
+        // return $pdf->download('surat_pernikahan.pdf');
+        return $pdf->stream('surat_pernikahan.pdf');
     }
 
     public function edit($id)

@@ -417,7 +417,6 @@
                                     <th scope="col">Banjar</th>
                                     <th scope="col">Nama Pria</th>
                                     <th scope="col">Nama Wanita</th>
-                                    <th scope="col">Rohaniawan</th>
                                     <th scope="col">Status Surat</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -434,7 +433,6 @@
                                         <td>{{ $row_pernikahan->banjar }}</td>
                                         <td>{{ $row_pernikahan->nama_pria }}</td>
                                         <td>{{ $row_pernikahan->nama_wanita }}</td>
-                                        <td>{{ $row_pernikahan->rohaniawan }}</td>
                                         <td><label
                                                 class="badge {{ $row_pernikahan->status_surat == 'Proses' ? 'badge-primary' : 'badge-success' }}">
                                                 {{ $row_pernikahan->status_surat == 'Proses' ? 'Proses' : 'Selesai' }}</label>
@@ -447,6 +445,10 @@
                                             <a href="{{ url('pernikahan_warga/detail/' . $row_pernikahan->id) }}"
                                                 class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
+                                            </a>
+                                            <a href="{{ url('pernikahan_warga/download/' . $row_pernikahan->id) }}"
+                                                class="btn btn-sm btn-primary" title="Download">
+                                                <i class="fas fa-download"></i>
                                             </a>
                                         </td>
                                     </tr>

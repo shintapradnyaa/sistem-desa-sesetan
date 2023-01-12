@@ -39,8 +39,8 @@
                         <div class="text-danger text-sm">{{ $message }}</div>
                     @enderror
                     <div class="row justify-content-center">
-                        <div class="col-6 text-right">
-                            <button type="submit" class="btn btn-primary">Konfirmasi Password</button>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary col-12">Konfirmasi Password</button>
                         </div>
                     </div>
                 </form>

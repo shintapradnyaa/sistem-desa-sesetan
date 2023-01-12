@@ -22,7 +22,6 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Dashboard</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -36,69 +35,57 @@
 
             <!-- Main content -->
             <section class="content">
-
-                <div class="container-fluid">
-                    <!-- Info boxes -->
-                    <div class="row">
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-minus"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Total Kematian</span>
-                                    <span class="info-box-number">
-                                        {{ $totalKematian }}
-                                    </span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3">
-                                <span class="info-box-icon bg-danger elevation-1"><i
-                                        class="fa-solid fa-people-simple"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Total Pernikahan</span>
-                                    <span class="info-box-number">{{ $totalPernikahan }}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
-
-                        <!-- fix for small devices only -->
-                        <div class="clearfix hidden-md-up"></div>
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3">
-                                <span class="info-box-icon bg-success elevation-1"><i
-                                        class="fas fa-folder-open"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Total Surat Undangan</span>
-                                    <span class="info-box-number">{{ $total_sk_undangan }}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3">
-                                <span class="info-box-icon bg-warning elevation-1"><i
-                                        class="fas fa-envelope"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Total Surat Keputusan</span>
-                                    <span class="info-box-number">{{ $total_sk_keputusan }}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
+                <div class="card bg-gradient-lightblue">
+                    <h3 class="card-header">Selamat Datang {{ $data = Auth::user()->name }}</h3>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">Perhatikan beberapa ketentuan dalam menggunakan website Sistem Pendataan
+                            dan Administrasi Warga Adat Sesetan seperti dibawah ini:</p>
                     </div>
                 </div>
-
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card bg-gradient-yellow">
+                            <div class="card-body">
+                                <i class="far fa-clock"></i>
+                                <p class="card-text">Pelayanan administrasi secara daring seperti pengurusan akta
+                                    perkawinan dibuka 24 jam.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card bg-gradient-green">
+                            <div class="card-body">
+                                <i class="far fa-file-alt"></i>
+                                <p class="card-text">Permohonan administrasi akta perkawinan secara daring yang masuk,
+                                    akan diverifikasi sesuai jadwal kerja yaitu hari senin sampai jumat.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card bg-gradient-olive">
+                            <div class="card-body"><i class="fas fa-user-circle"></i>
+                                <p class="card-text"> Pelapor yang melakukan pendaftaran administrasi secara daring
+                                    adalah kepala keluarga dalam satu KK.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card bg-gradient-olive">
+                            <div class="card-body"><i class="fas fa-user-circle"></i>
+                                <p class="card-text">Terdapat 2 status yang akan diberikan ketika mengurus administrasi
+                                    akta perkawinan yaitu status proses dan selesai.</p>
+                                <p>- Status proses memiliki arti bahwa
+                                    akta perkawinan sedang diproses oleh bendesa. Dan perlu di cek secara berkala untuk
+                                    mengetahui status terkini.</p>
+                                <p>
+                                    - Status Selesai memiliki arti bahwa akta perkawinan telah selesai diproses. Dan
+                                    Akta perkawinan dapat di download.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
             <!-- /.content -->
         </div>

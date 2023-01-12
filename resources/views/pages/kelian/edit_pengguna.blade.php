@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-    @include('layout_kelihan.header')
+    @include('layout_kelian.header')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         <!-- Navbar -->
-        @include('layout_kelihan.navbar')
+        @include('layout_kelian.navbar')
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
-        @include('layout_kelihan.sidebar')
+        @include('layout_kelian.sidebar')
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
@@ -19,6 +19,9 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0 text-dark">Edit Profil Pengguna</h1>
+                            <a class="btn btn-warning mt-3" href="{{ url('dashboard_kelian') }}" role="button"><i
+                                    class="fa fa-chevron-left"></i>
+                                Kembali</a>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -121,11 +124,7 @@
                                             Foto Pengguna
                                         </strong>
                                         <input type="file" class="form-control" name="foto_pengguna">
-                                        <button type="submit" class="btn btn-primary mt-3 float-right">Update</button>
-                                        <a class="btn btn-secondary mt-3 float-right mr-3"
-                                            href="{{ url('dashboard_kelihan') }}" role="button"><i
-                                                class="fa fa-chevron-left"></i>
-                                            Kembali</a>
+                                        <button type="submit" class="btn btn-primary mt-3 col-12">Update</button>
                                     </div>
                                 </div>
                             </div>
@@ -144,10 +143,10 @@
         </aside>
         <!-- /.control-sidebar -->
         <!-- Main Footer -->
-        @include('layout_kelihan.footer')
+        @include('layout_kelian.footer')
     </div>
     <!-- ./wrapper -->
-    @include('layout_kelihan.script')
+    @include('layout_kelian.script')
 
 
 </body>

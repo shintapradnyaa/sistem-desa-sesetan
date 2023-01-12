@@ -14,8 +14,8 @@
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                   data-accordion="false">
                   <li class="nav-item">
-                      <a href="{{ url('dashboard_kelihan') }}"
-                          class="nav-link {{ request()->is('dashboard_kelihan') ? 'active' : '' }}">
+                      <a href="{{ url('dashboard_kelian') }}"
+                          class="nav-link {{ request()->is('dashboard_kelian') ? 'active' : '' }}">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
                               Dashboard
@@ -24,8 +24,8 @@
                   </li>
                   <li class="nav-header"> <i class="fas fa-users"></i> DATA WARGA ADAT</li>
                   <li class="nav-item">
-                      <a href="{{ url('kematian_kelihan') }}"
-                          class="nav-link {{ request()->is('kematian_kelihan') || request()->is('kematian_kelihan/detail/' . request()->segment(3)) || request()->is('kematian_kelihan/edit/' . request()->segment(3)) ? 'active' : '' }}">
+                      <a href="{{ url('kematian_kelian') }}"
+                          class="nav-link {{ request()->is('kematian_kelian') || request()->is('kematian_kelian/detail/' . request()->segment(3)) || request()->is('kematian_kelian/edit/' . request()->segment(3)) ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Data Kematian
@@ -33,8 +33,8 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{ url('pernikahan_kelihan') }}"
-                          class="nav-link {{ request()->is('pernikahan_kelihan') || request()->is('pernikahan_kelihan/detail/' . request()->segment(3)) ? 'active' : '' }}">
+                      <a href="{{ url('pernikahan_kelian') }}"
+                          class="nav-link {{ request()->is('pernikahan_kelian') || request()->is('pernikahan_kelian/detail/' . request()->segment(3)) ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Data Pernikahan
@@ -43,8 +43,8 @@
                   </li>
                   <li class="nav-header"><i class="nav-icon fa fa-envelope"></i> SURAT KELUAR</li>
                   <li class="nav-item">
-                      <a href="{{ url('sk_undangan_kelihan') }}"
-                          class="nav-link {{ request()->is('sk_undangan_kelihan') || request()->is('sk_undnagan_kelihan/detail/' . request()->segment(3)) ? 'active' : '' }}">
+                      <a href="{{ url('sk_undangan_kelian') }}"
+                          class="nav-link {{ request()->is('sk_undangan_kelian') || request()->is('sk_undnagan_kelian/detail/' . request()->segment(3)) ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Surat Undangan
@@ -52,8 +52,8 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{ url('sk_keputusan_kelihan') }}"
-                          class="nav-link {{ request()->is('sk_keputusan_kelihan') || request()->is('sk_keputusan_kelihan/detail/' . request()->segment(3)) ? 'active' : '' }}">
+                      <a href="{{ url('sk_keputusan_kelian') }}"
+                          class="nav-link {{ request()->is('sk_keputusan_kelian') || request()->is('sk_keputusan_kelian/detail/' . request()->segment(3)) ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>
                               Surat Keputusan

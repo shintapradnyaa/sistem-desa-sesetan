@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Kelihan;
+namespace App\Http\Controllers\Kelian;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
-class ProfileKelihanController extends Controller
+class ProfileKelianController extends Controller
 {
     public function index()
     {
         $data = User::all();
-        return view('pages.kelihan.edit_pengguna', compact('data'));
+        return view('pages.kelian.edit_pengguna', compact('data'));
     }
 
     public function edit($id)
@@ -30,7 +30,7 @@ class ProfileKelihanController extends Controller
             'Banjar Pegok',
             'Banjar Suwung Batan Kendal'
         ];
-        return view('pages.kelihan.edit_pengguna', $data);
+        return view('pages.kelian.edit_pengguna', $data);
     }
 
     public function update(Request $request, $id)
@@ -76,7 +76,7 @@ class ProfileKelihanController extends Controller
 
     public function edit_password($id)
     {
-        return view('pages.kelihan.edit_password');
+        return view('pages.kelian.edit_password');
     }
 
     public function update_password(Request $request)

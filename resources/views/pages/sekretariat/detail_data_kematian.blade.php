@@ -36,6 +36,7 @@
                         class="fa fa-chevron-left"></i>
                     Kembali</a>
             </div>
+
             <!-- Main content -->
             <section class="content">
                 <div class="container">
@@ -74,11 +75,19 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
+                                                <label>Umur</label>
+                                                <p>{{ $data->umur . ' Tahun' }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
                                                 <label>Agama</label>
                                                 <p>{{ $data->agama }}</p>
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
                                             <div class="form-group">
                                                 <label>Alamat</label>
                                                 <p>{{ $data->alamat }}</p>
@@ -95,7 +104,11 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Ngaben</label>
-                                                <p>{{ date('d-M-Y', strtotime($data->tgl_ngaben)) }}</p>
+                                                <p>
+                                                    @if ($data->tgl_ngaben)
+                                                        {{ $data->tgl_ngaben }}
+                                                    @endif
+                                                </p>
                                             </div>
                                         </div>
                                     </div>

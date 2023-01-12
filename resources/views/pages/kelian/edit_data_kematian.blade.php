@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    @include('layout_kelihan.header')
+    @include('layout_kelian.header')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         <!-- Navbar -->
-        @include('layout_kelihan.navbar')
+        @include('layout_kelian.navbar')
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('layout_kelihan.sidebar')
+        @include('layout_kelian.sidebar')
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
@@ -32,7 +32,7 @@
             </div>
             <!-- /.content-header -->
             <div class="div ml-3">
-                <a class="btn btn-warning" href="{{ url('kematian_kelihan') }}" role="button"><i
+                <a class="btn btn-warning" href="{{ url('kematian_kelian') }}" role="button"><i
                         class="fa fa-chevron-left"></i>
                     Kembali</a>
             </div>
@@ -41,7 +41,7 @@
                 <div class="container">
                     <div class="card mt-3">
                         <div class="card-body">
-                            <form action="{{ url('kematian_kelihan/update/' . $data->id, []) }}" method="post"
+                            <form action="{{ url('kematian_kelian/update/' . $data->id, []) }}" method="post"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
@@ -107,7 +107,7 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <Label>Umur</Label>
-                                            <input type="text" name="umur"
+                                            <input type="text" id="umur" name="umur"
                                                 class="form-control
                                                 @error('umur')
                                                     is-invalid
@@ -220,7 +220,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <button type="submit" class="btn btn-primary float-right">Update</button>
+                                        <button type="submit" class="btn btn-primary col-12">Update</button>
                                     </div>
                                 </div>
                             </form>
@@ -241,10 +241,10 @@
 
 
         <!-- Main Footer -->
-        @include('layout_kelihan.footer')
+        @include('layout_kelian.footer')
     </div>
     <!-- ./wrapper -->
-    @include('layout_kelihan.script')
+    @include('layout_kelian.script')
 </body>
 
 </html>

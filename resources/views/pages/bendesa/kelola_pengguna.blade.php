@@ -87,7 +87,7 @@
                                                 <option selected disabled>Pilih Hak Akses</option>
                                                 <option value="1">1. Bendesa</option>
                                                 <option value="2">2. Sekretariat</option>
-                                                <option value="3">3. Kelihan</option>
+                                                <option value="3">3. Kelian</option>
                                             </select>
                                         </div>
                                     </div>
@@ -189,7 +189,6 @@
                                                 </select>
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="col-mb-12">
                                         <label for="formFile" class="form-label">Foto Pengguna</label>
@@ -247,7 +246,7 @@
                                             @elseif ($row->level == 2)
                                                 Sekretariat
                                             @elseif ($row->level == 3)
-                                                Kelihan
+                                                Kelian
                                             @else
                                                 Warga
                                             @endif
@@ -257,11 +256,12 @@
                                         <td>{{ $row->banjar }}</td>
                                         <td>
                                             <a href="{{ url('kelola_pengguna/detail/' . $row->id) }}"
-                                                class="btn btn-sm btn-info">
+                                                class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
                                             <a href="{{ url('kelola_pengguna/delete/' . $row->id) }}"
-                                                class="btn btn-sm btn-danger">
+                                                class="btn btn-sm btn-danger" title="Hapus Data"
+                                                onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data Tersebut?')">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </td>

@@ -70,7 +70,8 @@
                                         <td>{{ $row_kematian->jenis_kelamin }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_lahir)) }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_kematian)) }}</td>
-                                        <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}</td>
+                                        <td>{{ $row_kematian->tgl_ngaben == null ? '' : date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}
+                                        </td>
                                         <td>
                                             <a href="{{ url('kematian_bendesa/detail/' . $row_kematian->id) }}"
                                                 class="btn btn-sm btn-info" title="Lihat Data">

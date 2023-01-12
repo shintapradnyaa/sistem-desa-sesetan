@@ -6,13 +6,9 @@ use App\Http\Controllers\LupaPasswordController;
 use App\Http\Controllers\DashboardWargaController;
 use App\Http\Controllers\Bendesa\ProfileBendesaController;
 use App\Http\Controllers\warga\DashboardRegisterWargaController;
-use App\Http\Controllers\Kelihan\ProfileKelihanController;
 use App\Http\Controllers\Bendesa\KematianBendesaController;
-use App\Http\Controllers\Kelihan\KematianKelihanController;
 use App\Http\Controllers\Bendesa\DashboardBendesaController;
-use App\Http\Controllers\Kelihan\DashboardKelihanController;
 use App\Http\Controllers\Bendesa\PernikahanBendesaController;
-use App\Http\Controllers\Kelihan\PernikahanKelihanController;
 use App\Http\Controllers\Sekretariat\ProfileSekretariatController;
 use App\Http\Controllers\Sekretariat\KematianSekretariatController;
 use App\Http\Controllers\Sekretariat\DashboardSekretariatController;
@@ -22,9 +18,13 @@ use App\Http\Controllers\Sekretariat\PernikahanSekretariatController;
 use App\Http\Controllers\Bendesa\SuratKeluarProposalBendesaController;
 use App\Http\Controllers\Bendesa\SuratKeluarUndanganBendesaController;
 use App\Http\Controllers\Bendesa\SuratMasukKeputusanBendesaController;
-use App\Http\Controllers\Kelihan\SuratKeluarUndanganKelihanController;
 use App\Http\Controllers\Bendesa\SuratKeluarKeputusanBendesaController;
-use App\Http\Controllers\Kelihan\SuratKeluarKeputusanKelihanController;
+use App\Http\Controllers\Kelian\DashboardKelianController;
+use App\Http\Controllers\Kelian\KematianKelianController;
+use App\Http\Controllers\Kelian\PernikahanKelianController;
+use App\Http\Controllers\Kelian\ProfileKelianController;
+use App\Http\Controllers\Kelian\SuratKeluarKeputusanKelianController;
+use App\Http\Controllers\Kelian\SuratKeluarUndanganKelianController;
 use App\Http\Controllers\Sekretariat\SuratMasukProposalSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratMasukUndanganSekretariatController;
 use App\Http\Controllers\Sekretariat\SuratKeluarProposalSekretariatController;
@@ -125,7 +125,14 @@ Route::group(['middleware' => ['auth']], function () {
         });
 
         Route::group(['prefix' => 'kelola_pengguna'], function () {
-            Route::get('', [LoginController::class, 'indexPengguna']);
+            Route::get('', [LoginController::class, 'indexPengurusDesa']);
+            Route::get('/create', [LoginController::class, 'create']);
+            Route::post('/store', [LoginController::class, 'store']);
+            Route::get('/detail/{id}', [LoginController::class, 'show']);
+            Route::get('/delete/{id}', [LoginController::class, 'delete']);
+        });
+        Route::group(['prefix' => 'kelola_warga'], function () {
+            Route::get('', [LoginController::class, 'indexWarga']);
             Route::get('/create', [LoginController::class, 'create']);
             Route::post('/store', [LoginController::class, 'store']);
             Route::get('/detail/{id}', [LoginController::class, 'show']);
@@ -149,22 +156,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['prefix' => 'kematian_sekretariat'], function () {
             //Route Data Kematians
             Route::get('/', [KematianSekretariatController::class, 'index']);
-            Route::get('/create', [KematianSekretariatController::class, 'create']);
-            Route::post('/store', [KematianSekretariatController::class, 'store']);
             Route::get('/detail/{id}', [KematianSekretariatController::class, 'show']);
-            Route::get('/edit/{id}', [KematianSekretariatController::class, 'edit']);
-            Route::post('/update/{id}', [KematianSekretariatController::class, 'update']);
             Route::get('/delete/{id}', [KematianSekretariatController::class, 'delete']);
         });
 
         Route::group(['prefix' => 'pernikahan_sekretariat'], function () {
             Route::get('', [PernikahanSekretariatController::class, 'index']);
-            Route::get('/create', [PernikahanSekretariatController::class, 'create']);
-            Route::post('/store', [PernikahanSekretariatController::class, 'store']);
             Route::get('/detail/{id}', [PernikahanSekretariatController::class, 'show']);
-            Route::get('/edit/{id}', [PernikahanSekretariatController::class, 'edit']);
-            Route::post('/update/{id}', [PernikahanSekretariatController::class, 'update']);
-            Route::get('/delete/{id}', [PernikahanSekretariatController::class, 'delete']);
         });
 
         Route::group(['prefix' => 'sk_undangan_sekretariat'], function () {
@@ -243,43 +241,44 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['middleware' => ['CekUserLogin:3']], function () {
         // Dashboard
-        Route::get('/dashboard_kelihan', [DashboardKelihanController::class, 'index']);
-        Route::group(['prefix' => 'kematian_kelihan'], function () {
+        Route::get('/dashboard_kelian', [DashboardKelianController::class, 'index']);
+        Route::group(['prefix' => 'kematian_kelian'], function () {
             //Route Data Kematians
-            Route::get('', [KematianKelihanController::class, 'index']);
-            Route::get('/create', [KematianKelihanController::class, 'create']);
-            Route::post('/store', [KematianKelihanController::class, 'store']);
-            Route::get('/detail/{id}', [KematianKelihanController::class, 'show']);
-            Route::get('/edit/{id}', [KematianKelihanController::class, 'edit']);
-            Route::post('/update/{id}', [KematianKelihanController::class, 'update']);
-            Route::get('/delete/{id}', [KematianKelihanController::class, 'delete']);
+            Route::get('', [KematianKelianController::class, 'index']);
+            Route::get('/create', [KematianKelianController::class, 'create']);
+            Route::post('/store', [KematianKelianController::class, 'store']);
+            Route::get('/detail/{id}', [KematianKelianController::class, 'show']);
+            Route::get('/edit/{id}', [KematianKelianController::class, 'edit']);
+            Route::post('/update/{id}', [KematianKelianController::class, 'update']);
+            Route::get('/delete/{id}', [KematianKelianController::class, 'delete']);
         });
 
-        Route::group(['prefix' => 'pernikahan_kelihan'], function () {
-            Route::get('', [PernikahanKelihanController::class, 'index']);
-            Route::get('/detail/{id}', [PernikahanKelihanController::class, 'show']);
+        Route::group(['prefix' => 'pernikahan_kelian'], function () {
+            Route::get('', [PernikahanKelianController::class, 'index']);
+            Route::get('/detail/{id}', [PernikahanKelianController::class, 'show']);
+            Route::get('/delete/{id}', [PernikahanKelianController::class, 'delete']);
         });
 
         //Route Data Surat Keluar Undangan
-        Route::group(['prefix' => 'sk_undangan_kelihan'], function () {
-            Route::get('', [SuratKeluarUndanganKelihanController::class, 'index']);
-            Route::get('/detail/{id}', [SuratKeluarUndanganKelihanController::class, 'show']);
+        Route::group(['prefix' => 'sk_undangan_kelian'], function () {
+            Route::get('', [SuratKeluarUndanganKelianController::class, 'index']);
+            Route::get('/detail/{id}', [SuratKeluarUndanganKelianController::class, 'show']);
         });
-        Route::group(['prefix' => 'sk_keputusan_kelihan'], function () {
+        Route::group(['prefix' => 'sk_keputusan_kelian'], function () {
             //Route Data Surat Keluar Keputusan
-            Route::get('', [SuratKeluarKeputusanKelihanController::class, 'index']);
-            Route::get('/detail/{id}', [SuratKeluarKeputusanKelihanController::class, 'show']);
+            Route::get('', [SuratKeluarKeputusanKelianController::class, 'index']);
+            Route::get('/detail/{id}', [SuratKeluarKeputusanKelianController::class, 'show']);
         });
 
         Route::group(['prefix' => 'edit_profile'], function () {
-            Route::get('', [ProfileKelihanController::class, 'index']);
-            Route::get('/edit/{id}', [ProfileKelihanController::class, 'edit']);
-            Route::post('/update/{id}', [ProfileKelihanController::class, 'update']);
+            Route::get('', [ProfileKelianController::class, 'index']);
+            Route::get('/edit/{id}', [ProfileKelianController::class, 'edit']);
+            Route::post('/update/{id}', [ProfileKelianController::class, 'update']);
         });
 
         Route::group(['prefix' => 'change_password'], function () {
-            Route::get('/edit/{id}', [ProfileKelihanController::class, 'edit_password']);
-            Route::post('/update/{id}', [ProfileKelihanController::class, 'update_password']);
+            Route::get('/edit/{id}', [ProfileKelianController::class, 'edit_password']);
+            Route::post('/update/{id}', [ProfileKelianController::class, 'update_password']);
         });
     });
 
@@ -294,6 +293,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/edit/{id}', [PernikahanWargaController::class, 'edit']);
             Route::post('/update/{id}', [PernikahanWargaController::class, 'update']);
             Route::get('/delete/{id}', [PernikahanWargaController::class, 'delete']);
+            Route::get('/download/{id}', [PernikahanWargaController::class, 'download']);
         });
 
 

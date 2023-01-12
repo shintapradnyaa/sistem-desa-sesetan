@@ -115,11 +115,11 @@
                     </ul>
                 </li>
                 <li
-                    class="nav-item has-treeview {{ request()->is('kelola_pengguna') || request()->is('kelola_pengguna/detail/' . request()->segment(3)) ? 'menu-open' : '' }}">
+                    class="nav-item has-treeview {{ request()->is('kelola_pengguna') || request()->is('kelola_pengguna/detail/' . request()->segment(3)) || request()->is('kelola_warga') || request()->is('kelola_warga/detail/' . request()->segment(3)) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-user-config"></i>
+                        <i class="nav-icon fas fa-user-cog"></i>
                         <p>
-                            Pengguna
+                            PENGGUNA
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -132,8 +132,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('sm_undangan_bendesa') }}"
-                                class="nav-link {{ request()->is('sm_undangan_bendesa') || request()->is('sm_undangan_bendesa/detail/' . request()->segment(3)) ? 'active' : '' }}">
+                            <a href="{{ url('kelola_warga') }}"
+                                class="nav-link {{ request()->is('kelola_warga') || request()->is('kelola_warga/detail/' . request()->segment(3)) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Warga Adat</p>
                             </a>

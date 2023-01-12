@@ -45,11 +45,26 @@
                             <form class="row g-3" action="{{ url('pernikahan_bendesa/update/' . $data->id) }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="input_no_suket" class="form-label">Nomor Surat Keterangan
                                         Pernikahan</label>
                                     <input type="text" class="form-control" name="no_suket"
                                         value="{{ $data->no_suket }}">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input_status_surat" class="form-label">Status Surat
+                                        Pernikahan</label>
+                                    <select name="status_surat" class="form-control">
+                                        @foreach ($status_surat as $status_surat)
+                                            @if ($status_surat == $data->status_surat)
+                                                <option value="{{ $status_surat }}" selected>{{ $status_surat }}
+                                                </option>
+                                            @else
+                                                <option value="{{ $status_surat }}">{{ $status_surat }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="input_tgl_pernikahan" class="form-label">Tanggal

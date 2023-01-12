@@ -89,7 +89,7 @@
                                             <th scope="row">{{ $no++ }}</th>
                                             <td>{{ $row_pernikahan->no_suket }}</td>
                                             <td>{{ $row_pernikahan->banjar }}</td>
-                                            <td rowspan="2">{{ $row_pernikahan->nama_pria }} &
+                                            <td rowspan="1">{{ $row_pernikahan->nama_pria }} &
                                                 {{ $row_pernikahan->nama_wanita }}</td>
                                             <td><label
                                                     class="btn btn-sm {{ $row_pernikahan->status_surat == 'Proses' ? 'btn-primary' : 'btn-success' }}">
@@ -137,7 +137,8 @@
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_lahir)) }}</td>
                                         <td>{{ $row_kematian->umur . ' Tahun' }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_kematian)) }}</td>
-                                        <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}</td>
+                                        <td>{{ $row_kematian->tgl_ngaben == null ? '' : date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

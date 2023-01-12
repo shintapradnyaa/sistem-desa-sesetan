@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    @include('layout_kelihan.header')
+    @include('layout_kelian.header')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         <!-- Navbar -->
-        @include('layout_kelihan.navbar')
+        @include('layout_kelian.navbar')
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('layout_kelihan.sidebar')
+        @include('layout_kelian.sidebar')
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
@@ -32,7 +32,7 @@
             </div>
             <!-- /.content-header -->
             <div class="div ml-3">
-                <a class="btn btn-warning" href="{{ url('sk_keputusan_kelihan') }}" role="button"><i
+                <a class="btn btn-warning" href="{{ url('sk_keputusan_kelian') }}" role="button"><i
                         class="fa fa-chevron-left"></i>
                     Kembali</a>
             </div>
@@ -88,10 +88,10 @@
 
 
     <!-- Main Footer -->
-    @include('layout_kelihan.footer')
+    @include('layout_kelian.footer')
     </div>
     <!-- ./wrapper -->
-    @include('layout_kelihan.script')
+    @include('layout_kelian.script')
 </body>
 
 </html>

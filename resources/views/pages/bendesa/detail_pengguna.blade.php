@@ -18,12 +18,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Edit Profil Pengguna</h1>
+                            <h1 class="m-0 text-dark">Detail Pengguna</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Edit Profil Pengguna</li>
+                                <li class="breadcrumb-item active">Detail Pengguna</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -60,7 +60,15 @@
                                             Hak Akses
                                         </strong>
                                         <p class="text-muted">
-                                            {{ $data->level }}
+                                            @if ($data->level == 1)
+                                                Bendesa
+                                            @elseif ($data->level == 2)
+                                                Sekretariat
+                                            @elseif ($data->level == 3)
+                                                Kelian
+                                            @else
+                                                Warga
+                                            @endif
                                         </p>
                                         <hr>
                                         <strong>

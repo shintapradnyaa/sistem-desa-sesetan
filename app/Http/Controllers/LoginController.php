@@ -17,7 +17,7 @@ class LoginController extends Controller
             } elseif ($user->level == '2') {
                 return redirect()->intended('dashboard_sekretariat');
             } elseif ($user->level == '3') {
-                return redirect()->intended('dashboard_kelihan');
+                return redirect()->intended('dashboard_kelian');
             } elseif ($user->level == '4') {
                 return redirect()->intended('dashboard_login_warga');
             }
@@ -46,7 +46,7 @@ class LoginController extends Controller
             } elseif ($user->level == '2') {
                 return redirect()->intended('dashboard_sekretariat');
             } elseif ($user->level == '3') {
-                return redirect()->intended('dashboard_kelihan');
+                return redirect()->intended('dashboard_kelian');
             } elseif ($user->level == '4') {
                 return redirect()->intended('dashboard_login_warga');
             }
@@ -70,11 +70,18 @@ class LoginController extends Controller
         return redirect('/login');
     }
 
-    public function indexPengguna()
+    public function indexPengurusDesa()
     {
-        $data = User::all();
+        $data = User::where('level', '!=', 4)->get();
         return view('pages.bendesa.kelola_pengguna', compact('data'));
     }
+
+    public function indexWarga()
+    {
+        $data = User::where('level', 4)->get();
+        return view('pages.bendesa.kelola_data_warga', compact('data'));
+    }
+
     public function create()
     {
         return view('create');
@@ -84,7 +91,6 @@ class LoginController extends Controller
     {
         $request->validate([
             'level'     => 'required',
-            'username'  => 'required',
             'password'  => 'required',
             'name'      => 'required',
             'no_telfon' => 'required',
@@ -97,7 +103,6 @@ class LoginController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'level' => $request->level,
-            'username' => $request->username,
             'password' => bcrypt($request->password),
             'no_telfon' => $request->no_telfon,
             'banjar' => $request->banjar,
