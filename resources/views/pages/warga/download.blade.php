@@ -12,6 +12,7 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
     </script>
     </script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
@@ -112,52 +113,49 @@
         </div>
         <div class="row justify-content-center" style="font-size:11px">
             <table>
-                <tr align="center">
+                <tr align="center" style="font-weight: bold;">
                     <td width="300px">Rohaniwan yang muput,</td>
                     <td width="300px">Bendesa Adat, <br>
                         <p>Sesetan</p>
                     </td>
                 </tr>
-                <br>
                 <tr align="center">
                     <td>
-                        {{-- <img src="{{ asset('foto_user_login/' . Auth::user()->foto_pengguna) }}"
-                            class="img-circle elevation-2" alt="User Image" width="70px"> --}}
-                        <img src="../../../../public/tanda_tangan/bendesa.png" alt="" width="50px"
-                            height="50px">
+                        ttd
                     </td>
-                    <td width="300px"><img src="../../../../public/tanda_tangan/bendesa.png" alt=""
-                            width="50px" height="50px"></td>
-                    <td width="300px">ttd</td>
+                    <td>
+                        <img src="{{ storage_path('app/public/bendesa.png') }}" alt=""
+                            style="width:100px; height:50px;">
+                    </td>
                 </tr>
-                <br>
                 <tr align="center">
                     <td width="300px">{{ $row_pernikahan->rohaniawan }}</td>
-                    <td width="300px">Drs. I Made Widra, M.M</td>
+                    <td width="300px" class="ttd">Drs. I Made Widra, M.M</td>
                 </tr>
             </table>
             <br>
             <table>
-                <tr align="center">
+                <tr align="center" style="font-weight: bold;">
                     <td width="300px">Mempelai Pria,</td>
                     <td width="300px">Kelian Adat <br>
                         <p style="font-size:11px">{{ $row_pernikahan->banjar }}</p>
                     </td>
                 </tr>
-                <br>
                 <tr align="center">
                     <td width="300px">ttd</td>
-                    <td width="300px">ttd</td>
+                    <td">
+                        <img src="{{ storage_path('app/public/kelian-kaja.png') }}" alt=""
+                            style="width:100px; height:50px;">
+                        </td>
                 </tr>
-                <br>
                 <tr align="center">
                     <td width="300px">1. {{ $row_pernikahan->nama_pria }}</td>
-                    <td width="300px">---------</td>
+                    <td width="300px">{{ $row_pernikahan->banjar }}</td>
                 </tr>
             </table>
             <br>
             <table>
-                <tr align="center">
+                <tr align="center" style="font-weight: bold;">
                     <td width="300px">Mempelai Wanita,</td>
                     <td width="300px">Saksi 1</td>
                 </tr>
@@ -174,7 +172,7 @@
             </table>
             <br>
             <table>
-                <tr align="center">
+                <tr align="center" style="font-weight: bold;">
                     <td width="300x"></td>
                     <td width="300x">Saksi 2</td>
                 </tr>

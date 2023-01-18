@@ -28,24 +28,27 @@
  <script src="{{ asset('') }}template/adminlte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
  <script src="{{ asset('') }}template/adminlte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
  <script src="{{ asset('') }}template/adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+ <!-- ChartJS -->
+ <script src="{{ asset('') }}template/adminlte/plugins/chart.js/Chart.min.js"></script>
+
  <script>
      $(function() {
          $(function() {
              $("#example1").DataTable({
                  "responsive": true,
-                 "lengthChange": false,
+                 "lengthChange": true,
                  "autoWidth": false,
-                 "buttons": ["excel", "pdf"]
+                 "buttons": ["excel", "pdf"],
+                 "paginate": true,
              }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
          });
      });
-
      window.onload = function() {
          $('#date').on('change', function() {
              var dob = new Date(this.value);
-             //  console.log(dob);
+             // console.log(dob);
              var today = new Date();
-             //  console.log(today);
+             // console.log(today);
              var age = Math.floor((today - dob) / (365.25 * 24 * 60 * 60 * 1000));
              $('#umur').val(age);
          });

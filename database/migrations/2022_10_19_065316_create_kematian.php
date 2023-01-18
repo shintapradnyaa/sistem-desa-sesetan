@@ -37,6 +37,7 @@ return new class extends Migration
             $table->string('sebab_kematian');
             $table->string('ahli_waris');
             $table->string('foto_ktp');
+            $table->timestamp('created_at');
         });
     }
 

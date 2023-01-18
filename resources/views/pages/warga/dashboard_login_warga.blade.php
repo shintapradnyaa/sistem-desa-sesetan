@@ -36,13 +36,14 @@
             <!-- Main content -->
             <section class="content">
                 <div class="card bg-gradient-lightblue">
-                    <h3 class="card-header">Selamat Datang {{ $data = Auth::user()->name }}</h3>
+                    <h3 class="card-header">Hallo, {{ $data = Auth::user()->name }}</h3>
                     <div class="card-body">
                         <h5 class="card-title"></h5>
                         <p class="card-text">Perhatikan beberapa ketentuan dalam menggunakan website Sistem Pendataan
                             dan Administrasi Warga Adat Sesetan seperti dibawah ini:</p>
                     </div>
                 </div>
+                {{-- <h3 class="mt-3 text-center">Ketentuan</h3>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col">
                         <div class="card bg-gradient-yellow">
@@ -85,7 +86,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </section>
             <!-- /.content -->
         </div>

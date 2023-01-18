@@ -98,8 +98,8 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <Label>Tanggal Lahir</Label>
-                                            <input type="date" class="form-control" name="tgl_lahir"
-                                                id="input_tgl_lahir" value="{{ $data->tgl_lahir }}">
+                                            <input type="date" class="form-control" name="tgl_lahir" id="date"
+                                                value="{{ $data->tgl_lahir }}">
                                         </div>
                                     </div>
                                 </div>

@@ -76,15 +76,33 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_nama" class="form-label">Nama</label>
-                                                <input type="text" class="form-control" name="nama"
-                                                    id="input_nama">
+                                                <input type="text" id="input_nama" name="nama"
+                                                    class="form-control
+                                                    @error('nama')
+                                                    is-invalid
+                                                @enderror"
+                                                    value="{{ old('nama') }}">
+                                                @error('nama')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_banjar" class="form-label">Banjar</label>
-                                                <select id="input_banjar" class="form-select form-control"
-                                                    name="banjar">
+                                                <select id="input_banjar" name="banjar"
+                                                    class="form-select form-control
+                                                    @error('banjar')
+                                                    is-invalid
+                                                @enderror"
+                                                    value="{{ old('banjar') }}">
+                                                    @error('banjar')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                     <option selected disabled>Pilih Banjar</option>
                                                     <option value="Banjar Kaja">Banjar Kaja</option>
                                                     <option value="Banjar Pembungan">Banjar Pembungan</option>
@@ -105,8 +123,16 @@
                                             <div class="form-group">
                                                 <label for="input_jenis_kelamin" class="form-label">Jenis
                                                     Kelamin</label>
-                                                <select id="input_jenis_kelamin" class="form-select form-control"
-                                                    name="jenis_kelamin">
+                                                <select id="input_jenis_kelamin"
+                                                    name="jenis_kelamin"class="form-select form-control @error('jenis_kelamin')
+                                                    is-invalid
+                                                @enderror"
+                                                    value="{{ old('jenis_kelamin') }}">
+                                                    @error('jenis_kelamin')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                     <option selected disabled>Pilih Jenis Kelamin</option>
                                                     <option value="pria">Pria</option>
                                                     <option value="wanita">Wanita</option>
@@ -116,8 +142,17 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_tgl_lahir" class="form-label">Tanggal Lahir</label>
-                                                <input type="date" class="form-control form-control" name="tgl_lahir"
-                                                    id="date">
+                                                <input type="date" name="tgl_lahir" id="date"
+                                                    class="form-control form-control
+                                                    @error('tgl_lahir')
+                                                    is-invalid
+                                                @enderror"
+                                                    value="{{ old('tgl_lahir') }}">
+                                                @error('tgl_lahir')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -125,15 +160,33 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="umur" class="form-label">Umur</label>
-                                                <input type="text" class="form-control form-control"
-                                                    name="umur" id="umur">
+                                                <input type="text" name="umur" id="umur"
+                                                    class="form-control form-control
+                                                    @error('umur')
+                                                    is-invalid
+                                                @enderror"
+                                                    value="{{ old('umur') }}">
+                                                @error('umur')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_agama" class="form-label">Agama</label>
-                                                <select id="input_agama" class="form-select form-control"
-                                                    name="agama">
+                                                <select id="input_agama"
+                                                    name="agama"class="form-select form-control
+                                                    @error('agama')
+                                                    is-invalid
+                                                @enderror"
+                                                    value="{{ old('agama') }}">
+                                                    @error('agama')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                     <option selected disabled>Pilih Agama</option>
                                                     <option value="Hindu">Hindu</option>
                                                     <option value="Islam">Islam</option>
@@ -147,14 +200,32 @@
                                     </div>
                                     <div class="col-12">
                                         <label for="input_alamat" class="form-label">Alamat</label>
-                                        <input type="text" class="form-control" name="alamat" id="input_alamat">
+                                        <input type="text" name="alamat" id="input_alamat"
+                                            class="form-control
+                                        @error('alamat')
+                                        is-invalid
+                                    @enderror"
+                                            value="{{ old('alamat') }}">
+                                        @error('alamat')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="input_tgl_kematian" class="form-label">Tanggal
                                                 Kematian</label>
-                                            <input type="date" class="form-control" name="tgl_kematian"
-                                                id="input_tgl_kematian">
+                                            <input type="date" name="tgl_kematian" id="input_tgl_kematian"
+                                                class="form-control @error('tgl_kematian')
+                                                is-invalid
+                                            @enderror"
+                                                value="{{ old('tgl_kematian') }}">
+                                            @error('tgl_kematian')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="col-md-6">
                                             <label for="input_tgl_ngaben" class="form-label">Tanggal
@@ -166,18 +237,43 @@
                                     <div class="col-12">
                                         <label for="input_sebab_kematian" class="form-label">Sebab
                                             Kematian</label>
-                                        <input type="text" class="form-control" name="sebab_kematian"
-                                            id="input_sebab_kematian">
+                                        <input type="text" name="sebab_kematian" id="input_sebab_kematian"
+                                            class="form-control @error('sebab_kematian')
+                                            is-invalid
+                                        @enderror"
+                                            value="{{ old('sebab_kematian') }}">
+                                        @error('sebab_kematian')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="col-12">
                                         <label for="input_ahli_waris" class="form-label">Nama Ahli
                                             Waris</label>
-                                        <input type="text" class="form-control" name="ahli_waris"
-                                            id="input_ahli_waris">
+                                        <input type="text" name="ahli_waris" id="input_ahli_waris"
+                                            class="form-control @error('ahli_waris')
+                                            is-invalid
+                                        @enderror"
+                                            value="{{ old('ahli_waris') }}">
+                                        @error('ahli_waris')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-12">
                                         <label for="formFile" class="form-label">Foto KTP</label>
-                                        <input class="form-control" name="foto_ktp" type="file" id="formFile">
+                                        <input name="foto_ktp" type="file" id="formFile"
+                                            class="form-control @error('foto_ktp')
+                                        is-invalid
+                                    @enderror"
+                                            value="{{ old('foto_ktp') }}">
+                                        @error('foto_ktp')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -244,6 +340,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{-- <div class="d-flex justify-content-center">
+                            {!! $data->links() !!}
+                        </div> --}}
                     </div>
                 </div>
                 <!-- /.card -->
@@ -257,6 +356,7 @@
     <!-- ./wrapper -->
 
     @include('layout_kelian.script')
+
 </body>
 
 </html>

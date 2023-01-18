@@ -231,22 +231,10 @@
     </script>
     <script>
         $(function() {
-            $(function() {
-                $("#example1").DataTable({
-                    "responsive": true,
-                    "lengthChange": false,
-                    "autoWidth": false
-                });
-                $("#example2").DataTable({
-                    "responsive": true,
-                    "lengthChange": false,
-                    "autoWidth": false
-                });
-                $("#example3").DataTable({
-                    "responsive": true,
-                    "lengthChange": false,
-                    "autoWidth": false
-                });
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false
             });
         });
     </script>

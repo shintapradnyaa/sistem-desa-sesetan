@@ -29,14 +29,18 @@
  <script src="{{ asset('') }}template/adminlte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
  <script src="{{ asset('') }}template/adminlte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
  <script src="{{ asset('') }}template/adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+ <!-- ChartJS -->
+ <script src="{{ asset('') }}template/adminlte/plugins/chart.js/Chart.min.js"></script>
 
  <script>
      $(function() {
          $(function() {
              $("#example1").DataTable({
                  "responsive": true,
-                 "lengthChange": false,
+                 "lengthChange": true,
                  "autoWidth": false,
+                 "pageLength": 5,
+                 "paging": true,
                  "buttons": ["excel", "pdf"]
              }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
          });

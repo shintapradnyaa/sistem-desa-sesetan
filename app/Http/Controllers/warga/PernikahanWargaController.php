@@ -7,7 +7,7 @@ use App\Models\Pernikahan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\PDF;
-
+use Illuminate\Support\Facades\DB;
 
 class PernikahanWargaController extends Controller
 {
@@ -193,16 +193,6 @@ class PernikahanWargaController extends Controller
         $data['row_pernikahan'] = $pernikahan;
 
         $pdf = PDF::loadview('pages.warga.download', $data)->setPaper('f4', 'portrait');
-        // $pdf->getDomPDF()->setHttpContext(
-        //     stream_context_create([
-        //         'ssl' => [
-        //             'allow_self_signed' => TRUE,
-        //             'verify_peer' => FALSE,
-        //             'verify_peer_name' => FALSE,
-        //         ]
-        //     ])
-        // );
-
         // return $pdf->download('surat_pernikahan.pdf');
         return $pdf->stream('surat_pernikahan.pdf');
     }

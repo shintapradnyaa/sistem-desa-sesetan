@@ -8,6 +8,7 @@ use App\Models\Pernikahan;
 use App\Models\SuratKeluarKeputusan;
 use App\Models\SuratKeluarUndangan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardKelianController extends Controller
 {
@@ -18,6 +19,31 @@ class DashboardKelianController extends Controller
 
         $total_sk_undangan = SuratKeluarUndangan::count();
         $total_sk_keputusan = SuratKeluarKeputusan::count();
-        return view('pages.kelian.dashboard_kelian', compact('totalKematian', 'totalPernikahan', 'total_sk_undangan', 'total_sk_keputusan'));
+        $dataKematian = Kematian::select(
+            DB::raw("COUNT(*) as count"),
+            DB::raw("MONTHNAME(created_at) as month_name")
+        )
+            ->whereYear('created_at', date('Y'))
+            ->groupBy(DB::raw("month_name"))
+            ->orderBy('id', 'ASC')
+            ->pluck('count', 'month_name');
+
+        $dataPernikahan = Pernikahan::select(
+            DB::raw("COUNT(*) as count"),
+            DB::raw("MONTHNAME(created_at) as month_name")
+        )
+            ->whereYear('created_at', date('Y'))
+            ->groupBy(DB::raw("month_name"))
+            ->orderBy('id', 'ASC')
+            ->pluck('count', 'month_name');
+
+        $labels = $dataKematian->keys();
+        $data   = $dataKematian->values();
+        $labelsPernikahan = $dataPernikahan->keys();
+        $dataPernikahan   = $dataPernikahan->values();
+
+        // dd($data);
+
+        return view('pages.kelian.dashboard_kelian', compact('labels', 'data', 'labelsPernikahan', 'dataPernikahan', 'totalKematian', 'totalPernikahan', 'total_sk_undangan', 'total_sk_keputusan'));
     }
 }
