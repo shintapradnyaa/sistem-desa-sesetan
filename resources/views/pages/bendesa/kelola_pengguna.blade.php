@@ -85,9 +85,8 @@
                                                     </div>
                                                 @enderror
                                                 <option selected disabled>Pilih Hak Akses</option>
-                                                <option value="1">1. Bendesa</option>
-                                                <option value="2">2. Sekretariat</option>
-                                                <option value="3">3. Kelian</option>
+                                                <option value="2">1. Sekretariat</option>
+                                                <option value="3">2. Kelian</option>
                                             </select>
                                         </div>
                                     </div>
@@ -237,8 +236,15 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>
-                                            <img src="{{ asset('foto_user_login/' . $row->foto_pengguna) }}"
-                                                alt="" style="width:100px;">
+                                            <div class="user-panel pb-3 mb-3 d-flex">
+                                                @if ($row->foto_pengguna == null)
+                                                    <img src="{{ asset('foto_user_login/user.png') }}"
+                                                        class="img-circle elevation-2" alt="User Image">
+                                                @else
+                                                    <img src="{{ asset('foto_user_login/' . $row->foto_pengguna) }}"
+                                                        class="img-circle elevation-2" alt="User Image">
+                                                @endif
+                                            </div>
                                         </td>
                                         <td>
                                             @if ($row->level == 1)

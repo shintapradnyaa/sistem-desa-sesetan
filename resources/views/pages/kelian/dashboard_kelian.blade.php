@@ -56,8 +56,7 @@
                         <!-- /.col -->
                         <div class="col-12 col-sm-6 col-md-3">
                             <div class="info-box mb-3">
-                                <span class="info-box-icon bg-danger elevation-1"><i
-                                        class="fa-solid fa-people-simple"></i></span>
+                                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Total Pernikahan</span>
                                     <span class="info-box-number">{{ $totalPernikahan }}</span>
@@ -95,26 +94,32 @@
                             </div>
                             <!-- /.info-box -->
                         </div>
-                        <!-- BAR CHART -->
-                        <div class="card card-success">
-                            <div class="card-header">
-                                <h3 class="card-title">Bar Chart</h3>
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                            class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i
-                                            class="fas fa-times"></i></button>
+                        <!-- /.col (LEFT) -->
+                        <div class="col-12">
+                            <!-- BAR CHART -->
+                            <div class="card card-success">
+                                <div class="card-header">
+                                    <h3 class="card-title">Tingkat Kematian dan Pernikahan Warga Adat Desa Sesetan</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart">
-                                    <canvas id="barChart"
-                                        style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                <div class="card-body">
+                                    <div class="chart">
+                                        <canvas id="barChart"
+                                            style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                    </div>
                                 </div>
+                                <!-- /.card-body -->
                             </div>
-                            <!-- /.card-body -->
                         </div>
+                        <!-- /.col (RIGHT) -->
                     </div>
 
             </section>
@@ -136,7 +141,7 @@
                 labels: labels,
                 datasets: [{
                         label: 'Pernikahan',
-                        backgroundColor: 'rgba(60,141,188,0.9)',
+                        backgroundColor: 'rgba(65, 105, 225, 1)',
                         borderColor: 'rgba(60,141,188,0.8)',
                         pointRadius: false,
                         pointColor: '#3b8bba',
@@ -147,7 +152,7 @@
                     },
                     {
                         label: 'Kematian',
-                        backgroundColor: 'rgba(210, 214, 222, 1)',
+                        backgroundColor: 'rgba(255, 215, 0, 1 )',
                         borderColor: 'rgba(210, 214, 222, 1)',
                         pointRadius: false,
                         pointColor: 'rgba(210, 214, 222, 1)',

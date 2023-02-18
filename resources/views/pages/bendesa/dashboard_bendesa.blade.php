@@ -90,7 +90,7 @@
                             <!-- BAR CHART -->
                             <div class="card card-success">
                                 <div class="card-header">
-                                    <h3 class="card-title">Bar Chart</h3>
+                                    <h3 class="card-title">Tingkat Kematian dan Pernikahan Warga Adat Desa Sesetan</h3>
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -134,7 +134,7 @@
                 labels: labels,
                 datasets: [{
                         label: 'Pernikahan',
-                        backgroundColor: 'rgba(60,141,188,0.9)',
+                        backgroundColor: 'rgba(65, 105, 225, 1)',
                         borderColor: 'rgba(60,141,188,0.8)',
                         pointRadius: false,
                         pointColor: '#3b8bba',
@@ -145,7 +145,7 @@
                     },
                     {
                         label: 'Kematian',
-                        backgroundColor: 'rgba(210, 214, 222, 1)',
+                        backgroundColor: 'rgba(255, 215, 0, 1 )',
                         borderColor: 'rgba(210, 214, 222, 1)',
                         pointRadius: false,
                         pointColor: 'rgba(210, 214, 222, 1)',

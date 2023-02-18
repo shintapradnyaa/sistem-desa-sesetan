@@ -46,7 +46,6 @@
                                     <th scope="col">Tanggal Pernikahan</th>
                                     <th scope="col">Banjar</th>
                                     <th scope="col">Nama Pria</th>
-                                    <th scope="col">Status Pria</th>
                                     <th scope="col">Nama Wanita</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Aksi</th>
@@ -56,24 +55,25 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $row_pernikahan)
+                                @foreach ($pernikahan as $row_pernikahan)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row_pernikahan->no_suket }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_pernikahan->tgl_pernikahan)) }}</td>
                                         <td>{{ $row_pernikahan->banjar }}</td>
                                         <td>{{ $row_pernikahan->nama_pria }}</td>
-                                        <td>{{ $row_pernikahan->status_pria }}</td>
                                         <td>{{ $row_pernikahan->nama_wanita }}</td>
                                         <td><label
                                                 class="badge {{ $row_pernikahan->status_surat == 'Proses' ? 'badge-primary' : 'badge-success' }}">
                                                 {{ $row_pernikahan->status_surat == 'Proses' ? 'Proses' : 'Selesai' }}</label>
                                         </td>
                                         <td>
-                                            <a href="{{ url('pernikahan_bendesa/edit/' . $row_pernikahan->id) }}"
-                                                class="btn btn-sm btn-warning" title="Lihat Data">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
+                                            @if ($row_pernikahan->status_surat == 'Proses')
+                                                <a href="{{ url('pernikahan_bendesa/edit/' . $row_pernikahan->id) }}"
+                                                    class="btn btn-sm btn-warning" title="Lihat Data">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            @endif
                                             <a href="{{ url('pernikahan_bendesa/detail/' . $row_pernikahan->id) }}"
                                                 class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>

@@ -77,7 +77,8 @@
                                                 <label for="input_no_sk_undangan" class="form-label">Nomor Surat
                                                     Keluar</label>
                                                 <input type="text" name="no_sk_undangan" id="input_no_sk_undangan"
-                                                    class="form-control 
+                                                    value="{{ $no_sk_undangan }}"
+                                                    class="form-control
                                                     @error('no_sk_undangan')
                                                     is-invalid
                                                     @enderror"
@@ -140,9 +141,9 @@
                                         </div>
                                     </div>
                                     <div class="mb-12">
-                                        <label for="formFile" class="form-label">Foto Surat Keluar</label>
+                                        <label for="formFile" class="form-label">File Surat Keluar</label>
                                         <input name="foto_sk_undangan" type="file" id="formFile"
-                                            class="form-control 
+                                            class="form-control
                                             @error('foto_sk_undangan')
                                             is-invalid
                                             @enderror"
@@ -174,7 +175,6 @@
                                     <th scope="col">Tanggal Surat Undangan Keluar</th>
                                     <th scope="col">Perihal Surat Undangan Keluar</th>
                                     <th scope="col">Ditujukan Kepada</th>
-                                    <th scope="col">Foto Surat Keluar Undangan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -182,7 +182,7 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $index => $row)
+                                @foreach ($sk_undangan as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->no_sk_undangan }}</td>
@@ -190,20 +190,12 @@
                                         <td>{{ $row->perihal_sk }}</td>
                                         <td>{{ $row->ditujukan_sk }}</td>
                                         <td>
-                                            <img src="{{ asset('foto_sk_undangan/' . $row->foto_sk_undangan) }}"
-                                                alt="" style="width:100px;">
-                                        </td>
-                                        <td>
-                                            <a href="{{ url('sk_undangan_sekretariat/detail/' . $row->id) }}"
-                                                class="btn btn-sm btn-info" title="Lihat Data">
-                                                <i class="fas fa-info-circle"></i>
-                                            </a>
                                             <a href="{{ url('sk_undangan_sekretariat/edit/' . $row->id) }}"
                                                 class="btn btn-sm btn-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="{{ url('sk_undangan_bendesa/' . $row->sk_undangan_bendesa) }}"
-                                                download="{{ $row->sk_undangan_bendesa }}"
+                                            <a href="{{ url('foto_sk_undangan/' . $row->foto_sk_undangan) }}"
+                                                download="{{ $row->foto_sk_undangan }}"
                                                 class="btn btn-sm btn-primary" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>

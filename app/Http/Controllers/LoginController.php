@@ -116,7 +116,12 @@ class LoginController extends Controller
         }
         return redirect('kelola_pengguna')->with('message', 'Data Berhasil Disimpan');
     }
-    public function show($id)
+    public function showWarga($id)
+    {
+        $data = User::find($id);
+        return view('pages.bendesa.detail_warga', compact('data'));
+    }
+    public function showPengurus($id)
     {
         $data = User::find($id);
         return view('pages.bendesa.detail_pengguna', compact('data'));

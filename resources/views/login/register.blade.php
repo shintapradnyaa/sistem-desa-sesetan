@@ -9,8 +9,9 @@
     <div class="register-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <h3><strong>Daftar Akun</strong></h3>
-                <h5><strong>Sistem Pendataan Warga Adat Desa Sesetan</strong></h5>
+                <img src="{{ asset('logo_bendesa.png') }}" weight="80px" height="80px" alt="User Image">
+                <h5><strong>Daftar Akun</strong></h5>
+                <h6><strong>Sistem Pendataan Warga Adat Desa Sesetan</strong></h6>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Silahkan Daftarkan Akun Baru Anda</p>

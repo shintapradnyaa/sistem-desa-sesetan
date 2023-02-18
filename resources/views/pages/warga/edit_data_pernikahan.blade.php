@@ -53,17 +53,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="input_banjar" class="form-label">Banjar</label>
-                                    <select id="input_banjar" name="banjar" class="form-select form-control">
-                                        @foreach ($banjar as $item)
-                                            @if ($item == $data->banjar)
-                                                <option value="{{ $item }}" selected>{{ $item }}
-                                                </option>
-                                            @else
-                                                <option value="{{ $item }}">{{ $item }}
-                                                </option>
-                                            @endif
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control" value="{{ $pernikahan->banjar }}" readonly>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="input_nama_pria" class="form-label">Nama Pria</label>

@@ -63,17 +63,8 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Banjar</label>
-                                            <select name="banjar" class="form-control">
-                                                @foreach ($banjar as $item)
-                                                    @if ($item == $data->banjar)
-                                                        <option value="{{ $item }}" selected>{{ $item }}
-                                                        </option>
-                                                    @else
-                                                        <option value="{{ $item }}">{{ $item }}
-                                                        </option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
+                                            <input type="text" class="form-control"
+                                                value="{{ Auth::user()->banjar }}" readonly>
                                         </div>
                                     </div>
                                 </div>

@@ -10,13 +10,13 @@
         <!-- Notifications -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-                <div class="user-panel pb-3 mb-3 d-flex">
+                <div class="text-center">
                     @if (Auth::user()->foto_pengguna == null)
                         <img src="{{ asset('foto_user_login/user.png') }}" class="img-circle elevation-2"
-                            alt="User Image">
+                            alt="User Image" width="30px" height="30px">
                     @else
                         <img src="{{ asset('foto_user_login/' . Auth::user()->foto_pengguna) }}"
-                            class="img-circle elevation-2" alt="User Image">
+                            class="img-circle elevation-2" alt="User Image" width="60px" height="60px">
                     @endif
                 </div>
             </a>

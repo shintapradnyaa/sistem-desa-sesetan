@@ -18,8 +18,9 @@
                 </div>
             @endif
             <div class="login-logo mt-4 mb-2">
-                <h2><strong>Login</strong></h2>
-                <h4><strong>Sistem Pendataan Warga Adat Desa Sesetan</strong></h4>
+                <img src="{{ asset('logo_bendesa.png') }}" weight="80px" height="80px" alt="User Image">
+                <h3><strong>Login</strong></h3>
+                <h5><strong>Sistem Pendataan Warga Adat Desa Sesetan</strong></h5>
             </div>
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Silahkan Masukkan Email dan Password</p>

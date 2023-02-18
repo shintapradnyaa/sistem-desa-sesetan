@@ -10,13 +10,7 @@ class SuratMasukUndanganBendesaController extends Controller
 {
     public function index()
     {
-        $data = SuratMasukUndangan::orderBy('tgl_sm_masuk', 'desc')->get();
-        return view('pages.bendesa.data_sm_undangan', compact('data'));
-    }
-
-    public function show($id)
-    {
-        $data = SuratMasukUndangan::find($id);
-        return view('pages.bendesa.detail_sm_undangan', compact('data'));
+        $data['sm_undangan'] = SuratMasukUndangan::orderBy('no_sm_undangan', 'desc')->get();
+        return view('pages.bendesa.data_sm_undangan', $data);
     }
 }

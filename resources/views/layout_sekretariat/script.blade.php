@@ -39,7 +39,6 @@
                  "responsive": true,
                  "lengthChange": true,
                  "autoWidth": false,
-                 "pageLength": 5,
                  "paging": true,
                  "buttons": ["excel", "pdf"]
              }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');

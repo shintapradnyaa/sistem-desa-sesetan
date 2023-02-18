@@ -36,7 +36,6 @@
                         class="fa fa-chevron-left"></i>
                     Kembali</a>
             </div>
-
             <!-- Main content -->
             <section class="content">
                 <div class="container">
@@ -49,7 +48,7 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <Label>Nama</Label>
-                                            <input type="text" name="nama"
+                                            <input type="text" name="nama" readonly
                                                 class="form-control
                                                 @error('nama')
                                                     is-invalid
@@ -64,17 +63,8 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Banjar</label>
-                                            <select name="banjar" class="form-control">
-                                                @foreach ($banjar as $item)
-                                                    @if ($item == $data->banjar)
-                                                        <option value="{{ $item }}" selected>{{ $item }}
-                                                        </option>
-                                                    @else
-                                                        <option value="{{ $item }}">{{ $item }}
-                                                        </option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
+                                            <input type="text" class="form-control" value="{{ $kematian->banjar }}"
+                                                readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -82,50 +72,47 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
-                                            <select name="jenis_kelamin" class="form-control">
-                                                @foreach ($jenis_kelamin as $jk)
-                                                    @if ($jk == $data->jenis_kelamin)
-                                                        <option value="{{ $jk }}" selected>
-                                                            {{ $jk }}
-                                                        </option>
-                                                    @else
-                                                        <option value="{{ $jk }}">{{ $jk }}
-                                                        </option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
+                                            <input type="text" class="form-control" name="jenis_kelamin"
+                                                value="{{ $data->jenis_kelamin }}" readonly>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
                                             <Label>Tanggal Lahir</Label>
-                                            <input type="date" class="form-control" name="tgl_lahir"
-                                                id="input_tgl_lahir" value="{{ $data->tgl_lahir }}">
+                                            <input type="date" class="form-control" name="tgl_lahir" id="date"
+                                                value="{{ $data->tgl_lahir }}" readonly>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <div class="label">Agama</div>
-                                            <select name="agama" class="form-control">
-                                                @foreach ($agama as $ag)
-                                                    @if ($ag == $data->agama)
-                                                        <option value="{{ $ag }}" selected>
-                                                            {{ $ag }}
-                                                        </option>
-                                                    @else
-                                                        <option value="{{ $ag }}">{{ $ag }}
-                                                        </option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
+                                            <Label>Umur</Label>
+                                            <input type="text" id="umur" name="umur" readonly
+                                                class="form-control
+                                                @error('umur')
+                                                    is-invalid
+                                                @enderror
+                                                "
+                                                value="{{ $data->umur }} ">
+                                            @error('umur')
+                                                <span class="text-danger text-sm">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
+                                            <label>Agama</label>
+                                            <input type="text" class="form-control" name="agama"
+                                                value="{{ $data->agama }}" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
                                             <Label>Alamat</Label>
-                                            <input type="text" name="alamat"
+                                            <input type="text" name="alamat" readonly
                                                 class="form-control
                                                 @error('alamat')
                                                     is-invalid
@@ -143,14 +130,14 @@
                                         <div class="form-group">
                                             <label>Tanggal Kematian</label>
                                             <input type="date" class="form-control" name="tgl_kematian"
-                                                id="input_tgl_kematian" value="{{ $data->tgl_kematian }}">
+                                                id="input_tgl_kematian" value="{{ $data->tgl_kematian }}" readonly>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Tanggal Ngaben</label>
-                                            <input type="date" class="form-control" name="tgl_ngaben"
-                                                id="input_tgl_ngaben" value="{{ $data->tgl_ngaben }}">
+                                            <input class="form-control" name="tgl_ngaben" id="disabledInput"
+                                                type="date" value="{{ $data->tgl_ngaben }}">
                                         </div>
                                     </div>
                                 </div>
@@ -158,7 +145,7 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <Label>Sebab Kematian</Label>
-                                            <input type="text" name="sebab_kematian"
+                                            <input type="text" name="sebab_kematian" readonly
                                                 class="form-control
                                                 @error('sebab_kematian')
                                                     is-invalid
@@ -173,7 +160,7 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <Label>Ahli Waris</Label>
-                                            <input type="text" name="ahli_waris"
+                                            <input type="text" name="ahli_waris" readonly
                                                 class="form-control
                                                 @error('ahli_waris')
                                                     is-invalid
@@ -189,13 +176,6 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label>Foto KTP</label>
-                                            <input class="form-control" name="foto_ktp" type="file"
-                                                id="formFile">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
                                             <img src="{{ asset('foto_ktp_kematian/' . $data->foto_ktp) }}"
                                                 class="img-thumbnail">
                                         </div>
@@ -203,7 +183,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <button type="submit" class="btn btn-primary float-right">Update</button>
+                                        <button type="submit" class="btn btn-primary col-12">Update</button>
                                     </div>
                                 </div>
                             </form>

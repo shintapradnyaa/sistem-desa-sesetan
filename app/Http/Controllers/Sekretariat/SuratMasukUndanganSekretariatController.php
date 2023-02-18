@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Sekretariat;
 use Illuminate\Http\Request;
 use App\Models\SuratMasukUndangan;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class SuratMasukUndanganSekretariatController extends Controller
 {
     public function index()
     {
-        $data = SuratMasukUndangan::orderBy('tgl_sm_masuk', 'desc')->get();
-        return view('pages.sekretariat.data_sm_undangan', compact('data'));
+        $data['sm_undangan'] = SuratMasukUndangan::orderBy('tgl_sm_masuk', 'desc')->get();
+        return view('pages.sekretariat.data_sm_undangan', $data);
     }
 
     public function create()
@@ -29,7 +30,7 @@ class SuratMasukUndanganSekretariatController extends Controller
                 'perihal_sm'      => 'required',
                 'asal_sm'         => 'required',
                 'ditujukan_sm'    => 'required',
-                'foto_sm_undangan' => 'mimes:jpg,png,jpeg|image|max:2048'
+                'foto_sm_undangan' => 'required|mimes:doc,docx,pdf'
             ],
             [
                 'no_sm_undangan.required' => 'Nomor Surat Tidak Boleh Kosong',
@@ -37,14 +38,23 @@ class SuratMasukUndanganSekretariatController extends Controller
                 'perihal_sm.required'      => 'Perihal Surat Tidak Boleh Kosong',
                 'asal_sm.required'         => 'Asal Surat Tidak Boleh Kosong',
                 'ditujukan_sm.required'    => 'Tidak Boleh Kosong',
-                'foto_sm_undangan.required' => 'Foto Surat Undangan Tidak Boleh Kosong'
+                'foto_sm_undangan.required' => 'Surat Undangan Tidak Boleh Kosong'
             ]
         );
-        $data = SuratMasukUndangan::create($request->all());
+        $data = [
+            'user_id'            => Auth::user()->id,
+            'no_sm_undangan'     => $request->no_sm_undangan,
+            'tgl_sm_masuk'       => $request->tgl_sm_masuk,
+            'asal_sm'            => $request->asal_sm,
+            'perihal_sm'         => $request->perihal_sm,
+            'ditujukan_sm'       => $request->ditujukan_sm,
+            'foto_sm_undangan'   => $request->foto_sm_undangan
+        ];
+        $sm_undangan = SuratMasukUndangan::create($data);
         if ($request->hasFile('foto_sm_undangan')) {
             $request->file('foto_sm_undangan')->move('foto_sm_undangan/', $request->file('foto_sm_undangan')->getClientOriginalName());
-            $data->foto_sm_undangan = $request->file('foto_sm_undangan')->getClientOriginalName();
-            $data->save();
+            $sm_undangan->foto_sm_undangan = $request->file('foto_sm_undangan')->getClientOriginalName();
+            $sm_undangan->save();
         }
         return redirect('sm_undangan_sekretariat')->with('message', 'Data Berhasil Di Tambahkan');
     }
@@ -69,7 +79,7 @@ class SuratMasukUndanganSekretariatController extends Controller
                 'perihal_sm'      => 'required',
                 'asal_sm'         => 'required',
                 'ditujukan_sm'    => 'required',
-                'foto_sm_undangan' => 'mimes:jpg,png,jpeg|image|max:2048'
+                'foto_sm_undangan' => 'mimes:doc,docx,pdf'
             ],
             [
                 'no_sm_undangan.required' => 'Nomor Surat Tidak Boleh Kosong',
@@ -77,7 +87,7 @@ class SuratMasukUndanganSekretariatController extends Controller
                 'perihal_sm.required'      => 'Perihal Surat Tidak Boleh Kosong',
                 'asal_sm.required'         => 'Asal Surat Tidak Boleh Kosong',
                 'ditujukan_sm.required'    => 'Tidak Boleh Kosong',
-                'foto_sm_undangan.required' => 'Foto Surat Undangan Tidak Boleh Kosong'
+                'foto_sm_undangan.required' => 'Surat Undangan Tidak Boleh Kosong'
             ]
         );
         $data = $request->all();

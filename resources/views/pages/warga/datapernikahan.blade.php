@@ -73,7 +73,7 @@
                                 <div class="modal-body">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="input_tgl_pernikahan" class="form-label">Tanggal
                                                     Pernikahan</label>
@@ -87,35 +87,7 @@
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
-                                                @enderror           
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="input_banjar" class="form-label">Banjar</label>
-                                                <select id="input_banjar" name="banjar"
-                                                    class="form-select form-control @error('banjar')
-                                                    is-invalid
-                                                @enderror"
-                                                    value="{{ old('banjar') }}">
-                                                    @error('banjar')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                    <option selected disabled>Pilih Banjar</option>
-                                                    <option value="Banjar Kaja">Banjar Kaja</option>
-                                                    <option value="Banjar Pembungan">Banjar Pembungan</option>
-                                                    <option value="Banjar Tengah">Banjar Tengah</option>
-                                                    <option value="Banjar Gaduh">Banjar Gaduh</option>
-                                                    <option value="Banjar Puri Agung">Banjar Puri Agung</option>
-                                                    <option value="Banjar Lantang Bejuh">Banjar Lantang Bejuh
-                                                    </option>
-                                                    <option value="Banjar Dukuh Sari">Banjar Dukuh Sari</option>
-                                                    <option value="Banjar Pegok">Banjar Pegok</option>
-                                                    <option value="Banjar Suwung Batan Kendal">Banjar Suwung Batan
-                                                        Kendal</option>
-                                                </select>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -161,8 +133,7 @@
                                                 <label for="input_tmpt_lahir_pria" class="form-label">Tempat Lahir
                                                     Pria
                                                 </label>
-                                                <input type="text" name="tmpt_lahir_pria"
-                                                    id="input_tmpt_lahir_pria"
+                                                <input type="text" name="tmpt_lahir_pria" id="input_tmpt_lahir_pria"
                                                     class="form-control
                                                     @error('tmpt_lahir_pria')
                                                     is-invalid
@@ -442,14 +413,12 @@
                                                 class="btn btn-sm btn-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="{{ url('pernikahan_warga/detail/' . $row_pernikahan->id) }}"
-                                                class="btn btn-sm btn-info" title="Lihat Data">
-                                                <i class="fas fa-info-circle"></i>
-                                            </a>
-                                            <a href="{{ url('pernikahan_warga/download/' . $row_pernikahan->id) }}"
-                                                class="btn btn-sm btn-primary" title="Download">
-                                                <i class="fas fa-download"></i>
-                                            </a>
+                                            @if ($row_pernikahan->status_surat == 'Selesai')
+                                                <a href="{{ url('pernikahan_warga/download/' . $row_pernikahan->id) }}"
+                                                    class="btn btn-sm btn-primary" title="Download">
+                                                    <i class="fas fa-download"></i>
+                                                </a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

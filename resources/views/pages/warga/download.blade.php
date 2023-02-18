@@ -23,8 +23,18 @@
             </div>
         </div>
         <div class="row justify-content-center">
+            <?php
+            $no_surat = '';
+            
+            if ($row_pernikahan->status_surat == 'Selesai') {
+                $no_surat = $row_pernikahan->no_suket;
+            } else {
+                $no_surat = '';
+            }
+            ?>
+
             <div class="col-12 text-center">
-                <h6 style="font-size:14px">No. {{ $row_pernikahan->no_suket }}</h6>
+                <h6 style="font-size:14px">No. {{ $no_surat }}</h6>
             </div>
         </div>
         <br>
@@ -32,7 +42,7 @@
             <div class="col-12 text-center">
                 <p class="text-justify" style="font-size:11px">Yang bertanda tangan dibawah ini Bendasa Adat dan
                     Kelian Adat
-                    {{ $row_pernikahan->banjar }} Desa/Kelurahan <u>Sesetan</u> Kecamatan Denpasar Selatan Kab/Kota
+                    {{ Auth::user()->banjar }} Desa/Kelurahan <u>Sesetan</u> Kecamatan Denpasar Selatan Kab/Kota
                     <u>Denpasar</u> menerangkan dengan sebenarnya bahwa :
                 </p>
             </div>
@@ -78,7 +88,7 @@
         <div class="row justify-content-center" style="font-size:11px">
             <?php
             $alamat_nikah = '';
-
+            
             if ($row_pernikahan->alamat_pria != 'purusa') {
                 $alamat_nikah = $row_pernikahan->alamat_pria;
             } else {
@@ -112,6 +122,18 @@
             </div>
         </div>
         <div class="row justify-content-center" style="font-size:11px">
+
+            <?php
+            $ttd_bendesa = '';
+            
+            if ($row_pernikahan->status_surat == 'Selesai') {
+                $ttd_bendesa = 'bendesa.png';
+            } else {
+                $ttd_bendesa = '';
+            }
+            
+            ?>
+
             <table>
                 <tr align="center" style="font-weight: bold;">
                     <td width="300px">Rohaniwan yang muput,</td>
@@ -121,10 +143,9 @@
                 </tr>
                 <tr align="center">
                     <td>
-                        ttd
                     </td>
                     <td>
-                        <img src="{{ storage_path('app/public/bendesa.png') }}" alt=""
+                        <img src="{{ storage_path('app/public/' . $ttd_bendesa) }}" alt=""
                             style="width:100px; height:50px;">
                     </td>
                 </tr>
@@ -138,19 +159,18 @@
                 <tr align="center" style="font-weight: bold;">
                     <td width="300px">Mempelai Pria,</td>
                     <td width="300px">Kelian Adat <br>
-                        <p style="font-size:11px">{{ $row_pernikahan->banjar }}</p>
+                        <p style="font-size:11px">{{ Auth::user()->banjar }}</p>
                     </td>
                 </tr>
                 <tr align="center">
-                    <td width="300px">ttd</td>
-                    <td">
-                        <img src="{{ storage_path('app/public/kelian-kaja.png') }}" alt=""
-                            style="width:100px; height:50px;">
-                        </td>
+                    <td width="300px"></td>
+                    <td>
+                        <img src="{{ $ttd_kelian }}" alt="" style="width:100px; height:50px;">
+                    </td>
                 </tr>
                 <tr align="center">
                     <td width="300px">1. {{ $row_pernikahan->nama_pria }}</td>
-                    <td width="300px">{{ $row_pernikahan->banjar }}</td>
+                    <td width="300px">{{ $kelianBanjar }}</td>
                 </tr>
             </table>
             <br>
@@ -160,13 +180,14 @@
                     <td width="300px">Saksi 1</td>
                 </tr>
                 <br>
+                <br>
                 <tr align="center">
-                    <td width="300px">ttd</td>
-                    <td width="300px">ttd</td>
+                    <td width="300px"></td>
+                    <td width="300px"></td>
                 </tr>
                 <br>
                 <tr align="center">
-                    <td width="300px">2. {{ $row_pernikahan->nama_pria }}</td>
+                    <td width="300px">2. {{ $row_pernikahan->nama_wanita }}</td>
                     <td width="300px">{{ $row_pernikahan->saksi1 }}</td>
                 </tr>
             </table>
@@ -177,9 +198,10 @@
                     <td width="300x">Saksi 2</td>
                 </tr>
                 <br>
+                <br>
                 <tr align="center">
                     <td width="300x"></td>
-                    <td width="300x">ttd</td>
+                    <td width="300x"></td>
                 </tr>
                 <br>
                 <tr align="center">
@@ -192,47 +214,3 @@
 </body>
 
 </html>
-
-{{-- <div class="row">
-                <div class="col-5">
-                    <div class="form-group">
-                        <div style="width:80%; text-align: center; float: right;">Mempelai Pria,</div><br><br><br><br>
-                        <div style="width:80%; text-align: center; float: right;">1. &nbsp; &nbsp;
-                            {{ $row_pernikahan->nama_pria }}
-                        </div><br>
-                    </div>
-                </div>
-                <div class="col-5">
-                    <div class="form-group">
-                        <div style="width:80%; text-align: center; float: right;">Kelian Adat,</div><br>
-                        <div style="width:80%; text-align: center; float: right; font-size:12px"><span>Br.
-                                {{ $row_pernikahan->banjar }}</span></div>
-                        <br><br><br>
-                        <div style="width:80%; text-align: center; float: right;">__________________</div><br>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-5">
-                    <div class="form-group">
-                        <div style="width:80%; text-align: center; float: right;">Mempelai Wanita,</div><br><br><br>
-                        <div style="width:80%; text-align: center; float: right;">2. &nbsp;
-                            &nbsp;{{ $row_pernikahan->nama_wanita }}
-                        </div><br>
-                    </div>
-                </div>
-                <div class="col-5">
-                    <div class="form-group">
-                        <div style="width:80%; text-align: center; float: right;">Saksi 1 :</div><br><br><br>
-                        <div style="width:80%; text-align: center; float: right;">{{ $row_pernikahan->saksi1 }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-group">
-                        <div style="width:80%; text-align: center; float: right;">Saksi 2 :</div><br><br><br>
-                        <div style="width:80%; text-align: center; float: right;">{{ $row_pernikahan->saksi2 }}</div>
-                    </div>
-                </div>
-            </div> --}}

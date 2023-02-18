@@ -3,21 +3,30 @@
 namespace App\Http\Controllers\Kelian;
 
 use App\Models\Pernikahan;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class PernikahanKelianController extends Controller
 {
     public function index()
     {
-        $data = Pernikahan::orderBy('no_suket', 'desc')->get();
-        return view('pages.kelian.datapernikahan', compact('data'));
+        $data['pernikahan'] = Pernikahan::join('users', 'users.id', '=', 'pernikahan.user_id')
+            ->select('users.banjar', 'pernikahan.*')
+            ->orderBy('no_suket', 'desc')
+            ->get();
+        // dd($data);
+        return view('pages.kelian.datapernikahan', $data);
     }
 
     public function show($id)
     {
         $data = Pernikahan::find($id);
-        return view('pages.kelian.detail_data_pernikahan', compact('data'));
+        $data['pernikahan'] = DB::table('pernikahan')->where('pernikahan.id', $id)
+            ->join('users', 'users.id', '=', 'pernikahan.user_id')
+            ->select('pernikahan.*', 'users.banjar')
+            ->first();
+        // dd($data);
+        return view('pages.kelian.detail_data_pernikahan', $data);
     }
 
     public function delete($id)

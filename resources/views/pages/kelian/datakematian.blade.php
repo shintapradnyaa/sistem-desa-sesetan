@@ -76,12 +76,22 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_nama" class="form-label">Nama</label>
-                                                <input type="text" id="input_nama" name="nama"
+                                                <select name="nama"
+                                                    class="form-control @error('nama')
+                                                        is-invalid
+                                                    @enderror">
+                                                    <option disabled selected>--Pilih Warga--</option>
+                                                    @foreach ($warga as $data_warga)
+                                                        <option value="{{ $data_warga->name }}">{{ $data_warga->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                {{-- <input type="text" id="input_nama" name="nama"
                                                     class="form-control
                                                     @error('nama')
                                                     is-invalid
                                                 @enderror"
-                                                    value="{{ old('nama') }}">
+                                                    value="{{ old('nama') }}"> --}}
                                                 @error('nama')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -92,29 +102,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_banjar" class="form-label">Banjar</label>
-                                                <select id="input_banjar" name="banjar"
-                                                    class="form-select form-control
-                                                    @error('banjar')
-                                                    is-invalid
-                                                @enderror"
-                                                    value="{{ old('banjar') }}">
-                                                    @error('banjar')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                    <option selected disabled>Pilih Banjar</option>
-                                                    <option value="Banjar Kaja">Banjar Kaja</option>
-                                                    <option value="Banjar Pembungan">Banjar Pembungan</option>
-                                                    <option value="Banjar Tengah">Banjar Tengah</option>
-                                                    <option value="Banjar Gaduh">Banjar Gaduh</option>
-                                                    <option value="Banjar Puri Agung">Banjar Puri Agung</option>
-                                                    <option value="Banjar Lantang Bejuh">Banjar Lantang Bejuh</option>
-                                                    <option value="Banjar Dukuh Sari">Banjar Dukuh Sari</option>
-                                                    <option value="Banjar Pegok">Banjar Pegok</option>
-                                                    <option value="Banjar Suwung Batan Kendal">Banjar Suwung Batan
-                                                        Kendal</option>
-                                                </select>
+                                                <input type="text" class="form-control"
+                                                    value="{{ Auth::user()->banjar }}" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -305,11 +294,11 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $row_kematian)
+                                @foreach ($kematian as $row_kematian)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row_kematian->nama }}</td>
-                                        <td>{{ $row_kematian->banjar }}</td>
+                                        <td>{{ Auth::user()->banjar }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_lahir)) }}</td>
                                         <td>{{ $row_kematian->umur . ' Tahun' }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_kematian)) }}</td>

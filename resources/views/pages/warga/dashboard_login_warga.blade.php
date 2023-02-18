@@ -35,58 +35,63 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="card bg-gradient-lightblue">
-                    <h3 class="card-header">Hallo, {{ $data = Auth::user()->name }}</h3>
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text">Perhatikan beberapa ketentuan dalam menggunakan website Sistem Pendataan
-                            dan Administrasi Warga Adat Sesetan seperti dibawah ini:</p>
-                    </div>
-                </div>
-                {{-- <h3 class="mt-3 text-center">Ketentuan</h3>
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
-                        <div class="card bg-gradient-yellow">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-user mr-2"></i>
+                                    Hallo, {{ $data = Auth::user()->name }}
+                                </h3>
+                            </div>
                             <div class="card-body">
-                                <i class="far fa-clock"></i>
-                                <p class="card-text">Pelayanan administrasi secara daring seperti pengurusan akta
-                                    perkawinan dibuka 24 jam.</p>
+                                <blockquote>
+                                    <p>Perhatikan beberapa ketentuan dalam menggunakan website Sistem
+                                        Pendataan
+                                        dan Administrasi Warga Adat Sesetan seperti dibawah ini:</p>
+                                </blockquote>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card bg-gradient-green">
-                            <div class="card-body">
-                                <i class="far fa-file-alt"></i>
-                                <p class="card-text">Permohonan administrasi akta perkawinan secara daring yang masuk,
-                                    akan diverifikasi sesuai jadwal kerja yaitu hari senin sampai jumat.</p>
+                    <div class="col-md-12">
+                        <div class="info-box mb-3 bg-warning">
+                            <span class="info-box-icon"><i class="far fa-clock"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Pelayanan administrasi secara daring seperti pengurusan akta
+                                    perkawinan dibuka 24 jam.</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card bg-gradient-olive">
-                            <div class="card-body"><i class="fas fa-user-circle"></i>
-                                <p class="card-text"> Pelapor yang melakukan pendaftaran administrasi secara daring
-                                    adalah kepala keluarga dalam satu KK.</p>
+                        <div class="info-box mb-3 bg-success">
+                            <span class="info-box-icon"><i class="fas fa-list"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Permohonan administrasi akta perkawinan secara daring
+                                    yang masuk, akan diverifikasi sesuai jadwal kerja yaitu hari Senin - Jumat.</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card bg-gradient-olive">
-                            <div class="card-body"><i class="fas fa-user-circle"></i>
-                                <p class="card-text">Terdapat 2 status yang akan diberikan ketika mengurus administrasi
-                                    akta perkawinan yaitu status proses dan selesai.</p>
-                                <p>- Status proses memiliki arti bahwa
-                                    akta perkawinan sedang diproses oleh bendesa. Dan perlu di cek secara berkala untuk
-                                    mengetahui status terkini.</p>
-                                <p>
-                                    - Status Selesai memiliki arti bahwa akta perkawinan telah selesai diproses. Dan
-                                    Akta perkawinan dapat di download.
-                                </p>
+                        <div class="info-box mb-3 bg-danger">
+                            <span class="info-box-icon"><i class="fas fa-user"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Pelapor yang melakukan pendaftaran administrasi secara
+                                    daring adalah kepala keluarga dalam satu KK.</span>
                             </div>
                         </div>
-                    </div>
-                </div> --}}
+                        <div class="info-box mb-3 bg-info">
+                            <span class="info-box-icon"><i class="fas fa-file-download"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Terdapat 2 status yang akan diberikan ketika mengurus
+                                    administrasi akta perkawinan yaitu status "Proses" dan "Selesai".</span>
+                                <ul class="text mt-2">
+                                    <li>Status <b>Proses</b> memiliki arti bahwa
+                                        akta perkawinan sedang diproses oleh bendesa. Dan perlu di cek secara berkala
+                                        untuk
+                                        mengetahui status terkini.</li>
+                                    <li>
+                                        Status <b>Selesai</b> memiliki arti bahwa akta perkawinan telah
+                                        selesai diproses. Dan Akta perkawinan dapat di download.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
             </section>
             <!-- /.content -->
         </div>

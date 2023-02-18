@@ -55,12 +55,12 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $row_pernikahan)
+                                @foreach ($pernikahan as $row_pernikahan)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row_pernikahan->no_suket }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_pernikahan->tgl_pernikahan)) }}</td>
-                                        <td>{{ $row_pernikahan->banjar }}</td>
+                                        <td>{{ Auth::user()->banjar }}</td>
                                         <td>{{ $row_pernikahan->nama_pria }}</td>
                                         <td>{{ $row_pernikahan->nama_wanita }}</td>
                                         <td><label

@@ -13,12 +13,12 @@ class DashboardRegisterWargaController extends Controller
 {
     public function index()
     {
-        $totalKematian = Kematian::count();
-        $totalPernikahan = Pernikahan::count();
+        $data['totalKematian'] = Kematian::count();
+        $data['totalPernikahan'] = Pernikahan::count();
 
-        $total_sk_undangan = SuratKeluarUndangan::count();
-        $total_sk_keputusan = SuratKeluarKeputusan::count();
+        $data['total_sk_undangan'] = SuratKeluarUndangan::count();
+        $data['total_sk_keputusan'] = SuratKeluarKeputusan::count();
 
-        return view('pages.warga.dashboard_login_warga', compact('totalKematian', 'totalPernikahan', 'total_sk_undangan', 'total_sk_keputusan'));
+        return view('pages.warga.dashboard_login_warga', $data);
     }
 }

@@ -48,13 +48,13 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Nomor Surat Keterangan</label>
-                                                <p>{{ $data->no_suket }}</p>
+                                                <p>{{ $pernikahan->no_suket }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Status Surat</label>
-                                                <p>{{ $data->status_surat }}</p>
+                                                <p>{{ $pernikahan->status_surat }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -62,13 +62,13 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Pernikahan</label>
-                                                <p>{{ date('d-M-Y', strtotime($data->tgl_pernikahan)) }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($pernikahan->tgl_pernikahan)) }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Banjar</label>
-                                                <p>{{ $data->banjar }}</p>
+                                                <p>{{ $pernikahan->banjar }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Nama Pria</label>
-                                                <p>{{ $data->nama_pria }}</p>
+                                                <p>{{ $pernikahan->nama_pria }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -84,13 +84,13 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Status Pria</label>
-                                                <p>{{ $data->status_pria }}</p>
+                                                <p>{{ $pernikahan->status_pria }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tempat Lahir Pria</label>
-                                                <p>{{ $data->tmpt_lahir_pria }}</p>
+                                                <p>{{ $pernikahan->tmpt_lahir_pria }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -98,13 +98,13 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Lahir Pria</label>
-                                                <p>{{ date('d-M-Y', strtotime($data->tgl_lahir_pria)) }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($pernikahan->tgl_lahir_pria)) }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Pekerjaan Pria</label>
-                                                <p>{{ $data->pekerjaan_pria }}</p>
+                                                <p>{{ $pernikahan->pekerjaan_pria }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>Alamat Pria</label>
-                                                <p>{{ $data->alamat_pria }}</p>
+                                                <p>{{ $pernikahan->alamat_pria }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Nama Wanita</label>
-                                                <p>{{ $data->nama_wanita }}</p>
+                                                <p>{{ $pernikahan->nama_wanita }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -128,13 +128,13 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Status Wanita</label>
-                                                <p>{{ $data->status_wanita }}</p>
+                                                <p>{{ $pernikahan->status_wanita }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tempat Lahir Wanita</label>
-                                                <p>{{ $data->tmpt_lahir_wanita }}</p>
+                                                <p>{{ $pernikahan->tmpt_lahir_wanita }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -142,13 +142,13 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Lahir Wanita</label>
-                                                <p>{{ date('d-M-Y', strtotime($data->tgl_lahir_wanita)) }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($pernikahan->tgl_lahir_wanita)) }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Pekerjaan Wanita</label>
-                                                <p>{{ $data->pekerjaan_wanita }}</p>
+                                                <p>{{ $pernikahan->pekerjaan_wanita }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -156,7 +156,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>Alamat Wanita</label>
-                                                <p>{{ $data->alamat_wanita }}</p>
+                                                <p>{{ $pernikahan->alamat_wanita }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -164,7 +164,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>Dipuput Oleh Rohaniawan</label>
-                                                <p>{{ $data->rohaniawan }}</p>
+                                                <p>{{ $pernikahan->rohaniawan }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -172,13 +172,13 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Saksi 1</label>
-                                                <p>{{ $data->saksi1 }}</p>
+                                                <p>{{ $pernikahan->saksi1 }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Saksi 2</label>
-                                                <p>{{ $data->saksi2 }}</p>
+                                                <p>{{ $pernikahan->saksi2 }}</p>
                                             </div>
                                         </div>
                                     </div>

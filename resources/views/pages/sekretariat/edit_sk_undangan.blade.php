@@ -49,12 +49,12 @@
                                         <label for="input_no_sk_undangan" class="form-label">Nomor Surat
                                             Keluar</label>
                                         <input type="text" name="no_sk_undangan"
-                                            class="form-control 
+                                            class="form-control
                                             @error('no_sk_undangan')
                                                 is-invalid
                                             @enderror
                                             "
-                                            value="{{ $data->no_sk_undangan }} ">
+                                            value="{{ $data->no_sk_undangan }} " readonly>
                                         @error('no_sk_undangan')
                                             <span class="text-danger text-sm">{{ $message }}</span>
                                         @enderror
@@ -73,7 +73,7 @@
                                         <label for="input_perihal_sk" class="form-label">Perihal Surat
                                             Keluar undangan</label>
                                         <input type="text" name="perihal_sk"
-                                            class="form-control 
+                                            class="form-control
                                             @error('perihal_sk')
                                                 is-invalid
                                             @enderror
@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="formFile" class="form-label">Foto Surat Keluar</label>
+                                        <label for="formFile" class="form-label">File Surat Keluar</label>
                                         <input class="form-control" name="foto_sk_undangan" type="file"
                                             id="formFile">
                                     </div>

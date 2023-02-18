@@ -76,6 +76,7 @@
                                             <label for="input_no_sk_keputusan" class="form-label">Nomor Surat
                                                 Keluar</label>
                                             <input type="text" name="no_sk_keputusan" id="input_no_sk_keputusan"
+                                                value="{{ $no_sk_keputusan }}"
                                                 class="form-control
                                                         @error('no_sk_keputusan')
                                                         is-invalid
@@ -110,7 +111,7 @@
                                             <label for="input_perihal_sk" class="form-label">Perihal Surat Keluar
                                                 Keputusan</label>
                                             <input type="text" name="perihal_sk" id="input_perihal_sk"
-                                                class="form-control  
+                                                class="form-control
                                                         @error('perihal_sk')
                                                         is-invalid
                                                         @enderror"
@@ -127,7 +128,7 @@
                                             <label for="input_ditujukan_sk" class="form-label">Ditujukan
                                                 Kepada</label>
                                             <input type="text" name="ditujukan_sk" id="input_ditujukan_sk"
-                                                class="form-control  
+                                                class="form-control
                                                         @error('ditujukan_sk')
                                                         is-invalid
                                                         @enderror"
@@ -141,7 +142,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <label for="formFile" class="form-label">Foto Surat Keluar</label>
+                                            <label for="formFile" class="form-label">File Surat Keluar</label>
                                             <input name="foto_sk_keputusan" type="file"
                                                 id="formFile"class="form-control
                                                 @error('foto_sk_keputusan')
@@ -176,7 +177,6 @@
                                     <th scope="col">Tanggal Surat Keputusan Keluar</th>
                                     <th scope="col">Perihal Surat Keputusan Keluar</th>
                                     <th scope="col">Ditujukan Kepada</th>
-                                    <th scope="col">Foto Surat Keluar Keputusan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -184,7 +184,7 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $row)
+                                @foreach ($sk_keputusan as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->no_sk_keputusan }}</td>
@@ -192,14 +192,6 @@
                                         <td>{{ $row->perihal_sk }}</td>
                                         <td>{{ $row->ditujukan_sk }}</td>
                                         <td>
-                                            <img src="{{ asset('foto_sk_keputusan/' . $row->foto_sk_keputusan) }}"
-                                                alt="" style="width:100px;">
-                                        </td>
-                                        <td>
-                                            <a href="{{ url('sk_keputusan_sekretariat/detail/' . $row->id) }}"
-                                                class="btn btn-sm btn-info" title="Lihat Data">
-                                                <i class="fas fa-info-circle"></i>
-                                            </a>
                                             <a href="{{ url('sk_keputusan_sekretariat/edit/' . $row->id) }}"
                                                 class="btn btn-sm btn-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>

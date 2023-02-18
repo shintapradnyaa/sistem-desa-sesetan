@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="formFile" class="form-label">Foto Surat Masuk</label>
+                                        <label for="formFile" class="form-label">File Surat Masuk</label>
                                         <input class="form-control" name="foto_sm_undangan" type="file"
                                             id="formFile">
                                     </div>

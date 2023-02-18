@@ -2,8 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="{{ asset('template/adminlte/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="{{ asset('logo_bendesa.png') }}" weight="30px" height="30px" alt="User Image">
         <span class="brand-text font-weight-light">Desa Adat Sesetan</span>
     </a>
 
@@ -86,7 +85,7 @@
                 <li
                     class="nav-item has-treeview {{ request()->is('sm_keputusan_sekretariat') || request()->is('sm_keputusan_sekretariat/detail/' . request()->segment(3)) || request()->is('sm_keputusan_sekretariat/edit/' . request()->segment(3)) || request()->is('sm_undangan_sekretariat') || request()->is('sm_undangan_sekretariat/detail/' . request()->segment(3)) || request()->is('sm_undangan_sekretariat/edit/' . request()->segment(3)) || request()->is('sm_proposal_sekretariat') || request()->is('sm_proposal_sekretariat/detail/' . request()->segment(3)) || request()->is('sm_proposal_sekretariat/edit/' . request()->segment(3)) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-envelope"></i>
+                        <i class="nav-icon fas fa-folder-open"></i>
                         <p>
                             SURAT MASUK
                             <i class="right fas fa-angle-left"></i>

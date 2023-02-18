@@ -54,7 +54,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Banjar</label>
-                                                <p>{{ $data->banjar }}</p>
+                                                <p>{{ Auth::user()->banjar }}</p>
                                             </div>
                                         </div>
                                     </div>

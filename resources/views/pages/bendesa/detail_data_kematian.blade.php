@@ -48,13 +48,13 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Nama</label>
-                                                <p>{{ $data->nama }}</p>
+                                                <p>{{ $kematian->nama }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Banjar</label>
-                                                <p>{{ $data->banjar }}</p>
+                                                <p>{{ $kematian->banjar }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -62,27 +62,35 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Jenis Kelamin</label>
-                                                <p>{{ $data->jenis_kelamin }}</p>
+                                                <p>{{ $kematian->jenis_kelamin }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Lahir</label>
-                                                <p>{{ date('d-M-Y', strtotime($data->tgl_lahir)) }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($kematian->tgl_lahir)) }}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label>Agama</label>
-                                                <p>{{ $data->agama }}</p>
+                                                <label>Umur</label>
+                                                <p>{{ $kematian->umur . ' Tahun' }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
+                                                <label>Agama</label>
+                                                <p>{{ $kematian->agama }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
                                                 <label>Alamat</label>
-                                                <p>{{ $data->alamat }}</p>
+                                                <p>{{ $kematian->alamat }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -90,13 +98,17 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Kematian</label>
-                                                <p>{{ date('d-M-Y', strtotime($data->tgl_ngaben)) }}</p>
+                                                <p>{{ date('d-M-Y', strtotime($kematian->tgl_kematian)) }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Tanggal Ngaben</label>
-                                                <p>{{ date('d-M-Y', strtotime($data->tgl_ngaben)) }}</p>
+                                                <p>
+                                                    @if ($kematian->tgl_ngaben)
+                                                        {{ date('d-M-Y', strtotime($kematian->tgl_ngaben)) }}
+                                                    @endif
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -104,20 +116,20 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Sebab Kematian</label>
-                                                <p>{{ $data->sebab_kematian }}</p>
+                                                <p>{{ $kematian->sebab_kematian }}</p>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>Ahli Waris</label>
-                                                <p>{{ $data->ahli_waris }}</p>
+                                                <p>{{ $kematian->ahli_waris }}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Foto KTP</label>
-                                            <img src="{{ url('foto_ktp_kematian/' . $data->foto_ktp) }}"
+                                            <img src="{{ url('foto_ktp_kematian/' . $kematian->foto_ktp) }}"
                                                 class="img-thumbnail">
                                         </div>
                                     </div>

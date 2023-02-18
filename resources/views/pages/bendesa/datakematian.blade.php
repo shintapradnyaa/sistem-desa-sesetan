@@ -51,8 +51,8 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Banjar</th>
-                                    <th scope="col">Jenis Kelamin</th>
                                     <th scope="col">Tanggal Lahir</th>
+                                    <th scope="col">Umur</th>
                                     <th scope="col">Tanggal Kematian</th>
                                     <th scope="col">Tanggal Ngaben</th>
                                     <th scope="col">Aksi</th>
@@ -62,13 +62,13 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $index => $row_kematian)
+                                @foreach ($kematian as $row_kematian)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row_kematian->nama }}</td>
                                         <td>{{ $row_kematian->banjar }}</td>
-                                        <td>{{ $row_kematian->jenis_kelamin }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_lahir)) }}</td>
+                                        <td>{{ $row_kematian->umur . ' Tahun' }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_kematian)) }}</td>
                                         <td>{{ $row_kematian->tgl_ngaben == null ? '' : date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}
                                         </td>

@@ -55,7 +55,7 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $row_kematian)
+                                @foreach ($kematian as $row_kematian)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row_kematian->nama }}</td>
@@ -63,7 +63,7 @@
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_lahir)) }}</td>
                                         <td>{{ $row_kematian->umur . ' Tahun' }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_kematian)) }}</td>
-                                        <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}</td>
+                                        <td>{{ $row_kematian->tgl_ngaben == null ? '' : date('d-M-Y', strtotime($row_kematian->tgl_ngaben)) }}
                                         <td>
                                             <a href="{{ url('kematian_sekretariat/detail/' . $row_kematian->id) }}"
                                                 class="btn btn-sm btn-info" title="Lihat Data">

@@ -15,18 +15,8 @@ return new class extends Migration
     {
         Schema::create('kematian', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('nama');
-            $table->enum('banjar', [
-                'Banjar Kaja',
-                'Banjar Pembungan',
-                'Banjar Tengah',
-                'Banjar Gaduh',
-                'Banjar Puri Agung',
-                'Banjar Lantang Bejuh',
-                'Banjar Dukuh Sari',
-                'Banjar Pegok',
-                'Banjar Suwung Batan Kendal'
-            ]);
             $table->enum('jenis_kelamin', ['Pria', 'Wanita']);
             $table->date('tgl_lahir');
             $table->string('umur');
@@ -37,7 +27,9 @@ return new class extends Migration
             $table->string('sebab_kematian');
             $table->string('ahli_waris');
             $table->string('foto_ktp');
-            $table->timestamp('created_at');
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

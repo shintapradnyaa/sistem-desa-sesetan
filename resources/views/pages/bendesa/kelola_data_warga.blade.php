@@ -58,8 +58,15 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>
-                                            <img src="{{ asset('foto_user_login/' . $row->foto_pengguna) }}"
-                                                alt="" style="width:100px;">
+                                            <div class="user-panel pb-3 mb-3 d-flex">
+                                                @if ($row->foto_pengguna == null)
+                                                    <img src="{{ asset('foto_user_login/user.png') }}"
+                                                        class="img-circle elevation-2" alt="User Image">
+                                                @else
+                                                    <img src="{{ asset('foto_user_login/' . $row->foto_pengguna) }}"
+                                                        class="img-circle elevation-2" alt="User Image">
+                                                @endif
+                                            </div>
                                         </td>
                                         <td>
                                             @if ($row->level == 1)
@@ -76,11 +83,11 @@
                                         <td>{{ $row->no_telfon }}</td>
                                         <td>{{ $row->banjar }}</td>
                                         <td>
-                                            <a href="{{ url('kelola_pengguna/detail/' . $row->id) }}"
+                                            <a href="{{ url('kelola_warga/detail/' . $row->id) }}"
                                                 class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
-                                            <a href="{{ url('kelola_pengguna/delete/' . $row->id) }}"
+                                            <a href="{{ url('kelola_warga/delete/' . $row->id) }}"
                                                 class="btn btn-sm btn-danger"
                                                 onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data Tersebut?')"
                                                 title="Hapus Data">

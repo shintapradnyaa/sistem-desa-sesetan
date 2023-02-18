@@ -50,8 +50,15 @@
                         <div class="row justify-content-center mt-3">
                             <div class="col-5">
                                 <div class="text-center">
-                                    <img src="{{ asset('foto_user_login/' . $data->foto_pengguna) }}"
-                                        class="img-thumbnail img-responsive" alt="User Image" width="150px">
+                                    @if (Auth::user()->foto_pengguna == null)
+                                        <img src="{{ asset('foto_user_login/user.png') }}"
+                                            class="img-circle elevation-2" alt="User Image" width="150px"
+                                            height="150px">
+                                    @else
+                                        <img src="{{ asset('foto_user_login/' . Auth::user()->foto_pengguna) }}"
+                                            class="img-circle elevation-2" alt="User Image" width="150px"
+                                            height="150px">
+                                    @endif
                                 </div>
                                 <hr>
                             </div>

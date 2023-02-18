@@ -15,12 +15,16 @@ return new class extends Migration
     {
         Schema::create('surat_masuk_undangan', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('no_sm_undangan');
             $table->date('tgl_sm_masuk');
             $table->string('perihal_sm');
             $table->string('asal_sm');
             $table->string('ditujukan_sm');
             $table->string('foto_sm_undangan');
+            $table->timestamp('created_at');
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

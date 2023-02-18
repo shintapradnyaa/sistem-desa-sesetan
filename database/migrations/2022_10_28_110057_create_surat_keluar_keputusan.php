@@ -15,11 +15,15 @@ return new class extends Migration
     {
         Schema::create('surat_keluar_keputusan', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('no_sk_keputusan');
             $table->date('tgl_sk_keluar');
             $table->string('perihal_sk');
             $table->string('ditujukan_sk');
             $table->string('foto_sk_keputusan');
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

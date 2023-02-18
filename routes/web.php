@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LupaPasswordController;
-use App\Http\Controllers\DashboardWargaController;
+use App\Http\Controllers\warga\DashboardWargaController;
 use App\Http\Controllers\Bendesa\ProfileBendesaController;
 use App\Http\Controllers\warga\DashboardRegisterWargaController;
 use App\Http\Controllers\Bendesa\KematianBendesaController;
@@ -20,6 +20,7 @@ use App\Http\Controllers\Bendesa\SuratKeluarUndanganBendesaController;
 use App\Http\Controllers\Bendesa\SuratMasukKeputusanBendesaController;
 use App\Http\Controllers\Bendesa\SuratKeluarKeputusanBendesaController;
 use App\Http\Controllers\Kelian\DashboardKelianController;
+use App\Http\Controllers\Kelian\DatawargaController;
 use App\Http\Controllers\Kelian\KematianKelianController;
 use App\Http\Controllers\Kelian\PernikahanKelianController;
 use App\Http\Controllers\Kelian\ProfileKelianController;
@@ -128,14 +129,14 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('', [LoginController::class, 'indexPengurusDesa']);
             Route::get('/create', [LoginController::class, 'create']);
             Route::post('/store', [LoginController::class, 'store']);
-            Route::get('/detail/{id}', [LoginController::class, 'show']);
+            Route::get('/detail/{id}', [LoginController::class, 'showPengurus']);
             Route::get('/delete/{id}', [LoginController::class, 'delete']);
         });
         Route::group(['prefix' => 'kelola_warga'], function () {
             Route::get('', [LoginController::class, 'indexWarga']);
             Route::get('/create', [LoginController::class, 'create']);
             Route::post('/store', [LoginController::class, 'store']);
-            Route::get('/detail/{id}', [LoginController::class, 'show']);
+            Route::get('/detail/{id}', [LoginController::class, 'showWarga']);
             Route::get('/delete/{id}', [LoginController::class, 'delete']);
         });
         Route::group(['prefix' => 'edit_profile_bendesa'], function () {
@@ -242,6 +243,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['CekUserLogin:3']], function () {
         // Dashboard
         Route::get('/dashboard_kelian', [DashboardKelianController::class, 'index']);
+        Route::group(['prefix' => 'data_warga'], function () {
+            //Route Data Kematians
+            Route::get('', [DatawargaController::class, 'index']);
+            Route::get('/detail/{id}', [DatawargaController::class, 'show']);
+            Route::get('/delete/{id}', [DatawargaController::class, 'delete']);
+        });
+
         Route::group(['prefix' => 'kematian_kelian'], function () {
             //Route Data Kematians
             Route::get('', [KematianKelianController::class, 'index']);
@@ -289,7 +297,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['prefix' => 'pernikahan_warga'], function () {
             Route::get('', [PernikahanWargaController::class, 'index']);
             Route::post('/store', [PernikahanWargaController::class, 'store']);
-            Route::get('/detail/{id}', [PernikahanWargaController::class, 'show']);
             Route::get('/edit/{id}', [PernikahanWargaController::class, 'edit']);
             Route::post('/update/{id}', [PernikahanWargaController::class, 'update']);
             Route::get('/delete/{id}', [PernikahanWargaController::class, 'delete']);

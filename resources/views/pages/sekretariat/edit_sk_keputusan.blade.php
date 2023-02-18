@@ -19,12 +19,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Edit Surat Keluar Undangan</h1>
+                            <h1 class="m-0 text-dark">Edit Surat Keluar Keputusan</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v2</li>
+                                <li class="breadcrumb-item">Home</a></li>
+                                <li class="breadcrumb-item active">Edit Surat Keluar Keputusan</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -49,12 +49,12 @@
                                         <label for="input_no_sk_keputusan" class="form-label">Nomor Surat
                                             Keluar</label>
                                         <input type="text" name="no_sk_keputusan"
-                                            class="form-control 
+                                            class="form-control
                                     @error('no_sk_keputusan')
                                         is-invalid
                                     @enderror
                                     "
-                                            value="{{ $data->no_sk_keputusan }} ">
+                                            value="{{ $data->no_sk_keputusan }} " readonly>
                                         @error('no_sk_keputusan')
                                             <span class="text-danger text-sm">{{ $message }}</span>
                                         @enderror
@@ -89,7 +89,7 @@
                                         <label for="input_ditujukan_sk" class="form-label">Ditujukan
                                             Kepada</label>
                                         <input type="text" name="ditujukan_sk"
-                                            class="form-control 
+                                            class="form-control
                                         @error('ditujukan_sk')
                                         is-invalid
                                     @enderror
@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="formFile" class="form-label">Foto Surat Keluar</label>
+                                        <label for="formFile" class="form-label">File Surat Keluar</label>
                                         <input class="form-control" name="foto_sk_keputusan" type="file"
                                             id="formFile">
                                     </div>

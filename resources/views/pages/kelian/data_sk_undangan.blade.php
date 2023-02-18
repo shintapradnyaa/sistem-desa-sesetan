@@ -46,7 +46,6 @@
                                     <th scope="col">Tanggal Surat Undangan Keluar</th>
                                     <th scope="col">Perihal Surat Undangan Keluar</th>
                                     <th scope="col">Ditujukan Kepada</th>
-                                    <th scope="col">Foto Surat Keluar Undangan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -54,7 +53,7 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $row)
+                                @foreach ($sk_undangan as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->no_sk_undangan }}</td>
@@ -62,14 +61,6 @@
                                         <td>{{ $row->perihal_sk }}</td>
                                         <td>{{ $row->ditujukan_sk }}</td>
                                         <td>
-                                            <img src="{{ asset('foto_sk_undangan/' . $row->foto_sk_undangan) }}"
-                                                alt="" style="width:100px;">
-                                        </td>
-                                        <td>
-                                            <a href="{{ url('sk_undangan_kelian/detail/' . $row->id) }}"
-                                                class="btn btn-sm btn-info" title="Lihat Data">
-                                                <i class="fas fa-info-circle"></i>
-                                            </a>
                                             <a href="{{ url('foto_sk_undangan/' . $row->foto_sk_undangan) }}"
                                                 download="{{ $row->foto_sk_undangan }}" class="btn btn-sm btn-primary"
                                                 title="Download">

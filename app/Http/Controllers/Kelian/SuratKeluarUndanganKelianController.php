@@ -10,8 +10,8 @@ class SuratKeluarUndanganKelianController extends Controller
 {
     public function index()
     {
-        $data = SuratKeluarUndangan::orderBy('tgl_sk_keluar', 'desc')->get();
-        return view('pages.kelian.data_sk_undangan', compact('data'));
+        $data['sk_undangan'] = SuratKeluarUndangan::orderBy('no_sk_undangan', 'desc')->get();
+        return view('pages.kelian.data_sk_undangan', $data);
     }
 
     public function show($id)

@@ -5,19 +5,19 @@ namespace App\Http\Controllers\Kelian;
 use App\Models\Kematian;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class KematianKelianController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $data = Kematian::orderBy('tgl_kematian', 'desc')->get();
-        return view('pages.kelian.datakematian', compact('data'));
-    }
-
-    public function create()
-    {
-
-        return view('create');
+        $data['warga']      = User::where('level', 4)
+            ->where('banjar', Auth::user()->banjar)
+            ->orderBy('name', 'asc')
+            ->get();
+        $data['kematian']   = Kematian::orderBy('tgl_kematian', 'desc')->get();
+        return view('pages.kelian.datakematian', $data);
     }
 
     public function store(Request $request)
@@ -27,7 +27,6 @@ class KematianKelianController extends Controller
             $request,
             [
                 'nama'              => 'required',
-                'banjar'            => 'required',
                 'jenis_kelamin'     => 'required',
                 'tgl_lahir'         => 'required',
                 'umur'              => 'required',
@@ -40,7 +39,6 @@ class KematianKelianController extends Controller
             ],
             [
                 'nama.required'             => 'Nama Tidak Boleh Kosong',
-                'banjar.required'           => 'Banjar Tidak Boleh Kosong',
                 'jenis_kelamin.required'    => 'Jenis Kelamin Tidak Boleh Kosong',
                 'tgl_lahir.required'        => 'Tanggal Lahir Tidak Boleh Kosong',
                 'umur.required'             => 'Umur Tidak Boleh Kosong',
@@ -54,7 +52,21 @@ class KematianKelianController extends Controller
 
         );
 
-        $data = Kematian::create($request->all());
+        $kematian = [
+            'user_id'           => Auth::user()->id,
+            'nama'              => $request->nama,
+            'jenis_kelamin'     => $request->jenis_kelamin,
+            'tgl_lahir'         => $request->tgl_lahir,
+            'umur'              => $request->umur,
+            'agama'             => $request->agama,
+            'alamat'            => $request->alamat,
+            'tgl_kematian'      => $request->tgl_kematian,
+            'sebab_kematian'    => $request->sebab_kematian,
+            'ahli_waris'        => $request->ahli_waris,
+            'foto_ktp'          => $request->foto_ktp
+        ];
+
+        $data = Kematian::create($kematian);
         if ($request->hasFile('foto_ktp')) {
             $request->file('foto_ktp')->move('foto_ktp_kematian/', $request->file('foto_ktp')->getClientOriginalName());
             $data->foto_ktp = $request->file('foto_ktp')->getClientOriginalName();
@@ -72,17 +84,6 @@ class KematianKelianController extends Controller
     public function edit($id)
     {
         $data['data']   = Kematian::find($id);
-        $data['banjar'] = [
-            'Banjar Tengah',
-            'Banjar Pembungan',
-            'Banjar Gaduh',
-            'Banjar Kaja',
-            'Banjar Puri Agung',
-            'Banjar Lantang Bejuh',
-            'Banjar Dukuh Sari',
-            'Banjar Pegok',
-            'Banjar Suwung Batan Kendal'
-        ];
         $data['jenis_kelamin'] = ['Pria', 'Wanita'];
         $data['agama'] = [
             'Hindu',
@@ -100,7 +101,6 @@ class KematianKelianController extends Controller
         $request->validate(
             [
                 'nama'          => 'required',
-                'banjar'        => 'required',
                 'jenis_kelamin' => 'required',
                 'tgl_lahir'     => 'required',
                 'umur'          => 'required',
@@ -113,7 +113,6 @@ class KematianKelianController extends Controller
             ],
             [
                 'nama.required'             => 'Nama Tidak Boleh Kosong',
-                'banjar.required'           => 'Banjar Tidak Boleh Kosong',
                 'jenis_kelamin.required'    => 'Jenis Kelamin Tidak Boleh Kosong',
                 'tgl_lahir.required'        => 'Tanggal Lahir Tidak Boleh Kosong',
                 'umur.required'             => 'Umur Tidak Boleh Kosong',
@@ -126,7 +125,19 @@ class KematianKelianController extends Controller
             ]
         );
 
-        $data = $request->all();
+        $data = [
+            'user_id'           => Auth::user()->id,
+            'nama'              => $request->nama,
+            'jenis_kelamin'     => $request->jenis_kelamin,
+            'tgl_lahir'         => $request->tgl_lahir,
+            'umur'              => $request->umur,
+            'agama'             => $request->agama,
+            'alamat'            => $request->alamat,
+            'tgl_kematian'      => $request->tgl_kematian,
+            'sebab_kematian'    => $request->sebab_kematian,
+            'ahli_waris'        => $request->ahli_waris,
+            'foto_ktp'          => $request->foto_ktp
+        ];;
         if ($image = $request->file('foto_ktp')) {
             $destination    = 'foto_ktp_kematian/';
             $profileImage   = $image->getClientOriginalName();
@@ -137,7 +148,6 @@ class KematianKelianController extends Controller
         }
         $update = Kematian::findOrFail($id);
         $update->update($data);
-
 
         return redirect('kematian_kelian')->with('message', 'Data Berhasil Diperbaharui');
     }

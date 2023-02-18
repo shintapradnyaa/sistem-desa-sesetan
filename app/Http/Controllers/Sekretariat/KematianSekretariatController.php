@@ -5,19 +5,26 @@ namespace App\Http\Controllers\Sekretariat;
 use App\Models\Kematian;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class KematianSekretariatController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $data = Kematian::orderBy('tgl_kematian', 'desc')->get();
-        return view('pages.sekretariat.datakematian', compact('data'));
+        $data['kematian'] = Kematian::join('users', 'users.id', '=', 'kematian.user_id')
+            ->select('users.banjar', 'kematian.*')
+            ->get();
+        return view('pages.sekretariat.datakematian', $data);
     }
 
     public function show($id)
     {
-        $data = Kematian::find($id);
-        return view('pages.sekretariat.detail_data_kematian', compact('data'));
+        $data['kematian'] = Kematian::find($id);
+        $data['kematian'] = DB::table('kematian')->where('kematian.id', $id)
+            ->join('users', 'users.id', '=', 'kematian.user_id')
+            ->select('kematian.*', 'users.banjar')
+            ->first();
+        return view('pages.sekretariat.detail_data_kematian', $data);
     }
 
     public function delete($id)

@@ -155,7 +155,7 @@
                                         </div>
                                     </div>
                                     <div class="col-mb-12">
-                                        <label for="formFile" class="form-label">Foto Surat Masuk</label>
+                                        <label for="formFile" class="form-label">File Surat Masuk</label>
                                         <input name="foto_sm_keputusan" type="file" id="formFile"
                                             class="form-control
                                             @error('foto_sm_keputusan')
@@ -190,7 +190,6 @@
                                     <th scope="col">Perihal Surat Keputusan Keluar</th>
                                     <th scope="col">Asal Surat Masuk</th>
                                     <th scope="col">Ditujukan Kepada</th>
-                                    <th scope="col">Foto Surat Masuk Keputusan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -198,7 +197,7 @@
                                 $no = 1;
                             @endphp
                             <tbody>
-                                @foreach ($data as $index => $row)
+                                @foreach ($sm_keputusan as $row)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{ $row->no_sm_keputusan }}</td>
@@ -207,14 +206,6 @@
                                         <td>{{ $row->asal_sm }}</td>
                                         <td>{{ $row->ditujukan_sm }}</td>
                                         <td>
-                                            <img src="{{ asset('foto_sm_keputusan/' . $row->foto_sm_keputusan) }}"
-                                                alt="" style="width:100px;">
-                                        </td>
-                                        <td>
-                                            <a href="{{ url('sm_keputusan_sekretariat/detail/' . $row->id) }}"
-                                                class="btn btn-sm btn-info" title="Lihat Data">
-                                                <i class="fas fa-info-circle"></i>
-                                            </a>
                                             <a href="{{ url('sm_keputusan_sekretariat/edit/' . $row->id) }}"
                                                 class="btn btn-sm btn-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>

@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Sekretariat;
 use Illuminate\Http\Request;
 use App\Models\SuratMasukProposal;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class SuratMasukProposalSekretariatController extends Controller
 {
     public function index()
     {
-        $data = SuratMasukProposal::orderBy('tgl_sm_masuk', 'desc')->get();
-        return view('pages.sekretariat.data_sm_proposal', compact('data'));
+        $data['sm_proposal'] = SuratMasukProposal::orderBy('tgl_sm_masuk', 'desc')->get();
+        return view('pages.sekretariat.data_sm_proposal', $data);
     }
 
     public function create()
@@ -29,7 +30,7 @@ class SuratMasukProposalSekretariatController extends Controller
                 'perihal_sm'      => 'required',
                 'asal_sm'         => 'required',
                 'ditujukan_sm'    => 'required',
-                'foto_sm_proposal' => 'required|mimes:jpg,png,jpeg|image|max:2048'
+                'foto_sm_proposal' => 'required|mimes:doc,docx,pdf'
             ],
             [
                 'no_sm_proposal.required' => 'Nomor Surat Tidak Boleh Kosong',
@@ -37,14 +38,23 @@ class SuratMasukProposalSekretariatController extends Controller
                 'perihal_sm.required'      => 'Perihal Surat Tidak Boleh Kosong',
                 'asal_sm.required'         => 'Asal Surat Tidak Boleh Kosong',
                 'ditujukan_sm.required'    => 'Tidak Boleh Kosong',
-                'foto_sm_proposal.required' => 'Foto Surat Proposal Tidak Boleh Kosong'
+                'foto_sm_proposal.required' => 'Surat Proposal Tidak Boleh Kosong'
             ]
         );
-        $data = SuratMasukProposal::create($request->all());
+        $data = [
+            'user_id'           => Auth::user()->id,
+            'no_sm_proposal'    => $request->no_sm_proposal,
+            'tgl_sm_masuk'      => $request->tgl_sm_masuk,
+            'asal_sm'           => $request->asal_sm,
+            'perihal_sm'        => $request->perihal_sm,
+            'ditujukan_sm'      => $request->ditujukan_sm,
+            'foto_sm_proposal'  => $request->foto_sm_proposal
+        ];
+        $sm_proposal = SuratMasukProposal::create($data);
         if ($request->hasFile('foto_sm_proposal')) {
             $request->file('foto_sm_proposal')->move('foto_sm_proposal/', $request->file('foto_sm_proposal')->getClientOriginalName());
-            $data->foto_sm_proposal = $request->file('foto_sm_proposal')->getClientOriginalName();
-            $data->save();
+            $sm_proposal->foto_sm_proposal = $request->file('foto_sm_proposal')->getClientOriginalName();
+            $sm_proposal->save();
         }
         return redirect('sm_proposal_sekretariat')->with('message', 'Data Berhasil Di Tambahkan');
     }
@@ -68,7 +78,7 @@ class SuratMasukProposalSekretariatController extends Controller
                 'perihal_sm'      => 'required',
                 'asal_sm'         => 'required',
                 'ditujukan_sm'    => 'required',
-                'foto_sm_proposal' => 'mimes:jpg,png,jpeg|image|max:2048'
+                'foto_sm_proposal' => 'mimes:doc,docx,pdf'
             ],
             [
                 'no_sm_proposal.required' => 'Nomor Surat Tidak Boleh Kosong',
@@ -76,7 +86,7 @@ class SuratMasukProposalSekretariatController extends Controller
                 'perihal_sm.required'      => 'Perihal Surat Tidak Boleh Kosong',
                 'asal_sm.required'         => 'Asal Surat Tidak Boleh Kosong',
                 'ditujukan_sm.required'    => 'Tidak Boleh Kosong',
-                'foto_sm_proposal.required' => 'Foto Surat Proposal Tidak Boleh Kosong'
+                'foto_sm_proposal.required' => 'Surat Proposal Tidak Boleh Kosong'
             ]
         );
         $data = $request->all();

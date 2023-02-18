@@ -49,12 +49,12 @@
                                         <label for="input_no_sk_proposal" class="form-label">Nomor Surat
                                             Keluar</label>
                                         <input type="text" name="no_sk_proposal"
-                                            class="form-control 
+                                            class="form-control
                                         @error('no_sk_proposal')
                                         is-invalid
                                         @enderror
                                         "
-                                            value="{{ $data->no_sk_proposal }} ">
+                                            value="{{ $data->no_sk_proposal }} "readonly>
                                         @error('no_sk_proposal')
                                             <span class="text-danger text-sm">{{ $message }}</span>
                                         @enderror

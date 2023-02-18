@@ -18,7 +18,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Detail Pengguna</h1>
+                            <h2 class="m-0 text-dark">Detail Pengguna</h2>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -46,8 +46,15 @@
                                 <div class="card card-primary card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img src="{{ url('foto_user_login/' . $data->foto_pengguna) }}"
-                                                class="img-circle elevation-2" alt="User Image" width="150px">
+                                            @if ($data->foto_pengguna == null)
+                                                <img src="{{ asset('foto_user_login/user.png') }}"
+                                                    class="img-circle elevation-2" alt="User Image" width="100px"
+                                                    height="100px">
+                                            @else
+                                                <img src="{{ asset('foto_user_login/' . $data->foto_pengguna) }}"
+                                                    class="img-circle elevation-2" alt="User Image" width="100px"
+                                                    height="100px">
+                                            @endif
                                         </div>
                                         <h3 class="profile-username text-center">
                                             {{ $data->username }}</h3>

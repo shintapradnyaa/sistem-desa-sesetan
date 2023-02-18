@@ -13,5 +13,4 @@ class Kematian extends Model
 
 
     public $updated_at = false;
-    public $timestamps = false;
 }

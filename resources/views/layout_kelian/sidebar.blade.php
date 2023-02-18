@@ -2,8 +2,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
-          <img src="{{ asset('template/adminlte/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-              class="brand-image img-circle elevation-3" style="opacity: .8">
+          <img src="{{ asset('logo_bendesa.png') }}" weight="30px" height="30px" alt="User Image">
           <span class="brand-text font-weight-light">Sistem Desa Sesetan</span>
       </a>
 
@@ -23,6 +22,15 @@
                       </a>
                   </li>
                   <li class="nav-header"> <i class="fas fa-users"></i> DATA WARGA ADAT</li>
+                  <li class="nav-item">
+                      <a href="{{ url('data_warga') }}"
+                          class="nav-link {{ request()->is('data_warga') || request()->is('data_warga/detail/' . request()->segment(3)) ? 'active' : '' }}">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>
+                              Data Warga
+                          </p>
+                      </a>
+                  </li>
                   <li class="nav-item">
                       <a href="{{ url('kematian_kelian') }}"
                           class="nav-link {{ request()->is('kematian_kelian') || request()->is('kematian_kelian/detail/' . request()->segment(3)) || request()->is('kematian_kelian/edit/' . request()->segment(3)) ? 'active' : '' }}">

@@ -49,7 +49,7 @@
                                     <label for="input_no_suket" class="form-label">Nomor Surat Keterangan
                                         Pernikahan</label>
                                     <input type="text" class="form-control" name="no_suket"
-                                        value="{{ $data->no_suket }}">
+                                        value="{{ $no_suket }}">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="input_status_surat" class="form-label">Status Surat
@@ -75,10 +75,11 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="input_banjar" class="form-label">
                                         Banjar</label>
-                                    <input type="text" class="form-control" name="banjar"
-                                        value="{{ $data->banjar }}" readonly>
+                                    <input class="form-control" name="banjar" value="{{ $pernikahan->banjar }}"
+                                        readonly>
                                 </div>
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-12
+                                        mb-3">
                                     <label for="input_nama_pria" class="form-label">
                                         Nama Pria</label>
                                     <input type="text" class="form-control" name="nama_pria"

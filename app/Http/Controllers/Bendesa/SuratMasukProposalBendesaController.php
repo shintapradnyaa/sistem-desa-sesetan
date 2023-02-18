@@ -10,13 +10,7 @@ class SuratMasukProposalBendesaController extends Controller
 {
     public function index()
     {
-        $data = SuratMasukProposal::orderBy('tgl_sm_masuk', 'desc')->get();
-        return view('pages.bendesa.data_sm_proposal', compact('data'));
-    }
-
-    public function show($id)
-    {
-        $data = SuratMasukProposal::find($id);
-        return view('pages.bendesa.detail_sm_proposal', compact('data'));
+        $data['sm_proposal'] = SuratMasukProposal::orderBy('no_sm_proposal', 'desc')->get();
+        return view('pages.bendesa.data_sm_proposal', $data);
     }
 }

@@ -10,13 +10,7 @@ class SuratKeluarProposalBendesaController extends Controller
 {
     public function index()
     {
-        $data = SuratKeluarProposal::orderBy('tgl_sk_keluar', 'desc')->get();
-        return view('pages.bendesa.data_sk_proposal', compact('data'));
-    }
-
-    public function show($id)
-    {
-        $data = SuratKeluarProposal::find($id);
-        return view('pages.bendesa.detail_sk_proposal', compact('data'));
+        $data['sk_proposal'] = SuratKeluarProposal::orderBy('no_sk_proposal', 'desc')->get();
+        return view('pages.bendesa.data_sk_proposal', $data);
     }
 }
