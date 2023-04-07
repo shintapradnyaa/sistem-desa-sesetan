@@ -11,7 +11,7 @@ class PernikahanSekretariatController extends Controller
 {
     public function index()
     {
-        $data = Pernikahan::orderBy('no_suket', 'desc')
+        $data = Pernikahan::orderBy('created_at', 'desc')
             ->join('users', 'users.id', '=', 'pernikahan.user_id')
             ->select('pernikahan.*', 'users.banjar')
             ->get();

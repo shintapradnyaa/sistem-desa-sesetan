@@ -60,7 +60,7 @@
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kematian</h5>
@@ -76,22 +76,12 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_nama" class="form-label">Nama</label>
-                                                <select name="nama"
-                                                    class="form-control @error('nama')
-                                                        is-invalid
-                                                    @enderror">
-                                                    <option disabled selected>--Pilih Warga--</option>
-                                                    @foreach ($warga as $data_warga)
-                                                        <option value="{{ $data_warga->name }}">{{ $data_warga->name }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                {{-- <input type="text" id="input_nama" name="nama"
-                                                    class="form-control
+                                                <input type="text" name="nama" id="nama"
+                                                    class="form-control form-control
                                                     @error('nama')
                                                     is-invalid
                                                 @enderror"
-                                                    value="{{ old('nama') }}"> --}}
+                                                    value="{{ old('nama') }}">
                                                 @error('nama')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -297,7 +287,7 @@
                                 @foreach ($kematian as $row_kematian)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $row_kematian->nama }}</td>
+                                        <td>{{ $row_kematian->nama}}</td>
                                         <td>{{ Auth::user()->banjar }}</td>
                                         <td>{{ date('d-M-Y', strtotime($row_kematian->tgl_lahir)) }}</td>
                                         <td>{{ $row_kematian->umur . ' Tahun' }}</td>

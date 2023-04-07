@@ -7,16 +7,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class KematianKelianController extends Controller
 {
     public function index()
     {
-        $data['warga']      = User::where('level', 4)
+            $data['kematian'] = Kematian::join('users', 'users.id', '=', 'kematian.user_id')
             ->where('banjar', Auth::user()->banjar)
-            ->orderBy('name', 'asc')
+            ->select('users.level', 4)
+            ->select('users.banjar', 'kematian.*')
+            ->orderBy('created_at', 'Desc')
             ->get();
-        $data['kematian']   = Kematian::orderBy('tgl_kematian', 'desc')->get();
         return view('pages.kelian.datakematian', $data);
     }
 
@@ -72,18 +74,19 @@ class KematianKelianController extends Controller
             $data->foto_ktp = $request->file('foto_ktp')->getClientOriginalName();
             $data->save();
         }
+
         return redirect('kematian_kelian')->with('message', 'Data Berhasil Disimpan');
     }
 
     public function show($id)
     {
-        $data = Kematian::find($id);
-        return view('pages.kelian.detail_data_kematian', compact('data'));
+        $data['kematian'] = Kematian::find($id);
+        return view('pages.kelian.detail_data_kematian', $data);
     }
 
     public function edit($id)
     {
-        $data['data']   = Kematian::find($id);
+        $data['data'] = Kematian::find($id);
         $data['jenis_kelamin'] = ['Pria', 'Wanita'];
         $data['agama'] = [
             'Hindu',
@@ -137,7 +140,8 @@ class KematianKelianController extends Controller
             'sebab_kematian'    => $request->sebab_kematian,
             'ahli_waris'        => $request->ahli_waris,
             'foto_ktp'          => $request->foto_ktp
-        ];;
+        ];
+        // dd($data);
         if ($image = $request->file('foto_ktp')) {
             $destination    = 'foto_ktp_kematian/';
             $profileImage   = $image->getClientOriginalName();
@@ -148,7 +152,6 @@ class KematianKelianController extends Controller
         }
         $update = Kematian::findOrFail($id);
         $update->update($data);
-
         return redirect('kematian_kelian')->with('message', 'Data Berhasil Diperbaharui');
     }
 

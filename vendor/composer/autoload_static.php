@@ -549,6 +549,7 @@ class ComposerStaticInit75d94f27e60d51f7eca8a71432510f5a
         'App\\Http\\Controllers\\Bendesa\\SuratMasukUndanganBendesaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Bendesa/SuratMasukUndanganBendesaController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Kelian\\DashboardKelianController' => __DIR__ . '/../..' . '/app/Http/Controllers/Kelian/DashboardKelianController.php',
+        'App\\Http\\Controllers\\Kelian\\DatawargaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Kelian/DatawargaController.php',
         'App\\Http\\Controllers\\Kelian\\KematianKelianController' => __DIR__ . '/../..' . '/app/Http/Controllers/Kelian/KematianKelianController.php',
         'App\\Http\\Controllers\\Kelian\\PernikahanKelianController' => __DIR__ . '/../..' . '/app/Http/Controllers/Kelian/PernikahanKelianController.php',
         'App\\Http\\Controllers\\Kelian\\ProfileKelianController' => __DIR__ . '/../..' . '/app/Http/Controllers/Kelian/ProfileKelianController.php',

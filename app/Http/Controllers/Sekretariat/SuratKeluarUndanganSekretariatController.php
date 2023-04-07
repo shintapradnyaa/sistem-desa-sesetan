@@ -11,7 +11,7 @@ class SuratKeluarUndanganSekretariatController extends Controller
 {
     public function index()
     {
-        $data['sk_undangan'] = SuratKeluarUndangan::orderBy('tgl_sk_keluar', 'desc')->get();
+        $data['sk_undangan'] = SuratKeluarUndangan::orderBy('no_sk_undangan', 'desc')->get();
         $sk_undangan = SuratKeluarUndangan::max('no_sk_undangan');
         $bulan = date('m');
 
@@ -47,11 +47,6 @@ class SuratKeluarUndanganSekretariatController extends Controller
 
         $data['no_sk_undangan']   = ((int)$nomer + 1 . '/PDA-SST/' . $bulan . '/' . date("Y"));
         return view('pages.sekretariat.data_sk_undangan', $data);
-    }
-
-    public function create()
-    {
-        return view('create');
     }
 
     public function store(Request $request)

@@ -11,7 +11,7 @@ class SuratMasukProposalSekretariatController extends Controller
 {
     public function index()
     {
-        $data['sm_proposal'] = SuratMasukProposal::orderBy('tgl_sm_masuk', 'desc')->get();
+        $data['sm_proposal'] = SuratMasukProposal::orderBy('no_sm_proposal', 'desc')->get();
         return view('pages.sekretariat.data_sm_proposal', $data);
     }
 

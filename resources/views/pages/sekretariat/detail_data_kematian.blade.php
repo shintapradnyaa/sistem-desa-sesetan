@@ -106,7 +106,7 @@
                                                 <label>Tanggal Ngaben</label>
                                                 <p>
                                                     @if ($kematian->tgl_ngaben)
-                                                        {{ $kematian->tgl_ngaben }}
+                                                        {{  date('d-M-Y', strtotime ($kematian->tgl_ngaben)) }}
                                                     @endif
                                                 </p>
                                             </div>

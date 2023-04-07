@@ -40,7 +40,7 @@
         <br>
         <div class="row justify-content-center">
             <div class="col-12 text-center">
-                <p class="text-justify" style="font-size:11px">Yang bertanda tangan dibawah ini Bendasa Adat dan
+                <p class="text-justify" style="font-size:11px">Yang bertanda tangan dibawah ini Bendesa Adat dan
                     Kelian Adat
                     {{ Auth::user()->banjar }} Desa/Kelurahan <u>Sesetan</u> Kecamatan Denpasar Selatan Kab/Kota
                     <u>Denpasar</u> menerangkan dengan sebenarnya bahwa :

@@ -91,26 +91,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="input_nama_pria" class="form-label">Nama Pria</label>
-                                            <input type="text" name="nama_pria" id="input_nama_pria"
-                                                class="form-control
-                                            @error('nama_pria')
-                                            is-invalid
-                                            @enderror"
-                                                value="{{ old('nama_pria') }}">
-                                            @error('nama_pria')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="input_status_pria" class="form-label">Status Pria</label>
+                                                <label for="input_nama_pria" class="form-label">Nama Pria</label>
+                                                <input type="text" class="form-control"
+                                                    @if (Auth::user()->jenis_kelamin == 'Pria') value="{{ Auth::user()->name }}" readonly @endif>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="input_status_pria" class="form-label">Status
+                                                    Pria</label>
                                                 <select id="input_status_pria" name="status_pria"
                                                     class="form-select form-control
                                                     @error('status_pria')
@@ -128,6 +120,8 @@
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="input_tmpt_lahir_pria" class="form-label">Tempat Lahir
@@ -146,19 +140,36 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_tgl_lahir_pria" class="form-label">Tanggal
                                                     Lahir Pria</label>
-                                                <input type="date" name="tgl_lahir_pria" id="input_tgl_lahir_pria"
+                                                <input type="date" name="tgl_lahir_pria" id="date_pria"
                                                     class="form-control
                                                     @error('tgl_lahir_pria')
                                                     is-invalid
                                                     @enderror"
                                                     value="{{ old('tgl_lahir_pria') }}">
                                                 @error('tgl_lahir_pria')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="" class="form-label">Umur
+                                                    Pria</label>
+                                                <input type="text" name="umur_pria" id="umur_pria"
+                                                    class="form-control
+                                                    @error('umur_pria')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('umur_pria') }}" readonly>
+                                                @error('umur_pria')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -199,23 +210,16 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="input_nama_wanita" class="form-label">Nama Wanita</label>
-                                            <input type="text" name="nama_wanita" id="input_nama_wanita"
-                                                class="form-control
-                                                @error('nama_wanita')
-                                                is-invalid
-                                                @enderror"
-                                                value="{{ old('nama_wanita') }}">
-                                            @error('nama_wanita')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
                                     <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="input_nama_wanita" class="form-label">Nama
+                                                    Wanita</label>
+                                                <input type="text" name="nama_wanita" id="input_nama_wanita"
+                                                    class="form-control"
+                                                    @if (Auth::user()->jenis_kelamin == 'Wanita') value="{{ Auth::user()->name }}" readonly @endif>
+                                            </div>
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_status_wanita" class="form-label">Status
@@ -237,9 +241,12 @@
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label for="input_tmpt_lahir_wanita" class="form-label">Tempat Lahir
+                                                <label for="input_tmpt_lahir_wanita" class="form-label">Tempat
+                                                    Lahir
                                                     Wanita
                                                 </label>
                                                 <input type="text" name="tmpt_lahir_wanita"
@@ -256,20 +263,36 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_tgl_lahir_wanita" class="form-label">Tanggal
                                                     Lahir Wanita</label>
-                                                <input type="date" name="tgl_lahir_wanita"
-                                                    id="input_tgl_lahir_wanita"
+                                                <input type="date" name="tgl_lahir_wanita" id="date_wanita"
                                                     class="form-control
                                                     @error('tgl_lahir_wanita')
                                                     is-invalid
                                                     @enderror"
                                                     value="{{ old('tgl_lahir_wanita') }}">
                                                 @error('tgl_lahir_wanita')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="input_pekerjaan_wanita" class="form-label">Umur
+                                                    Wanita</label>
+                                                <input type="text" name="umur_wanita" id="umur_wanita"
+                                                    class="form-control
+                                                    @error('umur_wanita')
+                                                    is-invalid
+                                                    @enderror"
+                                                    value="{{ old('umur_wanita') }}" readonly>
+                                                @error('umur_wanita')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>

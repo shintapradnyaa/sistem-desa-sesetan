@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pernikahan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('no_suket')->nullable();
+            $table->string('no_suket')->nullable()->unique();
             $table->date('tgl_pernikahan');
             $table->string('nama_pria');
             $table->enum('status_pria', ['Purusa', 'Pradana']);
@@ -36,7 +36,9 @@ return new class extends Migration
             $table->enum('status_surat', ['Proses', 'Selesai']);
             $table->timestamp('created_at');
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id', 'jenis_kelamin')->references('id')->on('users');
+            // $table->foreign('jenis_kelamin')->references('id')->on('users');
+
         });
     }
 

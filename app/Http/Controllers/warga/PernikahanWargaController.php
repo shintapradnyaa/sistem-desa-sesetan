@@ -9,20 +9,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Support\Facades\DB;
+use Termwind\Components\Dd;
 
 class PernikahanWargaController extends Controller
 {
     public function index()
     {
-        $data['pernikahan'] = DB::table('pernikahan')->where('users.id', Auth::user()->id)
-            ->join('users', 'users.id', '=', 'pernikahan.user_id')
-            ->select('pernikahan.*', 'users.banjar')
-            ->get();
+        $data['pernikahan'] = Pernikahan::join('users', 'users.id', '=', 'pernikahan.user_id')
+        ->where('banjar', Auth::user()->banjar)
+        ->select('users.banjar', 'pernikahan.*')
+        ->orderBy('created_at', 'Desc')
+        ->get();
         return view('pages.warga.datapernikahan', $data);
     }
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
             'tgl_pernikahan'    => 'required',
             'nama_pria'         => 'required',
@@ -39,7 +42,9 @@ class PernikahanWargaController extends Controller
             'alamat_wanita'     => 'required',
             'rohaniawan'        => 'required',
             'saksi1'            => 'required',
-            'saksi2'            => 'required'
+            'saksi2'            => 'required',
+            'umur_pria'         => 'required|min:19',
+            'umur_wanita'       => 'required|min:19'
         ], [
             'tgl_pernikahan.required'       => 'Tanggal Pernikahan Tidak Boleh Kosong',
             'nama_pria.required'            => 'Nama Pria Tidak Boleh Kosong',
@@ -56,7 +61,11 @@ class PernikahanWargaController extends Controller
             'alamat_wanita.required'        => 'Alamat Tidak Boleh Kosong',
             'rohaniawan.required'           => 'Rohaniawan Tidak Boleh Kosong',
             'saksi1.required'               => 'Saksi Tidak Boleh Kosong',
-            'saksi2.required'               => 'Saksi Tidak Boleh Kosong'
+            'saksi2.required'               => 'Saksi Tidak Boleh Kosong',
+            'umur_pria.min'                 => 'Maaf pria belum cukup umur, minimal 19 tahun',
+            'umur_wanita.min'               => 'Maaf wanita belum cukup umur, minimal 19 tahun',
+            'umur_wanita.required'          => 'Umur wanita tidak boleh kosong!',
+            'umur_pria.required'            => 'Umur pria tidak boleh kosong!',
         ]);
 
         $data = [

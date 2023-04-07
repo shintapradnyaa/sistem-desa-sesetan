@@ -48,13 +48,13 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <Label>Nama</Label>
-                                            <input type="text" name="nama" readonly
+                                            <input type="text" name="name" readonly
                                                 class="form-control
                                                 @error('nama')
                                                     is-invalid
                                                 @enderror
                                                 "
-                                                value="{{ $data->nama }} ">
+                                                value="{{ $kematian->nama }} ">
                                             @error('nama')
                                                 <span class="text-danger text-sm">{{ $message }}</span>
                                             @enderror

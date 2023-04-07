@@ -101,6 +101,23 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3">
+                        <select id="input_jenis_kelamin" name="jenis_kelamin"
+                            class="form-select form-control
+                        @error('jenis_kelamin')
+                        is-invalid
+                        @enderror
+                        ">
+                            <option selected disabled>Pilih Jenis Kelamin</option>
+                            <option value="Pria">Pria</option>
+                            <option value="Wanita">Wanita </option>
+                        </select>
+                        @error('jenis_kelamin')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="input-group mb-3">
                         <input type="password"
                             class="form-control
                         @error('password')

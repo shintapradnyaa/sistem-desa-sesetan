@@ -158,7 +158,6 @@ Route::group(['middleware' => ['auth']], function () {
             //Route Data Kematians
             Route::get('/', [KematianSekretariatController::class, 'index']);
             Route::get('/detail/{id}', [KematianSekretariatController::class, 'show']);
-            Route::get('/delete/{id}', [KematianSekretariatController::class, 'delete']);
         });
 
         Route::group(['prefix' => 'pernikahan_sekretariat'], function () {
@@ -243,12 +242,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['CekUserLogin:3']], function () {
         // Dashboard
         Route::get('/dashboard_kelian', [DashboardKelianController::class, 'index']);
-        Route::group(['prefix' => 'data_warga'], function () {
-            //Route Data Kematians
-            Route::get('', [DatawargaController::class, 'index']);
-            Route::get('/detail/{id}', [DatawargaController::class, 'show']);
-            Route::get('/delete/{id}', [DatawargaController::class, 'delete']);
-        });
 
         Route::group(['prefix' => 'kematian_kelian'], function () {
             //Route Data Kematians

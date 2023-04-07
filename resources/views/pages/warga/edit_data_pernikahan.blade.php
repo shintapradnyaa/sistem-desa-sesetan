@@ -48,8 +48,8 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="input_tgl_pernikahan" class="form-label">Tanggal
                                         Pernikahan</label>
-                                    <input type="date" class="form-control" name="tgl_pernikahan"
-                                        value="{{ $data->tgl_pernikahan }}">
+                                    <input type="date" name="tgl_pernikahan" class="form-control"
+                                    value="{{$data->tgl_pernikahan}}">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="input_banjar" class="form-label">Banjar</label>
@@ -85,20 +85,33 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="input_tmpt_lahir_pria" class="form-label">Tempat
                                         Lahir Pria</label>
-                                    <input type="text" class="form-control" name="tmpt_lahir_pria"
-                                        value="{{ $data->tmpt_lahir_pria }}">
+                                    <input type="text" name="tmpt_lahir_pria" class="form-control
+                                    @error('tmpt_lahir_pria')
+                                    is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->tmpt_lahir_pria }} ">
+                                    @error('tmpt_lahir_pria')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="input_tgl_lahir_pria" class="form-label">Tanggal
                                         Lahir Pria</label>
-                                    <input type="date" class="form-control" name="tgl_lahir_pria"
-                                        value="{{ $data->tgl_lahir_pria }}">
+                                    <input type="date" name="tgl_lahir_pria" class="form-control" value="{{$data->tgl_lahir_pria}}">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="input_pekerjaan_pria" class="form-label">Pekerjaan
                                         Pria</label>
-                                    <input type="text" class="form-control" name="pekerjaan_pria"
-                                        value="{{ $data->pekerjaan_pria }}">
+                                    <input type="text" name="pekerjaan_pria" class="form-control
+                                    @error('pekerjaan_pria')
+                                    is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->pekerjaan_pria }} ">
+                                    @error('pekerjaan_pria')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="input_alamat_pria" class="form-label">Alamat Pria</label>
@@ -144,20 +157,33 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="input_tmpt_lahir_wanita" class="form-label">Tempat
                                         Lahir Wanita</label>
-                                    <input type="text" name="tmpt_lahir_wanita" class="form-control"
-                                        value="{{ $data->tmpt_lahir_wanita }}">
+                                    <input type="text" name="tmpt_lahir_wanita" class="form-control
+                                    @error('tmpt_lahir_wanita')
+                                    is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->tmpt_lahir_wanita }} ">
+                                    @error('tmpt_lahir_wanita')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="input_tgl_lahir_wanita" class="form-label">Tanggal
                                         Lahir Wanita</label>
-                                    <input type="date" name="tgl_lahir_wanita" class="form-control"
-                                        value="{{ $data->tgl_lahir_wanita }}">
+                                    <input type="date" name="tgl_lahir_wanita" class="form-control" value="{{$data->tgl_lahir_wanita}}">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="input_pekerjaan_wanita" class="form-label">Pekerjaan
                                         Wanita</label>
-                                    <input type="text" name="pekerjaan_wanita" class="form-control"
-                                        value="{{ $data->pekerjaan_wanita }}">
+                                    <input type="text" name="pekerjaan_wanita" class="form-control
+                                    @error('pekerjaan_wanita')
+                                    is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->pekerjaan_wanita }} ">
+                                    @error('pekerjaan_wanita')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="input_alamat_wanita" class="form-label">Alamat
@@ -176,18 +202,39 @@
                                 <div class="col-md-12 mb-3">
                                     <label for="input_rohaniawan" class="form-label">Dipuput Oleh
                                         Rohaniawan</label>
-                                    <input type="text" name="rohaniawan" class="form-control"
-                                        value="{{ $data->rohaniawan }}">
+                                    <input type="text" name="rohaniawan" class="form-control
+                                    @error('rohaniawan')
+                                    is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->rohaniawan }} ">
+                                    @error('rohaniawan')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="input_saksi1" class="form-label">Saksi 1</label>
-                                    <input type="text" name="saksi1" class="form-control"
-                                        value="{{ $data->saksi1 }}">
+                                    <input type="text" name="saksi1" class="form-control
+                                    @error('saksi1')
+                                    is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->saksi1 }} ">
+                                    @error('saksi1')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="input_saksi2" class="form-label">Saksi 2</label>
-                                    <input type="text" name="saksi2" class="form-control"
-                                        value="{{ $data->saksi2 }}">
+                                    <input type="text" name="saksi2" class="form-control
+                                    @error('saksi2')
+                                    is-invalid
+                                    @enderror
+                                    "
+                                        value="{{ $data->saksi2 }} ">
+                                    @error('saksi2')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary btn-block">Update</button>

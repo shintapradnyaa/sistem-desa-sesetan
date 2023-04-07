@@ -32,6 +32,7 @@ return new class extends Migration
                 'Banjar Suwung Batan Kendal'
             ]);
             $table->string('foto_pengguna')->nullable();
+            $table->enum('jenis_kelamin', ['Pria', 'Wanita']);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

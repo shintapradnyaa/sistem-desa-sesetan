@@ -11,7 +11,7 @@ class SuratKeluarProposalSekretariatController extends Controller
 {
     public function index()
     {
-        $data['sk_proposal'] = SuratKeluarProposal::orderBy('tgl_sk_keluar', 'desc')->get();
+        $data['sk_proposal'] = SuratKeluarProposal::orderBy('no_sk_proposal', 'desc')->get();
         $sk_proposal = SuratKeluarProposal::max('no_sk_proposal');
         $bulan = date('m');
 
@@ -59,17 +59,17 @@ class SuratKeluarProposalSekretariatController extends Controller
         $this->validate(
             $request,
             [
-                'no_sk_proposal' => 'required',
-                'tgl_sk_keluar'   => 'required',
-                'perihal_sk'      => 'required',
-                'ditujukan_sk'    => 'required',
-                'foto_sk_proposal' => 'required|mimes:doc,docx,pdf'
+                'no_sk_proposal'    => 'required',
+                'tgl_sk_keluar'     => 'required',
+                'perihal_sk'        => 'required',
+                'ditujukan_sk'      => 'required',
+                'foto_sk_proposal'  => 'required|mimes:doc,docx,pdf'
             ],
             [
-                'no_sk_proposal.required' => 'Nomor Surat Tidak Boleh Kosong',
-                'tgl_sk_keluar.required'   => 'Tanggal Surat Keluar Tidak Boleh Kosong',
-                'perihal_sk.required'      => 'Perihal Surat Tidak Boleh Kosong',
-                'ditujukan_sk.required'    => 'Tidak Boleh Kosong',
+                'no_sk_proposal.required'   => 'Nomor Surat Tidak Boleh Kosong',
+                'tgl_sk_keluar.required'    => 'Tanggal Surat Keluar Tidak Boleh Kosong',
+                'perihal_sk.required'       => 'Perihal Surat Tidak Boleh Kosong',
+                'ditujukan_sk.required'     => 'Tidak Boleh Kosong',
                 'foto_sk_proposal.required' => 'Surat Proposal Tidak Boleh Kosong'
             ]
         );

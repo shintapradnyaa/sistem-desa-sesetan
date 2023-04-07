@@ -104,7 +104,7 @@
                                                     is-invalid
                                                 @enderror
                                                 "
-                                                value="{{ $data->umur }} ">
+                                                value="{{ $data->umur }} " readonly>
                                             @error('umur')
                                                 <span class="text-danger text-sm">{{ $message }}</span>
                                             @enderror

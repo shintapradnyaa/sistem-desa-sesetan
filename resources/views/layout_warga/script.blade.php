@@ -33,13 +33,55 @@
  <script src="{{ asset('') }}template/adminlte/plugins/chart.js/Chart.min.js"></script>
 
  <script>
-     $(function() {
-         $("#example1").DataTable({
-             "responsive": true,
-             "lengthChange": true,
-             "autoWidth": false,
-             "buttons": ["excel", "pdf"],
-             "paginate": true
-         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    //  $(function() {
+    //      $("#example1").DataTable({
+    //          "responsive": true,
+    //          "lengthChange": true,
+    //          "autoWidth": false,
+    //          "buttons": ["excel", "pdf"],
+    //          "paginate": true
+    //      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    //  });
+    //  window.onload = function() {
+    //      $('#date').on('change', function() {
+    //          var dob = new Date(this.value);
+    //          // console.log(dob);
+    //          var today = new Date();
+    //          // console.log(today);
+    //          var age = Math.floor((today - dob) / (365.25 * 24 * 60 * 60 * 1000));
+    //          $('#umur_pria').val(age);
+    //      });
+    //  }
+    $(function() {
+         $(function() {
+             $("#example1").DataTable({
+                 "responsive": true,
+                 "lengthChange": true,
+                 "autoWidth": false,
+                 "buttons": ["excel", "pdf"],
+                 "paginate": true,
+             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+         });
      });
+     window.onload = function() {
+         $('#date_pria').on('change', function() {
+             var dob = new Date(this.value);
+             // console.log(dob);
+             var today = new Date();
+             // console.log(today);
+             var age = Math.floor((today - dob) / (365.25 * 24 * 60 * 60 * 1000));
+             console.log(age);
+             $('#umur_pria').val(age);
+         });
+
+         $('#date_wanita').on('change', function() {
+             var dob = new Date(this.value);
+             // console.log(dob);
+             var today = new Date();
+             // console.log(today);
+             var age = Math.floor((today - dob) / (365.25 * 24 * 60 * 60 * 1000));
+             console.log(age);
+             $('#umur_wanita').val(age);
+         });
+     }
  </script>

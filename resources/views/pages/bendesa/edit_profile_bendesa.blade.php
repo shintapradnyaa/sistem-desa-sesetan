@@ -19,7 +19,7 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0 text-dark">Edit Profil Pengguna</h1>
-                            <a class="btn btn-warning mt-3" href="{{ url('/dashboard_bendesa') }}" role="button"><i
+                            <a class="btn btn-warning mt-3" href="{{ url('/kelola_pengguna') }}" role="button"><i
                                     class="fa fa-chevron-left"></i>
                                 Kembali</a>
                         </div><!-- /.col -->

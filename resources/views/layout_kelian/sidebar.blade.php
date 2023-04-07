@@ -23,15 +23,6 @@
                   </li>
                   <li class="nav-header"> <i class="fas fa-users"></i> DATA WARGA ADAT</li>
                   <li class="nav-item">
-                      <a href="{{ url('data_warga') }}"
-                          class="nav-link {{ request()->is('data_warga') || request()->is('data_warga/detail/' . request()->segment(3)) ? 'active' : '' }}">
-                          <i class="far fa-circle nav-icon"></i>
-                          <p>
-                              Data Warga
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
                       <a href="{{ url('kematian_kelian') }}"
                           class="nav-link {{ request()->is('kematian_kelian') || request()->is('kematian_kelian/detail/' . request()->segment(3)) || request()->is('kematian_kelian/edit/' . request()->segment(3)) ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>

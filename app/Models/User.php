@@ -25,7 +25,8 @@ class User extends Authenticatable
         'no_telfon',
         'banjar',
         'foto_pengguna',
-        'level'
+        'level',
+        'status'
     ];
 
     /**

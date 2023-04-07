@@ -11,7 +11,7 @@ class SuratKeluarKeputusanSekretariatController extends Controller
 {
     public function index()
     {
-        $data['sk_keputusan'] = SuratKeluarKeputusan::orderBy('tgl_sk_keluar', 'desc')->get();
+        $data['sk_keputusan'] = SuratKeluarKeputusan::orderBy('no_sk_keputusan', 'desc')->get();
         $sk_keputusan = SuratKeluarKeputusan::max('no_sk_keputusan');
         $bulan = date('m');
 

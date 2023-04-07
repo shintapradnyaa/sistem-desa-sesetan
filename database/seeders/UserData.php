@@ -16,13 +16,14 @@ class UserData extends Seeder
     {
         $user = [
             [
-                'name' => 'Drs. I Made Widra, M.M',
-                'email' => 'widra@gmail.com',
-                'level' => 1,
-                'password' => bcrypt('password'),
-                'banjar' => 'Banjar Pegok',
-                'no_telfon' => '082133745676',
-                'foto_pengguna' => ''
+                'name'          => 'Drs. I Made Widra, M.M',
+                'email'         => 'widra@gmail.com',
+                'level'         => 1,
+                'password'      => bcrypt('password'),
+                'banjar'        => 'Banjar Pegok',
+                'no_telfon'     => '082133745676',
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'Dudi Mahendra, SS',
@@ -31,7 +32,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar' => 'Banjar Tengah',
                 'no_telfon' => '081234567890',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'I Ketut Kertayasa, S.sos',
@@ -40,7 +42,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Tengah',
                 'no_telfon' => '081234567890',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'I Kadek Sudama',
@@ -49,7 +52,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Kaja',
                 'no_telfon' => '082134567888',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'I Made Murja',
@@ -58,7 +62,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Pembungan',
                 'no_telfon' => '082134567888',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'I Ketut Sony Sasana',
@@ -67,7 +72,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Gaduh',
                 'no_telfon' => '081246789876',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'I Gusti Arya Putra',
@@ -76,7 +82,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Puri Agung',
                 'no_telfon' => '081234567888',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'I Made Bawa',
@@ -85,7 +92,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Dukuh Sari',
                 'no_telfon' => '081338345678',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'I Wayan Sumastra',
@@ -94,7 +102,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Lantang Bejuh',
                 'no_telfon' => '081239876598',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ], [
                 'name' => 'I Nyoman Susun',
                 'email' => 'susun70@gmail.com',
@@ -102,7 +111,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Pegok',
                 'no_telfon' => '081246789890',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ], [
                 'name' => 'I Wayan Suwirta',
                 'email' => 'suwitra@gmail.com',
@@ -110,7 +120,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Suwung Batan Kendal',
                 'no_telfon' => '081338765789',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'Nyoman Suka',
@@ -119,7 +130,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Kaja',
                 'no_telfon' => '81765439876',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'Puti Arya Wira',
@@ -128,7 +140,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Lantang Bejuh',
                 'no_telfon' => '81765439876',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'I Putu Prima Santosa',
@@ -137,7 +150,8 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Tengah',
                 'no_telfon' => '81765439876',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
                 'name' => 'Putu Juliantara',
@@ -146,16 +160,18 @@ class UserData extends Seeder
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Pembungan',
                 'no_telfon' => '81765439876',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
             [
-                'name' => 'Gede Eka',
+                'name'  => 'Gede Eka',
                 'email' => 'eka080@gmail.com',
                 'level' => 4,
                 'password' => bcrypt('password'),
                 'banjar'  => 'Banjar Kaja',
                 'no_telfon' => '81765439876',
-                'foto_pengguna' => ''
+                'foto_pengguna' => '',
+                'jenis_kelamin' =>'Pria'
             ],
         ];
 

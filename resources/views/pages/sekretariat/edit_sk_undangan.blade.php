@@ -32,7 +32,7 @@
             </div>
             <!-- /.content-header -->
             <div class="div ml-3">
-                <a class="btn btn-warning" href="{{ url('sm_undangan_sekretariat') }}" role="button"><i
+                <a class="btn btn-warning" href="{{ url('sk_undangan_sekretariat') }}" role="button"><i
                         class="fa fa-chevron-left"></i>
                     Kembali</a>
             </div>

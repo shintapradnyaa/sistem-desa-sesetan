@@ -7,6 +7,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Sistem Desa Sesetan</title>
+    <link href="{{ asset('logo_bendesa.png') }}" rel="shortcut icon">
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap Icons-->
@@ -29,7 +30,7 @@
 
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container px-4 px-lg-5">
             <img src="{{ asset('logo_bendesa.png') }}" weight="50px" height="50px" alt="User Image">
             <a class="navbar-brand" href="#page-top">Desa Adat Sesetan</a>
@@ -41,7 +42,7 @@
                     <li class="nav-item"><a class="nav-link" href="#about">Data Pernikahan</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Data Kematian</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Surat Keputusan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('login') }}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('login') }}">Daftar | Login</a></li>
                 </ul>
             </div>
         </div>
@@ -64,7 +65,7 @@
     <!-- About-->
     <section class="page-section bg-primary" id="about">
         <div class="container px-4 px-lg-5">
-            <h2 class="text-white mt-0">Data Pernikahan</h2>
+            <h2 class="text-white">Data Pernikahan</h2>
             <hr class="divider" />
             <div class="card">
                 <div class="card-body">
@@ -72,9 +73,8 @@
                         <thead>
                             <tr align="center">
                                 <th scope="col">No</th>
-                                <th scope="col">Nomor Surat Keterangan</th>
-                                <th scope="col">Banjar</th>
                                 <th scope="col">Nama Pasangan</th>
+                                <th scope="col">Banjar</th>
                                 <th scope="col">Status Surat</th>
                             </tr>
                         </thead>
@@ -85,10 +85,9 @@
                             @foreach ($pernikahan as $row_pernikahan)
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
-                                    <td>{{ $row_pernikahan->no_suket }}</td>
-                                    <td>{{ $row_pernikahan->banjar }}</td>
                                     <td rowspan="1">{{ $row_pernikahan->nama_pria }} &
                                         {{ $row_pernikahan->nama_wanita }}</td>
+                                    <td>{{ $row_pernikahan->banjar }}</td>
                                     <td><label
                                             class="btn btn-sm {{ $row_pernikahan->status_surat == 'Proses' ? 'btn-primary' : 'btn-success' }}">
                                             {{ $row_pernikahan->status_surat == 'Proses' ? 'Proses' : 'Selesai' }}</label>
@@ -208,7 +207,7 @@
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    {{-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> --}}
     <script src="{{ asset('') }}template/adminlte/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('') }}template/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -20,6 +20,7 @@ return array(
     'App\\Http\\Controllers\\Bendesa\\SuratMasukUndanganBendesaController' => $baseDir . '/app/Http/Controllers/Bendesa/SuratMasukUndanganBendesaController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\Kelian\\DashboardKelianController' => $baseDir . '/app/Http/Controllers/Kelian/DashboardKelianController.php',
+    'App\\Http\\Controllers\\Kelian\\DatawargaController' => $baseDir . '/app/Http/Controllers/Kelian/DatawargaController.php',
     'App\\Http\\Controllers\\Kelian\\KematianKelianController' => $baseDir . '/app/Http/Controllers/Kelian/KematianKelianController.php',
     'App\\Http\\Controllers\\Kelian\\PernikahanKelianController' => $baseDir . '/app/Http/Controllers/Kelian/PernikahanKelianController.php',
     'App\\Http\\Controllers\\Kelian\\ProfileKelianController' => $baseDir . '/app/Http/Controllers/Kelian/ProfileKelianController.php',

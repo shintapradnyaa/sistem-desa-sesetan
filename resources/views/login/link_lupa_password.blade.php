@@ -12,9 +12,9 @@
 
     <p class="justify">Hallo, Anda menerima email ini, karena kami menerima permintaan ubah password pada akun anda.
         Silahkan klik link dibawah ini untuk mengubah password anda.</p>
-    <button type="button" class="btn btn-primary btn-lg" href="{{ url('lupa_password/edit/' . $token) }}">Reset
-        Password</button>
-    {{-- <a class="btn btn-primary col-6" href="{{ url('lupa_password/edit/' . $token) }}">Reset Password</a> --}}
+    {{-- <button type="button" class="btn btn-primary btn-lg" href="{{ url('lupa_password/edit/' . $token) }}">Reset
+        Password</button> --}}
+    <a class="btn btn-primary col-6" href="{{ url('lupa_password/edit/' . $token) }}">Reset Password</a>
     <p class="justify">Apabila Anda tidak pernah melakukan permintaan ubah password, abaikan link tersebut. Terima Kasih
     </p>
 

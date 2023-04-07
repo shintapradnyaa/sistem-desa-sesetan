@@ -142,7 +142,7 @@ class LoginController extends Controller
         $request->validate(
             [
                 'name' => 'required',
-                'email' => 'required|email|unique:users,email',
+                'email' => 'required',
                 'no_telfon' => 'required',
                 'banjar' => 'required',
                 'password' => 'required'
@@ -165,7 +165,7 @@ class LoginController extends Controller
             'no_telfon' => $request->no_telfon,
             'banjar'    => $request->banjar
         ];
-
+// dd($data);
         $data = User::create($data);
         return redirect('login')->with('message', 'Pendaftaran Berhasil');
     }

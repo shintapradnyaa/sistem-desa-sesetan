@@ -17,7 +17,7 @@ class PernikahanBendesaController extends Controller
     {
         $data['pernikahan'] = Pernikahan::join('users', 'users.id', '=', 'pernikahan.user_id')
             ->select('users.banjar', 'pernikahan.*')
-            ->orderBy('no_suket', 'desc')
+            ->orderBy('created_at', 'desc')
             ->get();
         return view('pages.bendesa.datapernikahan', $data);
     }
