@@ -43,8 +43,8 @@ class PernikahanWargaController extends Controller
             'rohaniawan'        => 'required',
             'saksi1'            => 'required',
             'saksi2'            => 'required',
-            'umur_pria'         => 'required|min:19',
-            'umur_wanita'       => 'required|min:19'
+            'umur_pria'         => 'required|max:19',
+            'umur_wanita'       => 'required|max:19'
         ], [
             'tgl_pernikahan.required'       => 'Tanggal Pernikahan Tidak Boleh Kosong',
             'nama_pria.required'            => 'Nama Pria Tidak Boleh Kosong',

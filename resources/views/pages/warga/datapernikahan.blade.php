@@ -95,7 +95,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_nama_pria" class="form-label">Nama Pria</label>
-                                                <input type="text" class="form-control"
+                                                <input type="text" name="nama_pria" class="form-control"
                                                     @if (Auth::user()->jenis_kelamin == 'Pria') value="{{ Auth::user()->name }}" readonly @endif>
                                             </div>
                                         </div>
@@ -163,7 +163,7 @@
                                             <div class="form-group">
                                                 <label for="" class="form-label">Umur
                                                     Pria</label>
-                                                <input type="text" name="umur_pria" id="umur_pria"
+                                                <input type="number" name="umur_pria" id="umur_pria"
                                                     class="form-control
                                                     @error('umur_pria')
                                                     is-invalid
@@ -286,7 +286,7 @@
                                             <div class="form-group">
                                                 <label for="input_pekerjaan_wanita" class="form-label">Umur
                                                     Wanita</label>
-                                                <input type="text" name="umur_wanita" id="umur_wanita"
+                                                <input type="number" name="umur_wanita" id="umur_wanita"
                                                     class="form-control
                                                     @error('umur_wanita')
                                                     is-invalid
