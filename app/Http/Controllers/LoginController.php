@@ -18,11 +18,21 @@ class LoginController extends Controller
                 return redirect()->intended('dashboard_sekretariat');
             } elseif ($user->level == '3') {
                 return redirect()->intended('dashboard_kelian');
-            } elseif ($user->level == '4') {
+            } elseif ($user->level == '4' && $user->status == 'Warga Adat') {
                 return redirect()->intended('dashboard_login_warga');
             }
         }
         return view('login.view_login');
+    }
+
+    function update(Request $request, $id)
+    {
+        $data = ['status' => 'Warga Adat'];
+
+        $warga = User::find($id);
+        $warga->update($data);
+
+        return redirect('kelola_warga');
     }
 
     public function proses(Request $request)
@@ -47,7 +57,7 @@ class LoginController extends Controller
                 return redirect()->intended('dashboard_sekretariat');
             } elseif ($user->level == '3') {
                 return redirect()->intended('dashboard_kelian');
-            } elseif ($user->level == '4') {
+            } elseif ($user->level == '4' && $user->status == 'Warga Adat') {
                 return redirect()->intended('dashboard_login_warga');
             }
             return redirect()->intended('/');

@@ -33,6 +33,7 @@ return new class extends Migration
             ]);
             $table->string('foto_pengguna')->nullable();
             $table->enum('jenis_kelamin', ['Pria', 'Wanita']);
+            $table->string('status')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

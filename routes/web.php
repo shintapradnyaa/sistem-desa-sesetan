@@ -138,6 +138,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/store', [LoginController::class, 'store']);
             Route::get('/detail/{id}', [LoginController::class, 'showWarga']);
             Route::get('/delete/{id}', [LoginController::class, 'delete']);
+            Route::get('/update/{id}', [LoginController::class, 'update']);
         });
         Route::group(['prefix' => 'edit_profile_bendesa'], function () {
             Route::get('', [ProfileBendesaController::class, 'index']);

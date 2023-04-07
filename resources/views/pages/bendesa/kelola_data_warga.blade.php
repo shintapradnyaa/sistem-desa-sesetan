@@ -43,7 +43,7 @@
                                 <tr align="center">
                                     <th scope="col">No</th>
                                     <th scope="col">Foto Pengguna</th>
-                                    <th scope="col">Hak Akses Pengguna</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Nama Lengkap</th>
                                     <th scope="col">No Telepon</th>
                                     <th scope="col">Banjar</th>
@@ -69,15 +69,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            @if ($row->level == 1)
-                                                Bendesa
-                                            @elseif ($row->level == 2)
-                                                Sekretariat
-                                            @elseif ($row->level == 3)
-                                                Kelian
-                                            @else
-                                                Warga
-                                            @endif
+                                            {{ $row->status }}
                                         </td>
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->no_telfon }}</td>
@@ -86,6 +78,10 @@
                                             <a href="{{ url('kelola_warga/detail/' . $row->id) }}"
                                                 class="btn btn-sm btn-info" title="Lihat Data">
                                                 <i class="fas fa-info-circle"></i>
+                                            </a>
+                                            <a href="{{ url('kelola_warga/update/' . $row->id) }}"
+                                                class="btn btn-sm btn-warning" title="Lihat Data">
+                                                <i class="fas fa-edit"></i>
                                             </a>
                                             <a href="{{ url('kelola_warga/delete/' . $row->id) }}"
                                                 class="btn btn-sm btn-danger"
