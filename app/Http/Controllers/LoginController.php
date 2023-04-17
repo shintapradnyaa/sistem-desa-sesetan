@@ -60,7 +60,7 @@ class LoginController extends Controller
             } elseif ($user->level == '4' && $user->status == 'Warga Adat') {
                 return redirect()->intended('dashboard_login_warga');
             }
-            return redirect()->intended('/');
+            return redirect()->intended('/')->with('message', 'Mohon maaf, anda belum terverifikasi oleh sistem. Silahkan cek website secara berkala ');
         }
 
 

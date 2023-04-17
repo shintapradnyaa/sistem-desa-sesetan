@@ -94,7 +94,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="input_nama_pria" class="form-label">Nama Pria</label>
+                                                <label for="input_nama_pria" class="form-label">Nama</label>
                                                 <input type="text" name="nama_pria" class="form-control"
                                                     @if (Auth::user()->jenis_kelamin == 'Pria') value="{{ Auth::user()->name }}" readonly @endif>
                                             </div>
@@ -102,7 +102,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_status_pria" class="form-label">Status
-                                                    Pria</label>
+                                                </label>
                                                 <select id="input_status_pria" name="status_pria"
                                                     class="form-select form-control
                                                     @error('status_pria')
@@ -114,7 +114,7 @@
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
-                                                    <option selected disabled>Pilih Status Pria</option>
+                                                    <option selected disabled>Pilih Status</option>
                                                     <option value="Purusa">Purusa</option>
                                                     <option value="Pradana">Pradana</option>
                                                 </select>
@@ -125,7 +125,6 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="input_tmpt_lahir_pria" class="form-label">Tempat Lahir
-                                                    Pria
                                                 </label>
                                                 <input type="text" name="tmpt_lahir_pria" id="input_tmpt_lahir_pria"
                                                     class="form-control
@@ -143,7 +142,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_tgl_lahir_pria" class="form-label">Tanggal
-                                                    Lahir Pria</label>
+                                                    Lahir </label>
                                                 <input type="date" name="tgl_lahir_pria" id="date_pria"
                                                     class="form-control
                                                     @error('tgl_lahir_pria')
@@ -162,7 +161,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="" class="form-label">Umur
-                                                    Pria</label>
+                                                </label>
                                                 <input type="number" name="umur_pria" id="umur_pria"
                                                     class="form-control
                                                     @error('umur_pria')
@@ -179,7 +178,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="input_pekerjaan_pria" class="form-label">Pekerjaan
-                                                    Pria</label>
+                                                </label>
                                                 <input type="text" name="pekerjaan_pria" id="input_pekerjaan_pria"
                                                     class="form-control
                                                     @error('pekerjaan_pria')
@@ -196,7 +195,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="input_alamat_pria" class="form-label">Alamat Pria</label>
+                                            <label for="input_alamat_pria" class="form-label">Alamat </label>
                                             <input type="text" name="alamat_pria" id="input_alamat_pria"
                                                 class="form-control
                                                 @error('alamat_pria')
@@ -214,7 +213,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_nama_wanita" class="form-label">Nama
-                                                    Wanita</label>
+                                                    Pasangan</label>
                                                 <input type="text" name="nama_wanita" id="input_nama_wanita"
                                                     class="form-control"
                                                     @if (Auth::user()->jenis_kelamin == 'Wanita') value="{{ Auth::user()->name }}" readonly @endif>
@@ -223,7 +222,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_status_wanita" class="form-label">Status
-                                                    Wanita</label>
+                                                    Pasangan</label>
                                                 <select id="input_status_wanita" name="status_wanita"
                                                     class="form-select form-control
                                                     @error('status_wanita')
@@ -235,7 +234,7 @@
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
-                                                    <option selected disabled>Pilih Status Wanita</option>
+                                                    <option selected disabled>Pilih Status Pasangan</option>
                                                     <option value="Purusa">Purusa</option>
                                                     <option value="Pradana">Pradana</option>
                                                 </select>
@@ -247,7 +246,7 @@
                                             <div class="form-group">
                                                 <label for="input_tmpt_lahir_wanita" class="form-label">Tempat
                                                     Lahir
-                                                    Wanita
+                                                    Pasangan
                                                 </label>
                                                 <input type="text" name="tmpt_lahir_wanita"
                                                     id="input_tmpt_lahir_wanita"
@@ -266,7 +265,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="input_tgl_lahir_wanita" class="form-label">Tanggal
-                                                    Lahir Wanita</label>
+                                                    Lahir Pasangan</label>
                                                 <input type="date" name="tgl_lahir_wanita" id="date_wanita"
                                                     class="form-control
                                                     @error('tgl_lahir_wanita')
@@ -285,7 +284,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="input_pekerjaan_wanita" class="form-label">Umur
-                                                    Wanita</label>
+                                                    Pasangan</label>
                                                 <input type="number" name="umur_wanita" id="umur_wanita"
                                                     class="form-control
                                                     @error('umur_wanita')
@@ -302,7 +301,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="input_pekerjaan_wanita" class="form-label">Pekerjaan
-                                                    Wanita</label>
+                                                    Pasangan</label>
                                                 <input type="text" name="pekerjaan_wanita"
                                                     id="input_pekerjaan_wanita"
                                                     class="form-control
@@ -321,7 +320,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="input_alamat_wanita" class="form-label">Alamat
-                                                Wanita</label>
+                                                Pasangan</label>
                                             <input type="text" name="alamat_wanita" id="input_alamat_wanita"
                                                 class="form-control
                                                 @error('alamat_wanita')

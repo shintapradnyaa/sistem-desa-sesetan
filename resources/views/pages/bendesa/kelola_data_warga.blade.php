@@ -80,7 +80,7 @@
                                                 <i class="fas fa-info-circle"></i>
                                             </a>
                                             <a href="{{ url('kelola_warga/update/' . $row->id) }}"
-                                                class="btn btn-sm btn-warning" title="Lihat Data">
+                                                class="btn btn-sm btn-warning" title="Update Data">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <a href="{{ url('kelola_warga/delete/' . $row->id) }}"

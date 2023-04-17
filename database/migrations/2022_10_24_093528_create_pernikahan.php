@@ -36,8 +36,7 @@ return new class extends Migration
             $table->enum('status_surat', ['Proses', 'Selesai']);
             $table->timestamp('created_at');
 
-            $table->foreign('user_id', 'jenis_kelamin')->references('id')->on('users');
-            // $table->foreign('jenis_kelamin')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
 
         });
     }

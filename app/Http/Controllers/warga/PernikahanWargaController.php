@@ -43,8 +43,8 @@ class PernikahanWargaController extends Controller
             'rohaniawan'        => 'required',
             'saksi1'            => 'required',
             'saksi2'            => 'required',
-            'umur_pria'         => 'required|max:19',
-            'umur_wanita'       => 'required|max:19'
+            'umur_pria'         => 'required|min:19',
+            'umur_wanita'       => 'required|min:19'
         ], [
             'tgl_pernikahan.required'       => 'Tanggal Pernikahan Tidak Boleh Kosong',
             'nama_pria.required'            => 'Nama Pria Tidak Boleh Kosong',
@@ -65,7 +65,7 @@ class PernikahanWargaController extends Controller
             'umur_pria.min'                 => 'Maaf pria belum cukup umur, minimal 19 tahun',
             'umur_wanita.min'               => 'Maaf wanita belum cukup umur, minimal 19 tahun',
             'umur_wanita.required'          => 'Umur wanita tidak boleh kosong!',
-            'umur_pria.required'            => 'Umur pria tidak boleh kosong!',
+            'umur_pria.required'            => 'Umur pria tidak boleh kosong!'
         ]);
 
         $data = [

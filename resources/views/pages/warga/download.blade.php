@@ -25,7 +25,7 @@
         <div class="row justify-content-center">
             <?php
             $no_surat = '';
-
+            
             if ($row_pernikahan->status_surat == 'Selesai') {
                 $no_surat = $row_pernikahan->no_suket;
             } else {
@@ -88,7 +88,7 @@
         <div class="row justify-content-center" style="font-size:11px">
             <?php
             $alamat_nikah = '';
-
+            
             if ($row_pernikahan->alamat_pria != 'purusa') {
                 $alamat_nikah = $row_pernikahan->alamat_pria;
             } else {
@@ -125,13 +125,13 @@
 
             <?php
             $ttd_bendesa = '';
-
+            
             if ($row_pernikahan->status_surat == 'Selesai') {
                 $ttd_bendesa = 'qr-bendesa.png';
             } else {
                 $ttd_bendesa = '';
             }
-
+            
             ?>
 
             <table>
@@ -146,7 +146,7 @@
                     </td>
                     <td>
                         <img src="{{ storage_path('app/public/' . $ttd_bendesa) }}" alt=""
-                            style="width:100px; height:100px;">
+                            style="width:60px; height:60px;">
                     </td>
                 </tr>
                 <tr align="center">
